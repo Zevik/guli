@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - קולות וצבעים: יצירה פוסט-אימפרסיוניסטית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Noto+Sans+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Post-Impressionist styles */
+        body {
+            cursor: none; /* Hide default cursor */
+            background-color: #0f172a; /* Dark background for initial feel */
+            overflow-x: hidden; /* Prevent horizontal scrolling from parallax */
+        }
+        .post-impressionist-bg {
+            background: linear-gradient(135deg, #1e3a8a, #4f46e5, #9333ea, #c026d3, #db2777, #f43f5e);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .post-impressionist-stroke {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 30px rgba(79, 70, 229, 0.4);
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.0) 50%, rgba(255,255,255,0.1) 100%);
+            animation: pulse 4s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.02); opacity: 1; }
+        }
+        /* Blob animation */
+        .animate-blob-slow {
+            animation: blob 20s infinite;
+        }
+        @keyframes blob {
+            0%, 100% { transform: translate(0px, 0px) scale(1) blur(30px); }
+            33% { transform: translate(30px, -50px) scale(1.1) blur(40px); }
+            66% { transform: translate(-20px, 20px) scale(0.9) blur(25px); }
+        }
+        /* Spin animation */
+        .animate-spin-slow {
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border: 2px solid #FFFFFF; /* White border */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background-color 0.2s ease;
+        }
+        .custom-cursor.active {
+            width: 40px;
+            height: 40px;
+            border-radius: 20%; /* More like a brush stroke */
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        /* Google Fonts */
+        .font-amatic { font-family: 'Amatic SC', cursive; }
+        .font-noto { font-family: 'Noto Sans Hebrew', sans-serif; }
+        .text-outline {
+            -webkit-text-stroke: 1px #000;
+            text-stroke: 1px #000;
+            color: transparent;
+        }
+        .text-outline-thin {
+            -webkit-text-stroke: 0.5px #000;
+            text-stroke: 0.5px #000;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="font-noto text-gray-100 antialiased relative">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- Background layers with Post-Impressionist feel -->
+    <div class="fixed inset-0 w-full h-full post-impressionist-bg opacity-30 z-[-2]"></div>
+    <div class="fixed inset-0 w-full h-full bg-slate-900 z-[-1] opacity-70"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
+        <!-- Intro Section -->
+        <header class="relative w-full max-w-5xl mx-auto py-20 text-center content-section" data-depth="-2">
+            <h1 class="font-amatic text-7xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-500 mb-6 leading-tight transition-all duration-700 ease-in-out hover:scale-105">
+                אורית נבון: קולות וצבעים
+            </h1>
+            <p class="text-3xl md:text-4xl text-blue-200 mb-12 font-light tracking-wide post-impressionist-stroke p-4 inline-block rounded-xl">
+                מסע אל ביוגרפיה אמנותית של אשת התקשורת
+            </p>
+            <div class="absolute inset-0 flex items-center justify-center z-[-1]">
+                <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-violet-600 to-rose-500 opacity-20 blur-3xl animate-blob-slow"></div>
+            </div>
+        </header>
+
+        <!-- Chapters/Sections -->
+        <main class="w-full max-w-4xl mx-auto space-y-24 py-20">
+
+            <!-- Chapter 1: The Canvas is Prepared - Early Life & Foundations -->
+            <section class="relative bg-gradient-to-br from-slate-800/60 to-slate-900/80 p-8 md:p-12 rounded-3xl shadow-xl border border-blue-400/30 post-impressionist-stroke content-section" data-depth="-1">
+                <h2 class="font-amatic text-6xl text-yellow-300 mb-6 text-outline">הבד נפרש: שנות ההתהוות</h2>
+                <p class="text-xl leading-relaxed text-gray-200 mb-4">
+                    ברמת גן, במאי 1978, נולדה אורית נבון – הבכורה, בעולם שצבעיו נחושתיים, מחויבים, ובהירים. היא צמחה מתוך המסגרת הדתית, כשכבות יסוד עבות המעצבות את קווי המתאר הראשוניים. אולפנה בבני ברק, שירות לאומי, ולימודי סוציולוגיה בבר-אילן, היו אבני הדרך הראשונות שעיצבו את הלוח עליו תצייר את חייה. כבר אז, ניכרה בה סקרנות לא אקדמית בלבד, אלא גם אנושית, חיפוש אחר הגוונים הנסתרים שבין השורות.
+                </p>
+                <p class="text-lg text-gray-300 italic">
+                    "כל קו עדין, כל כתם צבע, נטמע במארג, בונה את הקומפוזיציה."
+                </p>
+                <div class="absolute top-4 left-4 w-16 h-16 bg-blue-500 rounded-full opacity-10 blur-xl"></div>
+                <div class="absolute bottom-4 right-4 w-20 h-20 bg-purple-500 rounded-full opacity-10 blur-xl"></div>
+            </section>
+
+            <!-- Chapter 2: The First Brushstrokes - Journalism & Mako -->
+            <section class="relative bg-gradient-to-br from-slate-700/60 to-slate-800/80 p-8 md:p-12 rounded-3xl shadow-xl border border-purple-400/30 post-impressionist-stroke content-section" data-depth="-1.5">
+                <h2 class="font-amatic text-6xl text-pink-300 mb-6 text-outline">משיכות המכחול הראשונות: קולות מעריב ומאקו</h2>
+                <p class="text-xl leading-relaxed text-gray-200 mb-4">
+                    את דרכה בתקשורת החלה אורית נבון כבר בגיל צעיר, ילדה בת 16 שמכחולה כבר מותיר סימנים ב"מעריב לנוער". הדיו זרם, והמילים הפכו לצבעים ראשוניים על פני הבד. היא עברה דרך "קול ישראל", "רייטינג", והגיעה עד לעמדת סגנית עורכת ב"סגנון" של "מעריב". אך הנקודה שבה צבעה החל להיות נועז באמת, הייתה בהצטרפותה לצוות ההקמה של אתר "מאקו". שם, בטורה האישי השבועי, החלה לפרוש סדרה של דיוקנאות עצמיים וחברתיים תחת הכותרת "דתיות מודרנית". אלו לא היו רק מילים, אלא משיכות מכחול עמוקות, שחשפו את המורכבות, הקונפליקטים, והיופי שבחיבור עולמות.
+                </p>
+                <p class="text-lg text-gray-300 italic">
+                    "כל מילה - פיקסל, כל משפט - נקודה, בונה את המציאות מחדש."
+                </p>
+                <div class="absolute top-8 right-8 w-12 h-12 bg-rose-500 rounded-full opacity-10 blur-xl"></div>
+            </section>
+
+            <!-- Chapter 3: A Symphony of Colors - Here 11 & "Listening Here" -->
+            <section class="relative bg-gradient-to-br from-slate-900/60 to-slate-800/80 p-8 md:p-12 rounded-3xl shadow-xl border border-green-400/30 post-impressionist-stroke content-section" data-depth="-2">
+                <h2 class="font-amatic text-6xl text-green-300 mb-6 text-outline">סימפוניית צבעים: כאן 11 ו"כאן מקשיבים"</h2>
+                <p class="text-xl leading-relaxed text-gray-200 mb-4">
+                    ב"כאן 11", הבד הפך לרחב יותר, והצבעים למהדהדים יותר. כאן, אורית נבון היא לא רק כותבת, אלא גם במאית ומגישה, מפסלת את המציאות בקולה הייחודי. גולת הכותרת היא "כאן מקשיבים" - סדרה שבה המצלמה הופכת לאוזן קשבת, והראיונות הופכים לדיוקנאות נפש עמוקים. היא צוללת לתוך נושאים מושתקים: התמודדויות נפש, פגיעות מיניות, ומשברים אישיים. כל שיחה היא כמו שכבה חדשה של צבע, חושפת רגשות, פחדים ותקוות, בדרך שמזכירה את עומקן של יצירות פוסט-אימפרסיוניסטיות. היא מגישה גם את "מונולוגים" ואת הפודקאסט "לא טוב לי", בהם היא פורשת את סבך החיים במגזר הדתי ומחוצה לו, ביושר כובש.
+                </p>
+                <p class="text-lg text-gray-300 italic">
+                    "הקשבה היא לא רק קליטת מילים, אלא ראיית הצבעים שמאחוריהן."
+                </p>
+                <div class="absolute bottom-8 left-8 w-14 h-14 bg-emerald-500 rounded-full opacity-10 blur-xl"></div>
+            </section>
+
+            <!-- Chapter 4: Breaking the Frame - Social Commentary & Personal Evolution -->
+            <section class="relative bg-gradient-to-br from-slate-800/60 to-slate-700/80 p-8 md:p-12 rounded-3xl shadow-xl border border-yellow-400/30 post-impressionist-stroke content-section" data-depth="-1">
+                <h2 class="font-amatic text-6xl text-orange-300 mb-6 text-outline">לשבור את המסגרת: חופש וביטוי</h2>
+                <p class="text-xl leading-relaxed text-gray-200 mb-4">
+                    אורית נבון אינה חוששת לשבור את המסגרות, להשתמש בצבעים נועזים ולצאת מגבולות הקונבנציה. היא מגשרת מוסמכת ומרצה, ומביאה את יכולת ההקשבה העמוקה שלה גם אל קהלים שונים. היא מבקרת את הממסד הפוליטי, כותבת על דתיות מודרנית ומיניות במגזר הדתי, וחושפת את הקשיים והמורכבויות ביושר מעורר השראה. מסעה האישי, מהבית הדתי-לאומי אל עבר הגדרה עצמית גמישה יותר של "מסורתית" או "דתייה לייט", הוא בעצמו יצירת אמנות מתפתחת - תנועה מתמדת, ערבוב צבעים, וחיפוש מתמיד אחר האמת האישית, גם כשזו אינה תואמת את הציפיות.
+                </p>
+                <p class="text-lg text-gray-300 italic">
+                    "האמנות היא לא בציור המציאות, אלא בציור מה שהלב מרגיש."
+                </p>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-yellow-400 rounded-full opacity-10 blur-3xl animate-spin-slow"></div>
+            </section>
+
+        </main>
+
+        <!-- Footer / Conclusion -->
+        <footer class="w-full max-w-4xl mx-auto py-16 text-center content-section" data-depth="-0.5">
+            <p class="font-amatic text-5xl text-blue-300 mb-4 text-outline-thin">
+                קולות מתנגנים, צבעים חיים
+            </p>
+            <p class="text-xl text-gray-300 leading-relaxed">
+                חייה ועבודתה של אורית נבון הם כמו גלריה שלמה של דיוקנאות ונופים פנימיים. כל יצירה פותחת צוהר לעולם רחב של רגשות, מחשבות וקונפליקטים, המזמינים אותנו להקשיב, להתבונן ולמצוא את עצמנו בתוך סבך הצבעים והקולות.
+            </p>
+            <div class="mt-8 text-lg text-gray-400">
+                &copy; 2024 יצירה דיגיטלית בהשראת אורית נבון
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+        document.addEventListener('mousedown', () => {
+            customCursor.classList.add('active');
+        });
+        document.addEventListener('mouseup', () => {
+            customCursor.classList.remove('active');
+        });
+
+        // Post-Impressionist Parallax Effect
+        const contentSections = document.querySelectorAll('.content-section');
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            contentSections.forEach(section => {
+                const depth = parseFloat(section.getAttribute('data-depth')) || 0;
+                section.style.transform = `translateY(${scrollY * depth * 0.05}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

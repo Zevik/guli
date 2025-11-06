@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - דיוקן באור רך</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles and custom properties */
+        :root {
+            --renoir-pink: #fbecec;
+            --renoir-peach: #fae1d9;
+            --renoir-yellow: #fdfae1;
+            --renoir-blue: #e0f2f7;
+            --renoir-green: #e1f7e0;
+            --main-text: #332726;
+            --heading-text: #6b21a8; /* A deep purple, reminiscent of richer Renoir tones */
+            --accent-text: #be185d; /* A strong rose */
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: var(--main-text);
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+            cursor: none; /* Hide default cursor */
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif Hebrew', serif;
+            color: var(--heading-text);
+        }
+
+        /* Custom Renoir-esque background gradients */
+        .renoir-bg-layer-1 {
+            background: radial-gradient(circle at 10% 20%, var(--renoir-peach) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 90%, var(--renoir-yellow) 0%, transparent 60%);
+            opacity: 0.6;
+            transform: scale(1.2); /* For parallax */
+        }
+        .renoir-bg-layer-2 {
+            background: radial-gradient(circle at 30% 70%, var(--renoir-pink) 0%, transparent 70%),
+                        radial-gradient(circle at 70% 30%, var(--renoir-blue) 0%, transparent 70%);
+            opacity: 0.4;
+            transform: scale(1.1); /* For parallax */
+        }
+        .renoir-bg-layer-3 {
+            background: radial-gradient(circle at 50% 50%, var(--renoir-green) 0%, transparent 80%);
+            opacity: 0.2;
+            transform: scale(1.05); /* For parallax */
+        }
+
+        /* Custom cursor styles */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Light border for visibility */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for visibility */
+            pointer-events: none;
+            transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+            z-index: 9999;
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        .custom-cursor.hidden {
+            opacity: 0;
+        }
+
+        /* Additional Renoir-inspired styles */
+        .brushstroke-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .brushstroke-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .text-accent-color {
+            color: var(--accent-text);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- Renoir-esque Parallax Background Layers -->
+    <div id="parallax-bg-1" class="renoir-bg-layer-1 fixed inset-0 z-[-3] bg-cover"></div>
+    <div id="parallax-bg-2" class="renoir-bg-layer-2 fixed inset-0 z-[-2] bg-cover"></div>
+    <div id="parallax-bg-3" class="renoir-bg-layer-3 fixed inset-0 z-[-1] bg-cover"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 p-4 sm:p-8 md:p-12 lg:p-16">
+        <header class="text-center mb-16 pt-8">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 leading-tight text-accent-color">
+                אורית נבון: דיוקן באור רך
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-700 max-w-4xl mx-auto">
+                מסע אמנותי בנפשה ופועלה של אשת תקשורת יוצאת דופן
+            </p>
+        </header>
+
+        <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+
+            <!-- Section 1: Introduction -->
+            <section class="brushstroke-card p-8 lg:p-10 col-span-1 md:col-span-2">
+                <h2 class="text-4xl sm:text-5xl font-semibold mb-6 text-heading-text">
+                    בנגיעות מכחול עדינות: דיוקנה של אדריכלית נשמות
+                </h2>
+                <p class="text-lg sm:text-xl leading-relaxed">
+                    כמו בציור של רנואר, חייה ועבודתה של אורית נבון שזורים בגוונים של חום, אהבה והבנה עמוקה של הלב האנושי. היא אינה רק מספרת סיפורים – היא מאפשרת להם לנשום, לפרוח, ולהאיר את פינות הנפש הסמויות ביותר. אשת תקשורת, מגישה, יוצרת, ומעל הכל – אדריכלית נשמות המציירת גשרים של הקשבה וחמלה בחברה הישראלית.
+                </p>
+            </section>
+
+            <!-- Section 2: Journalistic Journey -->
+            <section class="brushstroke-card p-8 lg:p-10">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-6 text-heading-text">
+                    מסע בין צבעים: דרכה העיתונאית והטור האישי
+                </h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    מראשית דרכה במגזיני נוער וב"קול ישראל", דרך מסדרונות "מעריב" ועד לצוות ההקמה של "מאקו", אורית נבון ציירה את נתיבה בעולם העיתונות בכישרון רב. בטורה האישי הפופולרי ב"מאקו", שפעה בגוונים עזים את המורכבות של "דתיות מודרנית" – שאלות של אמונה, זהות, ומסע אישי בתוך חברה משתנה.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    בכל מילה, נשמע הד לדופק החיים, אמת פנימית המבקשת להישמע ולהתחבר. היא נגעה בנושאים אישיים וחברתיים כאחד, תמיד עם מבט חומל אך נוקב, שאינו חושש מלהציב מראה מול מציאות מורכבת.
+                </p>
+            </section>
+
+            <!-- Section 3: Here We Listen -->
+            <section class="brushstroke-card p-8 lg:p-10">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-6 text-heading-text">
+                    קולות עדינים: פסיפס של הקשבה ב"כאן מקשיבים"
+                </h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    בתאגיד "כאן 11", הגיעה יצירתה של אורית נבון לשיאה בסדרה פורצת הדרך "כאן מקשיבים". זוהי לא רק תכנית – זוהי מרחב מפגש, סלון רחב ידיים שבו הנפש יכולה לפרוש כנפיים. בשיחות עמוקות ונוגעות ללב, היא מזמינה את הצופים להקשיב לסיפורים מושתקים על התמודדויות נפש, פגיעות ומשברים אישיים.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    כל שיחה היא נגיעה באנושי, פרגמנט בציור חי של חמלה והבנה, שהופך את המורכבות האנושית ליצירת אמנות של ממש. פרקי הסדרה מהדהדים במסדרונות האקדמיה וחדרי הדרכה, מעידים על כוחה של הקשבה ככלי לריפוי והתבוננות.
+                </p>
+            </section>
+
+            <!-- Section 4: Mediation and Connection -->
+            <section class="brushstroke-card p-8 lg:p-10 col-span-1 md:col-span-2">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-6 text-heading-text">
+                    גווני השיח: אומנות הגישור והחיבור
+                </h3>
+                <p class="text-lg sm:text-xl leading-relaxed mb-4">
+                    מעבר למסך, אורית נבון היא מגשרת מוסמכת ומרצה מבוקשת, המעניקה כלים מעשיים לאומנות ההקשבה והתקשורת הבינאישית – אומנות החיונית כל כך בעולם רווי רעש ופילוג. בדומה למכחול של אמן, היא מציירת גשרים בין אנשים, בין עולמות, בין לבבות.
+                </p>
+                <p class="text-lg sm:text-xl leading-relaxed">
+                    תפקידה כמדריכה ב"קבוצת גושרים" ובתכניות כמו "המצפן" ברדיו "מהות החיים" הוא עדות נוספת לרצונה העמוק לחבר, להבין, וליצור הרמוניה בתוך חברה מורכבת. היא רואה בגישור לא רק מקצוע, אלא דרך חיים ואמצעי לתיקון עולם.
+                </p>
+            </section>
+
+            <!-- Section 5: Personal Journey -->
+            <section class="brushstroke-card p-8 lg:p-10">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-6 text-heading-text">
+                    אור בוקר: דתיות מודרנית וחיים אישיים
+                </h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    בליבת יצירתה עומד מסעה האישי – בת למשפחה דתית מרמת גן, שפרצה נתיבים חדשים של דתיות מודרנית. נשואה לאלעד, אם לשניים, היא חווה את הפסיפס הישראלי על כל גווניו. דרך עיניה, אנו רואים כיצד מסורת ואמונה יכולות להתקיים לצד פתיחות, ביקורתיות ותשוקה לאמת.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    חייה הם השראה למסע מתמיד של גילוי עצמי וחיבור, המאיר באור רך את המורכבות והיופי שבבחירה אישית, ומוכיח שאפשר לחיות בין העולמות מבלי לוותר על אף אחד מהם.
+                </p>
+            </section>
+
+            <!-- Section 6: Lasting Legacy -->
+            <section class="brushstroke-card p-8 lg:p-10">
+                <h3 class="text-3xl sm:text-4xl font-semibold mb-6 text-heading-text">
+                    הדים של אור: מורשת מתמשכת
+                </h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    אורית נבון היא קול מיוחד בנוף התקשורתי הישראלי – קול המבקש לאחד, להבין, ולהאיר. יצירתה היא לא רק תיעוד של מציאות, אלא הזמנה לצייר יחד עתיד שבו הקשבה וחמלה הן אבני דרך.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    כמו ציור של רנואר שנותר חי ונושם לאורך שנים, כך גם עבודתה של אורית, הממשיכה לגעת, לרגש ולעורר השראה, ולהותיר הדים של אור וחום בחברה, ולהזכיר לנו את הכוח של האנושי שבנו.
+                </p>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-24 pb-8 text-gray-600 text-sm">
+            <p>
+                &copy; 2023 - דיוקן אמנותי בהשראת פועלה של אורית נבון
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener('mouseenter', () => {
+            customCursor.classList.remove('hidden');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            customCursor.classList.add('hidden');
+        });
+
+        // Parallax Scrolling Logic
+        const parallaxBg1 = document.getElementById('parallax-bg-1');
+        const parallaxBg2 = document.getElementById('parallax-bg-2');
+        const parallaxBg3 = document.getElementById('parallax-bg-3');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // Adjust these multipliers for desired parallax speed
+            // Smaller multiplier means slower movement, simulating further distance
+            parallaxBg1.style.transform = `scale(1.2) translateY(${scrollY * 0.1}px)`;
+            parallaxBg2.style.transform = `scale(1.1) translateY(${scrollY * 0.2}px)`;
+            parallaxBg3.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+        });
+    </script>
+</body>
+</html>

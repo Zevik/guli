@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: קולות בעידן הדיגיטל | פופ ארט</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @layer base {
+            html {
+                font-family: 'Assistant', sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6, .font-bebas {
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.05em; /* Pop Art condensed feel */
+            }
+        }
+
+        /* Custom Pop Art Text Outline */
+        .text-outline-black {
+            -webkit-text-stroke: 2px black;
+            text-stroke: 2px black;
+        }
+        .text-outline-white {
+            -webkit-text-stroke: 2px white;
+            text-stroke: 2px white;
+        }
+
+        /* Halftone dot pattern - for overlays */
+        .halftone-overlay {
+            background-image: radial-gradient(circle, rgba(0,0,0,0.2) 10%, transparent 11%), radial-gradient(circle, rgba(0,0,0,0.2) 10%, transparent 11%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px; /* Offset for brick-like pattern */
+            pointer-events: none;
+        }
+        .halftone-overlay-light {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 11%), radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 11%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            pointer-events: none;
+        }
+
+        /* Custom Cursor Styling */
+        #custom-cursor {
+            width: 28px;
+            height: 28px;
+            border: 2px solid rgba(255,255,255,0.9); /* Light border for dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8);    /* Dark shadow for light backgrounds */
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, background-color 0.1s ease-out;
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            border-radius: 50%;
+        }
+        #custom-cursor.active {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(255,255,0,0.5); /* Yellow highlight on active */
+        }
+
+        /* Custom Keyframe Animations for Pop Art elements */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow { animation: spin-slow 15s linear infinite; }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+        @keyframes ping-slow {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+        @keyframes spin-fast {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-fast { animation: spin-fast 8s linear infinite; }
+
+        @keyframes bounce-scroll {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce { animation: bounce-scroll 1.5s infinite; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white cursor-none overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Fixed Pop Art Background Layers -->
+    <div class="fixed inset-0 z-[-1] bg-gradient-to-br from-indigo-700 via-purple-800 to-pink-700"></div>
+    <div class="fixed inset-0 z-[-1] halftone-overlay opacity-30"></div>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 min-h-screen">
+
+        <!-- Hero Section - Bold Intro -->
+        <section class="min-h-screen flex flex-col items-center justify-center p-8 bg-black bg-opacity-70 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-yellow-400 halftone-overlay-light opacity-10"></div>
+            <h1 class="font-bebas text-7xl md:text-9xl text-pink-500 mb-4 leading-tight transform -rotate-3 hover:rotate-0 transition-transform duration-300 ease-in-out text-outline-black">
+                אורית נבון
+            </h1>
+            <h2 class="font-bebas text-4xl md:text-6xl text-white mb-8 leading-tight transform rotate-2 hover:rotate-0 transition-transform duration-300 ease-in-out text-outline-black">
+                קולות בעידן הדיגיטל
+            </h2>
+            <p class="text-xl md:text-2xl text-yellow-300 max-w-2xl mx-auto mb-12">
+                שוברת מסכים. בונה גשרים. אמת שאין עליה עוררין.
+            </p>
+            <button class="px-8 py-4 bg-red-600 text-white font-bebas text-2xl rounded-lg shadow-lg hover:bg-red-700 transform hover:scale-105 transition-all duration-200">
+                צפו בקולות &rarr;
+            </button>
+            <div class="absolute bottom-10 right-10 left-10 text-center text-sm text-gray-400 animate-bounce">
+                גללו למטה כדי לצלול פנימה
+            </div>
+            <div class="absolute top-0 left-0 w-32 h-32 bg-cyan-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-screen animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-48 h-48 bg-purple-400 rounded-full transform translate-x-1/2 translate-y-1/2 opacity-30 mix-blend-screen animate-pulse delay-200"></div>
+        </section>
+
+        <!-- Section 1: פריים ראשון - הקליק הראשון -->
+        <section class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-red-600">
+            <div class="absolute inset-0 halftone-overlay-light opacity-20"></div>
+            <div class="bg-black bg-opacity-70 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-yellow-300 relative transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                <h3 class="font-bebas text-5xl md:text-7xl text-yellow-300 mb-6 text-right leading-tight text-outline-black">
+                    פריים ראשון: הקליק הראשון
+                </h3>
+                <p class="text-xl md:text-2xl text-white leading-relaxed mb-4 text-right">
+                    מרמת גן אל קצוות הרשת - כבר בגיל 16, אורית נבון לא פחדה לשבור את הדף. כתיבה במעריב לנוער, שידורים מקול ישראל - הבמה תמיד קראה לה. תואר בסוציולוגיה, לימודי גישור, והבסיס לקול הייחודי שלה כבר הונח, חזק וברור.
+                </p>
+                <div class="absolute top-4 left-4 w-16 h-16 bg-blue-400 rounded-full transform rotate-45 animate-spin-slow"></div>
+                <div class="absolute bottom-4 right-4 w-12 h-12 bg-pink-400 rounded-full transform -rotate-45 animate-spin-slow delay-100"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: זום אין - טור המהפך של Mako -->
+        <section class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-yellow-400">
+            <div class="absolute inset-0 halftone-overlay opacity-30"></div>
+            <div class="bg-blue-800 bg-opacity-80 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-red-600 relative transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                <h3 class="font-bebas text-5xl md:text-7xl text-red-600 mb-6 text-right leading-tight text-outline-white">
+                    זום אין: טור המהפך של Mako
+                </h3>
+                <p class="text-xl md:text-2xl text-white leading-relaxed mb-4 text-right">
+                    שנים ארוכות, טור אישי שבועי ב-Mako הפך לבית למיליוני קוראים. 'דתיות מודרנית'? אורית פרקה את המונח, חשפה דילמות, אתגרים, והכניסה אור לנושאים שהיו בצל. שיח על מיניות, דת וחיים - בלי פילטרים. <span class="font-bebas text-3xl text-yellow-300">קאבום!</span>
+                </p>
+                <div class="absolute top-0 right-0 w-24 h-24 bg-pink-500 rounded-bl-full transform translate-x-1/4 -translate-y-1/4 animate-float"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-cyan-400 rounded-tr-full transform -translate-x-1/4 translate-y-1/4 animate-float delay-150"></div>
+            </div>
+        </section>
+
+        <!-- Section 3: קאט! אקשן! כאן מקשיבים. -->
+        <section class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-pink-600">
+            <div class="absolute inset-0 halftone-overlay-light opacity-20"></div>
+            <div class="bg-black bg-opacity-70 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-cyan-400 relative transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <h3 class="font-bebas text-5xl md:text-7xl text-cyan-400 mb-6 text-right leading-tight text-outline-black">
+                    קאט! אקשן! כאן מקשיבים.
+                </h3>
+                <p class="text-xl md:text-2xl text-white leading-relaxed mb-4 text-right">
+                    היכונו למהפכה! כאן מקשיבים - לא רק תוכנית, אלא תנועה. אורית נבון לא רק מראיינת, היא פותחת דלתות לנשמות. שיחות אישיות ונוקבות על התמודדויות נפש, פגיעות מיניות, אובדן. מיליוני צפיות. מיליוני לבבות שנפתחו. <span class="font-bebas text-3xl text-yellow-300">'קשב הוא כוח'</span> - והיא מראה איך.
+                </p>
+                <div class="absolute top-8 left-8 w-20 h-20 bg-yellow-300 rounded-full animate-pulse-slow"></div>
+                <div class="absolute bottom-8 right-8 w-16 h-16 bg-red-400 rounded-full animate-pulse-slow delay-200"></div>
+            </div>
+        </section>
+
+        <!-- Section 4: מונולוגים: הטאבו נשבר! -->
+        <section class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-cyan-500">
+            <div class="absolute inset-0 halftone-overlay opacity-30"></div>
+            <div class="bg-purple-800 bg-opacity-80 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-yellow-300 relative transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <h3 class="font-bebas text-5xl md:text-7xl text-yellow-300 mb-6 text-right leading-tight text-outline-white">
+                    מונולוגים: הטאבו נשבר!
+                </h3>
+                <p class="text-xl md:text-2xl text-white leading-relaxed mb-4 text-right">
+                    אולפנה, ישיבה - ופתאום, מדברים על סקס. אורגזמה. בתולים. 'מונולוגים' של אורית נבון הציפו את מה שהושתק. באומץ, ברגישות, ועם חיוך של פופ ארט, היא הראתה לנו שאין נושאים אסורים, רק שיחות שלא התחילו.
+                </p>
+                <div class="absolute top-4 right-4 w-24 h-24 bg-red-600 rounded-full animate-ping-slow opacity-50"></div>
+                <div class="absolute bottom-4 left-4 w-16 h-16 bg-white rounded-full animate-ping-slow delay-100 opacity-50"></div>
+            </div>
+        </section>
+
+        <!-- Section 5: גשרים לעתיד: מעבר למסך. -->
+        <section class="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-purple-800">
+            <div class="absolute inset-0 halftone-overlay-light opacity-20"></div>
+            <div class="bg-red-600 bg-opacity-80 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-white relative transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                <h3 class="font-bebas text-5xl md:text-7xl text-white mb-6 text-right leading-tight text-outline-black">
+                    גשרים לעתיד: מעבר למסך.
+                </h3>
+                <p class="text-xl md:text-2xl text-white leading-relaxed mb-4 text-right">
+                    מעיתונאית, לבמאית, למגשרת, למרצה. אורית נבון היא קול שאי אפשר להתעלם ממנו. הרצאות על הקשבה, פודקאסטים על בריאות הנפש. היא לא רק מתעדת את המציאות, היא מעצבת אותה. עולם שלם, בפריים אחד.
+                </p>
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400 rounded-full transform translate-x-1/2 -translate-y-1/2 opacity-40 animate-spin-fast"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-cyan-400 rounded-full transform -translate-x-1/2 translate-y-1/2 opacity-40 animate-spin-fast delay-200"></div>
+            </div>
+        </section>
+
+        <!-- Final Statement / Footer -->
+        <footer class="p-10 bg-black text-center text-gray-300 relative overflow-hidden">
+            <div class="absolute inset-0 halftone-overlay-light opacity-10"></div>
+            <p class="font-bebas text-4xl text-yellow-300 mb-4 transform -rotate-1">
+                הקשיבו היטב.
+            </p>
+            <p class="font-bebas text-5xl text-pink-500 mb-4 transform rotate-2">
+                הקול של אורית נבון כאן כדי להישאר.
+            </p>
+            <p class="text-xl text-white mb-8">
+                אמת, בסטייל.
+            </p>
+            <p class="text-sm text-gray-500">
+                &copy; 2023 יצירת אמנות דיגיטלית בהשראת אורית נבון.
+            </p>
+            <div class="absolute top-4 right-4 text-2xl text-cyan-400 transform rotate-12 animate-pulse">!POP</div>
+            <div class="absolute bottom-4 left-4 text-2xl text-red-400 transform -rotate-12 animate-pulse delay-100">!ART</div>
+        </footer>
+
+    </main>
+
+    <script>
+        const customCursor = document.getElementById('custom-cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        const speed = 0.2; // Adjust for cursor smoothness
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            customCursor.style.left = `${cursorX}px`;
+            customCursor.style.top = `${cursorY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Start cursor animation
+        animateCursor();
+
+        // Cursor interaction with interactive elements (buttons, elements with hover effects)
+        const interactiveElements = document.querySelectorAll('button, a, .hover\\:rotate-0, .hover\\:scale-105, .relative.transform:not(.hover\\:rotate-0):not(.hover\\:scale-105)');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseover', () => {
+                customCursor.classList.add('active');
+            });
+            el.addEventListener('mouseout', () => {
+                customCursor.classList.remove('active');
+            });
+        });
+
+        // Scroll animation for sections - "pop-in" effect
+        const sections = document.querySelectorAll('main section'); // Target sections within main
+        const options = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.3 // Trigger when 30% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Apply final Pop Art state
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+                } else {
+                    // Reset to initial state when out of view (optional, for re-animation on scroll up)
+                    // entry.target.style.opacity = '0';
+                    // entry.target.style.transform = 'translateY(50px) scale(0.9) rotate(5deg)';
+                }
+            });
+        }, options);
+
+        sections.forEach((section, index) => {
+            if (index === 0) { // Hero section starts visible
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            } else { // Other sections are initially hidden and offset
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px) scale(0.9) rotate(5deg)';
+            }
+            // Apply transition for all sections
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>

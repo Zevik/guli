@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - גשרים של קול</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS גלובלי והשראה לסגנון "הגשר" (Die Brücke) */
+        body {
+            font-family: 'Rubik', sans-serif;
+            overflow-x: hidden; /* מניעת גלילה אופקית */
+            cursor: none; /* הסתרת סמן העכבר המוגדר כברירת מחדל */
+            background-color: #0d1217; /* רקע בסיס כהה */
+            scroll-behavior: smooth; /* גלילה חלקה עבור אלמנטים ניתנים לגלילה */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Frank Ruhl Libre', serif; /* גופן לכותרות בסגנון דרמטי */
+        }
+
+        /* רמזים לפלטת צבעי ה"גשר" */
+        /* הצבעים נבחרו להיות עזים, לא טבעיים, ולעיתים מתנגשים - כמקובל באקספרסיוניזם */
+        .bruecke-red { background-color: #E63946; } /* אדום רווי */
+        .bruecke-blue { background-color: #1D3557; } /* כחול עמוק */
+        .bruecke-green { background-color: #457B9D; } /* כחול-טורקיז */
+        .bruecke-yellow { background-color: #F4D35E; } /* צהוב חרדל */
+        .bruecke-dark { background-color: #26211C; } /* חום אדמתי כהה */
+        .bruecke-light-grey { background-color: #A8DADC; } /* אפור-ציאן בהיר */
+
+        /* סמן עכבר מותאם אישית (Custom Cursor) */
+        #custom-cursor {
+            position: fixed;
+            pointer-events: none; /* מונע אינטראקציה עם האלמנטים שמתחתיו */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* גבול לבן - נראה על רקעים כהים */
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8); /* צל כהה - נראה על רקעים בהירים */
+            z-index: 9999;
+            transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out, border-width 0.2s ease-out;
+            transform: translate(-50%, -50%);
+        }
+        #custom-cursor.active {
+            width: 30px;
+            height: 30px;
+            border-width: 3px;
+        }
+
+        /* אלמנטי רקע מופשטים בהשראת "הגשר" */
+        /* צורות גאומטריות עם סיבובים ועיוותים, המשמשות כרקע אמנותי */
+        .bruecke-shape {
+            position: fixed;
+            z-index: -1; /* ממוקם מאחורי התוכן הראשי */
+            opacity: 0.1; /* שקיפות נמוכה לרקע עדין */
+            filter: saturate(150%) contrast(120%); /* הגברת צבע וניגודיות */
+            pointer-events: none; /* מונע אינטראקציה */
+        }
+        .shape-1 {
+            top: -10%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background-color: #1D3557; /* כחול עמוק */
+            transform: rotate(30deg) skewX(20deg); /* סיבוב ועיוות */
+        }
+        .shape-2 {
+            bottom: -15%;
+            left: -15%;
+            width: 70vw;
+            height: 70vw;
+            background-color: #E63946; /* אדום רווי */
+            transform: rotate(-45deg) skewY(15deg); /* סיבוב ועיוות */
+        }
+        .shape-3 {
+            top: 40%;
+            left: 20%;
+            width: 30vw;
+            height: 30vw;
+            background-color: #457B9D; /* כחול-טורקיז */
+            transform: rotate(15deg) skewY(-10deg);
+        }
+        .shape-4 {
+            bottom: 30%;
+            right: 25%;
+            width: 25vw;
+            height: 25vw;
+            background-color: #F4D35E; /* צהוב חרדל */
+            transform: rotate(60deg) skewX(-25deg);
+        }
+
+        /* מחוון גלילה (Scroll Indicator) */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .scroll-dot.active {
+            background-color: #F4D35E; /* נקודה פעילה בצבע צהוב חרדל */
+            transform: scale(1.2);
+        }
+
+        /* הגדרות כלליות למקטעים (Sections) */
+        .section {
+            min-height: 100vh; /* כל מקטע תופס לפחות את גובה מסך מלא */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 4rem; /* כדי למנוע חפיפה עם כותרות דביקות אם היו */
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#0d1217] via-[#26211C] to-[#0d1217] text-gray-100 antialiased">
+    <!-- סמן עכבר מותאם אישית -->
+    <div id="custom-cursor"></div>
+
+    <!-- צורות רקע מופשטות בסגנון "הגשר" -->
+    <div class="bruecke-shape shape-1"></div>
+    <div class="bruecke-shape shape-2"></div>
+    <div class="bruecke-shape shape-3 hidden md:block"></div>
+    <div class="bruecke-shape shape-4 hidden lg:block"></div>
+
+    <!-- תוכן ראשי - מקטעים עם גלילה מלאה -->
+    <main id="scroll-container" class="relative z-10">
+
+        <!-- מקטע 1: כותרת והקדמה - "אורית נבון: גשרים של קול" -->
+        <section id="section-1" class="section bg-[#26211C] p-8 md:p-16">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h1 class="text-6xl md:text-8xl font-black text-[#E63946] leading-tight mb-8 drop-shadow-lg [text-shadow:4px_4px_0_#1D3557]">
+                    אורית נבון: גשרים של קול
+                </h1>
+                <p class="text-xl md:text-3xl text-gray-200 mb-12 leading-relaxed tracking-wide [text-shadow:2px_2px_0_rgba(0,0,0,0.5)]">
+                    בתוך הקצף הסוער של הקיום, היא מגשרת. בונה נתיבים בין הנסתר לנגלה, בין השקט לרעש.
+                    <br>
+                    קולה בוקע דרך סדקי העולם, חושף צבעים עזים שלא העזנו לראות.
+                </p>
+                <div class="relative w-48 h-12 mx-auto mt-12 group">
+                    <button class="absolute inset-0 bg-[#457B9D] text-white font-bold text-lg rounded-full shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-300 ease-in-out">
+                        התחילו במסע
+                    </button>
+                    <div class="absolute inset-0 border-4 border-[#F4D35E] rounded-full transform rotate-6 group-hover:rotate-0 transition-transform duration-300 ease-in-out"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מקטע 2: שורשים ופריצה - ביוגרפיה מוקדמת ומוטיבים -->
+        <section id="section-2" class="section bg-[#1D3557] p-8 md:p-16">
+            <div class="container mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-right">
+                    <h2 class="text-5xl md:text-7xl font-bold text-[#F4D35E] mb-6 [text-shadow:3px_3px_0_#E63946]">
+                        שורשים ופריצה
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-200 leading-loose mb-6">
+                        מרמת גן, מבית דתי, החלה דרכה. נערה ב"מעריב לנוער", קול ב"קול ישראל".
+                        <br>
+                        כמו ענפים הנמתחים אל האור, היא פרצה את גבולות העצמי והמסגרת.
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-300 leading-loose">
+                        תואר בסוציולוגיה, מיומנות בגישור. הבנה עמוקה של האדם, הכוח להניח יסוד לגשר.
+                        לא רק מילים, אלא קשרים.
+                    </p>
+                </div>
+                <div class="w-full h-80 bg-[#A8DADC] relative transform rotate-3 shadow-xl overflow-hidden border-4 border-[#E63946]">
+                    <!-- פלייס הולדר אמנותי לתחילת הדרך / תמונה מוקדמת -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#A8DADC] to-[#457B9D] opacity-75"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-5xl font-bold text-[#1D3557] transform -rotate-6">
+                        <span class="opacity-30">תחילת הדרך</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מקטע 3: תקופת מאקו ודתיות מודרנית - שבירת מוסכמות -->
+        <section id="section-3" class="section bg-[#E63946] p-8 md:p-16">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-5xl md:text-7xl font-bold text-[#F4D35E] mb-6 [text-shadow:3px_3px_0_#1D3557]">
+                    מאקו ודתיות מודרנית
+                </h2>
+                <p class="text-xl md:text-3xl text-gray-100 leading-relaxed mb-8">
+                    באתר "מאקו", בנתה במה לקולה האותנטי. טור אישי, שבועי, מפרק מוסכמות.
+                    <br>
+                    העזה לדבר על אמונה מתפתחת, על מתחים פנימיים וחיים על הגבול.
+                </p>
+                <div class="relative w-full h-64 md:h-96 bg-[#1D3557] border-4 border-[#A8DADC] shadow-2xl transform -rotate-2 mx-auto">
+                    <!-- פלייס הולדר למיתוג מאקו או גרפיקת מסך מעוותת -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-7xl md:text-9xl font-black text-gray-200 opacity-20 transform rotate-12">MAKO</span>
+                        <div class="absolute w-2/3 h-2/3 bg-[#F4D35E] opacity-10 transform rotate-45"></div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 text-xs md:text-sm text-gray-300 opacity-70">
+                        "דתיות מודרנית" - עמוד הטורים
+                    </div>
+                </div>
+                <p class="text-lg md:text-xl text-gray-200 leading-loose mt-8">
+                    היא העזה, שאלה, חשפה. מציאות מורכבת בצבעים עזים, בדיוק כמו בחיים.
+                </p>
+            </div>
+        </section>
+
+        <!-- מקטע 4: כאן 11 ו"כאן מקשיבים" - חשיפת הנושאים המושתקים -->
+        <section id="section-4" class="section bg-[#457B9D] p-8 md:p-16">
+            <div class="container mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
+                <div class="w-full h-80 bg-[#E63946] relative transform -rotate-5 shadow-xl overflow-hidden border-4 border-[#F4D35E]">
+                    <!-- פלייס הולדר למיתוג כאן 11 או מוטיב הקשבה מופשט -->
+                    <div class="absolute inset-0 bg-gradient-to-tl from-[#E63946] to-[#A8DADC] opacity-75"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[#1D3557] transform rotate-8">
+                        <span class="opacity-40">כאן 11</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 [text-shadow:3px_3px_0_#1D3557]">
+                        כאן מקשיבים
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-100 leading-loose mb-6">
+                        בתאגיד "כאן 11", יצרה את יצירת המופת "כאן מקשיבים".
+                        <br>
+                        מסע אל נפש האדם, אל הנושאים המושתקים, אל האמת העירומה.
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-200 leading-loose">
+                        בריאות נפש, פגיעות מיניות, משברים. היא לא חוששת לגעת בפצעים הפתוחים,
+                        מתוך אמונה בכוחה המרפא של ההקשבה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- מקטע 5: מורשת הגשר - השפעה וסיכום -->
+        <section id="section-5" class="section bg-[#F4D35E] p-8 md:p-16">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-5xl md:text-7xl font-bold text-[#E63946] mb-6 [text-shadow:3px_3px_0_#1D3557]">
+                    מורשת הגשר
+                </h2>
+                <p class="text-xl md:text-3xl text-[#26211C] leading-relaxed mb-8">
+                    אורית נבון היא יותר מעיתונאית. היא אדריכלית של שיח, בונת גשרים בין עולמות.
+                    <br>
+                    קולה - חזק, ישיר, בלתי מתפשר - ממשיך להדהד, להזיז, לעורר.
+                </p>
+                <div class="relative w-full max-w-lg h-64 md:h-80 mx-auto bg-[#1D3557] border-4 border-[#E63946] transform rotate-4 shadow-2xl flex items-center justify-center">
+                    <!-- גרפיקה מופשטת של גשר -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#1D3557] to-[#457B9D] opacity-80"></div>
+                    <div class="w-3/4 h-12 bg-[#A8DADC] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform -rotate-12"></div>
+                    <div class="w-3/4 h-12 bg-[#A8DADC] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform rotate-12 opacity-70"></div>
+                    <span class="absolute text-5xl md:text-7xl font-black text-[#F4D35E] opacity-50 z-10 transform -rotate-6">גשר</span>
+                </div>
+                <p class="text-lg md:text-xl text-[#26211C] leading-loose mt-8">
+                    דרך הקשבה עמוקה, היא משרטטת את מפת הנפש האנושית.
+                    אמנית של קשר, פורצת דרך בכאב ובצמיחה.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- מחווני גלילה (נקודות) -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot" data-section="section-1"></div>
+        <div class="scroll-dot" data-section="section-2"></div>
+        <div class="scroll-dot" data-section="section-3"></div>
+        <div class="scroll-dot" data-section="section-4"></div>
+        <div class="scroll-dot" data-section="section-5"></div>
+    </div>
+
+    <script>
+        // לוגיקת סמן עכבר מותאם אישית
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // הוספת מחלקה 'active' לסמן העכבר בריחוף מעל אלמנטים אינטראקטיביים
+        document.querySelectorAll('button, a, .scroll-dot').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // לוגיקת גלילה חלקה בין מקטעים ועדכון נקודות הניווט
+        const sections = document.querySelectorAll('.section');
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+        let currentSectionIndex = 0;
+        let isScrolling = false; // דגל למניעת גלילת יתר מהירה
+
+        // פונקציה לגלילה למקטע ספציפי באמצעות window.scrollTo
+        function scrollToSectionViaWindow(index) {
+            if (index < 0 || index >= sections.length) return;
+
+            const targetSection = sections[index];
+            if (targetSection) {
+                isScrolling = true;
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+                updateScrollDots(index); // עדכון נקודות הניווט באופן מיידי
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 800); // השהיה קצרה לאחר הגלילה
+            }
+        }
+
+        // פונקציה לעדכון המחלקה 'active' בנקודות הניווט
+        function updateScrollDots(activeIndex) {
+            scrollDots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                }
+            });
+            currentSectionIndex = activeIndex;
+        }
+
+        // אתחול נקודות הגלילה למקטע הראשון
+        updateScrollDots(0);
+
+        // אירועי לחיצה על נקודות הגלילה
+        scrollDots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const targetSectionId = e.target.dataset.section;
+                const index = Array.from(sections).findIndex(section => section.id === targetSectionId);
+                scrollToSectionViaWindow(index);
+            });
+        });
+
+        // ניווט באמצעות מקשי החצים (לתמיכה בנגישות ונוחות)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                scrollToSectionViaWindow(currentSectionIndex + 1);
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                scrollToSectionViaWindow(currentSectionIndex - 1);
+            }
+        });
+
+        // גלילה באמצעות גלגלת העכבר / משטח מגע
+        let scrollTimeout;
+        window.addEventListener('wheel', (e) => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => { // דיבאונס לאירועי גלגלת למניעת גלילה מהירה מדי
+                if (isScrolling) return;
+
+                // מניעת גלילה מעבר לגבולות המקטעים
+                if (e.deltaY > 0 && currentSectionIndex === sections.length - 1) return; // בתחתית, גולל מטה
+                if (e.deltaY < 0 && currentSectionIndex === 0) return; // בראשית, גולל מעלה
+
+                if (e.deltaY > 0) { // גולל מטה
+                    scrollToSectionViaWindow(currentSectionIndex + 1);
+                } else if (e.deltaY < 0) { // גולל מעלה
+                    scrollToSectionViaWindow(currentSectionIndex - 1);
+                }
+            }, 100); // זמן דיבאונס
+        }, { passive: false }); // `passive: false` מאפשר קריאה ל-`preventDefault`
+
+        // Intersection Observer לעדכון נקודות הניווט בעת גלילה ידנית
+        const observerOptions = {
+            root: null, // צומת השורש הוא אזור התצוגה (viewport)
+            rootMargin: '0px',
+            threshold: 0.7 // המקטע נחשב "פעיל" כאשר 70% ממנו גלוי
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(sections).indexOf(entry.target);
+                    // עדכון רק אם האינדקס שונה מזה שנשמר, כדי למנוע התנגשויות עם גלילה ידנית/מקשים
+                    if (index !== currentSectionIndex) {
+                        updateScrollDots(index);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // הפעלת ה-Observer על כל המקטעים
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+    </script>
+</body>
+</html>

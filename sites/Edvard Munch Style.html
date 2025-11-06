@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - הד קולות בנפש</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Heebo:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Munch-inspired CSS */
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #0f0f22; /* Deep dark blue-purple */
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        h1, h2, h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        .munch-background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Munch-inspired effects for background */
+        .swirl-gradient-1 {
+            background: radial-gradient(circle at 10% 20%, #e94560, transparent 70%),
+                        radial-gradient(circle at 90% 80%, #ffd700, transparent 60%);
+            opacity: 0.2;
+            transform: scale(1.5) rotate(15deg);
+        }
+        .swirl-gradient-2 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #6a0572 50%, #e94560 100%);
+            opacity: 0.15;
+            transform: scale(1.8) rotate(-25deg);
+            filter: blur(50px);
+        }
+        .munch-text-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .munch-distorted-shape {
+            position: absolute;
+            background-color: rgba(106, 5, 114, 0.2); /* Deep purple */
+            filter: blur(80px);
+            border-radius: 50% 30% 60% 40% / 30% 60% 40% 50%; /* Organic, distorted shape */
+            opacity: 0.6;
+            animation: breathe 15s infinite ease-in-out alternate; /* Subtle pulsing */
+        }
+        .munch-distorted-shape-2 {
+            position: absolute;
+            background-color: rgba(255, 215, 0, 0.1); /* Muted gold/yellow */
+            filter: blur(60px);
+            border-radius: 30% 50% 40% 60% / 60% 40% 50% 30%; /* Another distorted shape */
+            opacity: 0.5;
+            animation: breathe-alt 18s infinite ease-in-out alternate; /* Subtle pulsing */
+        }
+        @keyframes breathe {
+            0% { transform: scale(1) translate(0, 0) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) translate(20px, 10px) rotate(5deg); opacity: 0.7; }
+            100% { transform: scale(1) translate(0, 0) rotate(0deg); opacity: 0.6; }
+        }
+        @keyframes breathe-alt {
+            0% { transform: scale(1.2) translate(0, 0) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1) translate(-15px, -10px) rotate(-3deg); opacity: 0.6; }
+            100% { transform: scale(1.2) translate(0, 0) rotate(0deg); opacity: 0.5; }
+        }
+
+        /* Custom Cursor Styling */
+        #custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Light border for contrast */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for contrast */
+            pointer-events: none; /* Crucial: allows interaction with elements beneath */
+            transform: translate(-50%, -50%); /* Center the cursor on its position */
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+            z-index: 9999; /* Always on top */
+        }
+        #custom-cursor.hovered {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section separators for visual flow */
+        .section-separator {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 8rem auto;
+            opacity: 0.6;
+        }
+        .section-title-underline {
+            display: inline-block;
+            position: relative;
+        }
+        .section-title-underline::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffd700, transparent);
+        }
+
+        /* Scroll reveal animation styles */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .text-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body class="text-gray-100 antialiased overflow-x-hidden relative">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Munch-inspired background layers for depth and atmosphere -->
+    <div class="munch-background-layer swirl-gradient-1 w-full h-full"></div>
+    <div class="munch-background-layer swirl-gradient-2 w-full h-full"></div>
+    <div class="munch-background-layer munch-distorted-shape w-96 h-96 top-1/4 right-1/4"></div>
+    <div class="munch-background-layer munch-distorted-shape-2 w-80 h-80 bottom-1/4 left-1/4"></div>
+
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-start py-16 px-4 sm:px-8 lg:px-16">
+
+        <!-- Header - Orit Navon: The Listener's Canvas -->
+        <header class="text-center mb-20 max-w-4xl">
+            <h1 class="text-5xl sm:text-7xl font-bold text-red-300 munch-text-shadow leading-tight mb-4 text-reveal">
+                אורית נבון: הד קולות בנפש
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto text-reveal">
+                מבעד למסך המשתנה, אל נבכי הנפש האנושית. עיתונאית, יוצרת, מגשרת- מראה שבה משתקפים שברירי האמת.
+            </p>
+            <div class="text-center text-reveal">
+                <a href="#intro" class="inline-block px-8 py-4 bg-red-600 text-white text-xl font-bold rounded-full shadow-lg hover:bg-red-700 transition duration-300">
+                    הקשיבו היטב
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main class="w-full max-w-5xl space-y-24">
+
+            <!-- Intro Section: Non-linear Biography -->
+            <section id="intro" class="bg-black bg-opacity-40 p-8 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm text-reveal">
+                <h2 class="text-4xl font-bold text-ffd700 mb-6 section-title-underline">
+                    המסע אל נבכי הנפש: ביוגרפיה לא לינארית
+                </h2>
+                <p class="mb-4 text-lg leading-relaxed">
+                    אורית נבון, ילידת 1978, אינה רק עיתונאית אלא ארכיאולוגית של הנפש. מסעה, מרמת גן הדתית, דרך ספסלי האולפנה ועד למסכי "כאן 11", הוא מסע של התפתחות, התפכחות והעמקה. היא בנתה גשרים בין עולמות: בין הדת לחילוניות, בין הציבורי לאישי, בין המילה הכתובה לבין הדהוד השקט שבין השורות.
+                </p>
+                <p class="mb-4 text-lg leading-relaxed">
+                    כבר בגיל צעיר, במגזינים כמו "אותיות" ו"מעריב לנוער", החלה אורית לטוות קורים של סיפורים. אולם את חותמה האמיתי היא הטביעה כשצללה אל מעמקי הנפש האנושית, חושפת את הקרעים והחיבורים, את הפחדים והתקוות, בדרך המאפיינת רק אותה.
+                </p>
+            </section>
+
+            <div class="section-separator text-reveal"></div>
+
+            <!-- The Inner Landscape: Religious background and evolution -->
+            <section class="bg-black bg-opacity-40 p-8 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm text-reveal">
+                <h2 class="text-4xl font-bold text-ffd700 mb-6 section-title-underline">
+                    קולות מהעבר: המסע הפנימי והשתנות הזהות
+                </h2>
+                <p class="mb-4 text-lg leading-relaxed">
+                    "גדלתי בבית דתי לאומי שמרני וימני מאוד," מספרת אורית, וקולה נושא את הד ההתנגשות בין העבר להווה. הדרך שעברה מ"בני עקיבא" ו"אולפנה אמונה" ועד להגדרתה כיום כ"מסורתית" או "דתייה לייט", היא סיפור של חיפוש והשלמה, של פרידה והתקרבות. זוהי דרך רצופת דילמות – כיצד לחיות אמונה מודרנית בעולם מתחלף, כיצד לגדל ילדים במסע אישי של הגדרה עצמית.
+                </p>
+                <p class="mb-4 text-lg leading-relaxed">
+                    הטורים האישיים שלה ב"מאקו" שימשו לה כבמה לחשוף את המורכבות הזו- לדון ב"דתיות מודרנית", להתווכח עם הקונפליקטים, ולפרוש שאלות על זהות מינית ופמיניזם בתוך מגזר הדתי. כמו ציור של מונק, שבו דמויות נמשכות בין אור לצל, כך גם אורית משרטטת את קו התפר העדין בין המסורת המתקיימת לבין השחרור האישי המתבקש.
+                </p>
+            </section>
+
+            <div class="section-separator text-reveal"></div>
+
+            <!-- "Kan Makshivim": The Core of Listening -->
+            <section class="bg-black bg-opacity-40 p-8 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm text-reveal">
+                <h2 class="text-4xl font-bold text-ffd700 mb-6 section-title-underline">
+                    "כאן מקשיבים": הזעקה הבלתי נשמעת מקבלת קול
+                </h2>
+                <p class="mb-4 text-lg leading-relaxed">
+                    במרכז יצירתה עומדת הסדרה "כאן מקשיבים", פרויקט שבו אורית יוצרת, מביימת ומראיינת. זו אינה רק תוכנית, אלא טקס קבוע של הקשבה עמוקה. היא מנגישה נושאים מושתקים: התמודדויות נפש, פגיעות מיניות, משברים אישיים, סיפורי ילדות מורכבים. היא מאפשרת למרואיינים לפרוץ את מעגל הבדידות, לחלוק את כאבם, ולזעוק את "הצעקה השקטה" שמהדהדת בנפשם.
+                </p>
+                <p class="mb-4 text-lg leading-relaxed">
+                    מיליוני צפיות, פרקים שנלמדים באוניברסיטאות ובצה"ל – זו ההוכחה לכוחה של האמת הפשוטה והטהורה, המוצגת בפנים חשופות ובלב פתוח. אורית הופכת את עצמה לכלי, לרחם שמכיל את הכאב, מפרקת טאבואים, ומעניקה לגיטימציה לרגשות האנושיים המורכבים ביותר.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <div class="p-4 bg-gray-800 bg-opacity-60 rounded-lg text-red-300 text-lg hover:text-red-500 transition duration-200 ease-in-out">
+                        התמודדויות נפש
+                    </div>
+                    <div class="p-4 bg-gray-800 bg-opacity-60 rounded-lg text-ffd700 text-lg hover:text-yellow-300 transition duration-200 ease-in-out">
+                        פגיעות מיניות
+                    </div>
+                    <div class="p-4 bg-gray-800 bg-opacity-60 rounded-lg text-green-300 text-lg hover:text-green-500 transition duration-200 ease-in-out">
+                        משברים אישיים
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator text-reveal"></div>
+
+            <!-- Beyond Listening: Other projects and advocacy -->
+            <section class="bg-black bg-opacity-40 p-8 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm text-reveal">
+                <h2 class="text-4xl font-bold text-ffd700 mb-6 section-title-underline">
+                    לפרוץ גבולות: ממונולוגים ועד המצפן
+                </h2>
+                <p class="mb-4 text-lg leading-relaxed">
+                    אורית אינה נרתעת מלגעת במושתק ובשנוי במחלוקת. בסדרת "מונולוגים מהאולפנה", היא העלתה על נס את נושא המיניות הנשית במגזר הדתי – נושא שהיה חסוי ושקוף עד כה. היא פתחה פתח לשיח כנה על בתולים, אורגזמה, וחינוך מיני, ובכך פרצה מחסומי בושה ופחד.
+                </p>
+                <p class="mb-4 text-lg leading-relaxed">
+                    כמגשרת מוסמכת ומרצה בתחום התקשורת הבינאישית, היא מעניקה כלים להקשבה אמיתית ולשיח בונה. בתכנית "המצפן", היא ממשיכה לחקור סוגיות אתיות בוערות, דנות במוסר של רשתות חברתיות, פוריות וזוגיות. אלו הם הקווים המנחים בציור המורכב של חייה ועבודתה – ניסיון מתמשך להאיר את הפינות החשוכות, ולחבר בין עולמות מנוגדים.
+                </p>
+            </section>
+
+            <div class="section-separator text-reveal"></div>
+
+            <!-- Conclusion: The Enduring Echo -->
+            <section class="bg-black bg-opacity-40 p-8 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm text-reveal">
+                <h2 class="text-4xl font-bold text-red-300 mb-6 section-title-underline">
+                    הד נצחי: אשת תקשורת ואשת רוח
+                </h2>
+                <p class="mb-4 text-lg leading-relaxed">
+                    אורית נבון היא קול מובהק בנוף התקשורת הישראלית. היא אינה רק מדווחת או מציגה, אלא היא יוצרת חוויה, חושפת את הרובד האנושי העמוק ביותר. עבודתה היא מראה שבה החברה משתקפת, על יופייה ועל מכאוביה. היא מזמינה את כולנו להקשיב – לא רק לאחר, אלא גם לקולות הפנימיים שלנו.
+                </p>
+                <p class="mb-4 text-lg leading-relaxed text-center font-bold text-red-400">
+                    "הקשבה היא האומנות הגבוהה ביותר של הנפש האנושית."
+                </p>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-20 py-8 text-center text-gray-500 text-sm border-t border-gray-800 w-full max-w-5xl">
+            <p>&copy; 2024 יצירה בהשראת אורית נבון ואדוורד מונק</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        const interactableElements = document.querySelectorAll('a, button, input[type="submit"], .p-4'); // Elements that change cursor on hover
+        interactableElements.forEach(el => {
+            el.addEventListener('mouseenter', () => customCursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => customCursor.classList.remove('hovered'));
+        });
+
+        // Scroll reveal animation for sections
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Element becomes visible when 10% of it is in the viewport
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with the 'text-reveal' class
+        document.querySelectorAll('.text-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial reveal for header elements to ensure they are visible on load
+        // This targets specific elements in the header and makes them visible without waiting for scroll
+        document.querySelector('h1').classList.add('visible');
+        document.querySelector('header p').classList.add('visible');
+        document.querySelector('header div a').classList.add('visible');
+
+    </script>
+</body>
+</html>

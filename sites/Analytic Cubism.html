@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - רסיסי תודעה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;700;900&family=Chakra+Petch:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for Cubism - Muted, geometric, fractured */
+        body {
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+            background-color: #1a1a1a; /* Dark background for overall atmosphere */
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Custom Cursor Styling */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+            transform: translate(-50%, -50%); /* Center the cursor on mouse position */
+            border: 2px solid rgba(255, 255, 255, 0.9); /* White border for visibility */
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3); /* Dark shadow for visibility on light, glow for dark */
+        }
+        .custom-cursor.active {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cubist Background Layers (Parallax) */
+        .cubist-bg-layer {
+            position: fixed;
+            top: 0;
+            right: 0; /* RTL alignment */
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Behind all content */
+        }
+        .layer-1 {
+            background-color: #262626; /* Darker base */
+        }
+        .layer-2 {
+            background-color: #3b3b3b; /* Slightly lighter */
+            clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%); /* Diagonal shape */
+            opacity: 0.3;
+        }
+        .layer-3 {
+            background-color: #525252; /* Even lighter */
+            clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); /* Opposite diagonal */
+            opacity: 0.2;
+        }
+        .layer-4 {
+            background-color: #737373; /* Lightest dark */
+            clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); /* X-shape */
+            opacity: 0.1;
+        }
+
+        /* Cubist Content Elements */
+        .cubist-block {
+            background-color: rgba(38, 38, 38, 0.85); /* Slightly transparent dark grey */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(115, 115, 115, 0.3); /* Subtle border */
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .cubist-block:hover {
+            transform: translateY(-5px) rotateY(2deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Fractured Text Effect */
+        .fractured-text span {
+            display: inline-block;
+            transform-origin: center center;
+            transition: transform 0.3s ease-out;
+        }
+        .fractured-text:hover span {
+            transform: rotateX(10deg) rotateY(-5deg) translateZ(5px);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .text-cubist-title {
+            font-family: 'Chakra Petch', sans-serif;
+            letter-spacing: 0.1em;
+        }
+
+        /* Specific section styling */
+        .section-header {
+            font-family: 'Chakra Petch', sans-serif;
+            color: #a3a3a3;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0; /* RTL */
+            width: 50px;
+            height: 2px;
+            background-color: #f59e0b; /* Ochre accent */
+            transition: width 0.3s ease;
+        }
+        .section-header:hover::after {
+            width: 80px;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            color: #d4d4d4;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+    </style>
+</head>
+<body class="text-neutral-200 antialiased overflow-y-scroll scroll-smooth">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Cubist Background Layers for Parallax -->
+    <div class="cubist-bg-layer layer-1" data-depth="0.1"></div>
+    <div class="cubist-bg-layer layer-2" data-depth="0.2"></div>
+    <div class="cubist-bg-layer layer-3" data-depth="0.3"></div>
+    <div class="cubist-bg-layer layer-4" data-depth="0.4"></div>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 p-6 md:p-12 lg:p-20 max-w-6xl mx-auto">
+
+        <!-- Header - Fractured Title -->
+        <header class="text-center mb-16 mt-8 md:mt-16 lg:mt-24">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight text-cubist-title fractured-text">
+                <span>א</span><span>ו</span><span>ר</span><span>י</span><span>ת</span>
+                <span class="mx-4 text-neutral-400">-</span>
+                <span>נ</span><span>ב</span><span>ו</span><span>ן</span>
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl font-light text-neutral-400 mt-4 text-cubist-title">רסיסי תודעה במרחב שבור</p>
+        </header>
+
+        <!-- Intro Section - A Fractured Self-Portrait -->
+        <section class="cubist-block p-8 md:p-10 lg:p-12 mb-20 md:mb-24 lg:mb-32 max-w-4xl mx-auto transform rotate-2">
+            <h2 class="section-header text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-yellow-500">
+                התחלה - קוביות ראשונות
+            </h2>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-300 mb-4">
+                אני קול, הדהוד. נשמה ילידת אייר, רמת גן. פורשה לפתחים של מילים. דתייה במעבר, מסורתית בפליאה. מגשרת בין פיסות, קצוות נשברים. מפיסות נייר ילדות, אל מסך, אל תוך הנפש.
+            </p>
+            <p class="text-base md:text-lg italic text-neutral-400 opacity-80">
+                "כל אמת היא רק זווית אחת של הסיפור השלם."
+            </p>
+        </section>
+
+        <!-- Section 1: The Listener – Deconstructing Silence -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 md:mb-24 lg:mb-32">
+            <div class="cubist-block transform -rotate-1 translate-y-4">
+                <h3 class="section-header text-2xl md:text-3xl font-semibold mb-4 text-orange-400">
+                    כאן מקשיבים - פירוק השתיקה
+                </h3>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300 mb-3">
+                    לאוזן יש קודים משלה, לחשושים נבנים קוביות קוביות. מפגש. נפש. פגיעה. בתוך הקמטים, הנסתר. זוויות אפורות, כאב בהיר. לדבר על מה שנלחש רק בחדרי חדרים.
+                </p>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300">
+                    מיניות דתית, גוף ואלוהים. זווית אחרת, ועוד אחת, אבני דרך של אומץ. קולות מושתקים מקבלים פתאום צורה, נפח, וקיום מורכב.
+                </p>
+            </div>
+            <div class="cubist-block transform rotate-2 -translate-y-4 md:col-start-2">
+                <div class="bg-gray-700 h-48 w-full flex items-center justify-center text-gray-400 text-sm italic">
+                    <p>קמצוץ מונולוגים - תמונה אמנותית של שפתיים סדוקות או אזניים קשובות</p>
+                </div>
+                <p class="text-sm md:text-base text-neutral-500 mt-4">
+                    הטאבו, כמו קיר בטון, נסדק בזכות ההקשבה.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Journey of Faith & Fragmentation – Fading Baselines -->
+        <section class="cubist-block max-w-5xl mx-auto p-8 md:p-10 lg:p-12 mb-20 md:mb-24 lg:mb-32 transform -rotate-3 translate-x-4">
+            <h3 class="section-header text-2xl md:text-3xl font-semibold mb-4 text-blue-400">
+                מסע אמונה ופיצול - קווי יסוד מתרחקים
+            </h3>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-300 mb-3">
+                אולפנה. בר אילן. קווים ישרים שהתכופפו. העורף הדתי, פתאום, שאלות. האם אלוהים נשאר בתוך הספק? מטבחים כשרים ופיצה לא-לגמרי. תמיד בתווך.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-300">
+                לא כאן, לא שם. רסיסי זהות, פאזל לא גמור. הבית הישן, הבית החדש. החוויה הדתית - לא מושלמת, לא אחידה, אלא אוסף של זרמים ופיצולים אישיים.
+            </p>
+        </section>
+
+        <!-- Section 3: The Journalist – Multiple Vision -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 md:mb-24 lg:mb-32">
+            <div class="cubist-block md:col-span-2 transform rotate-1 -translate-x-2">
+                <h3 class="section-header text-2xl md:text-3xl font-semibold mb-4 text-green-400">
+                    העיתונאית - ראייה מרובה
+                </h3>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300 mb-3">
+                    מאקו, מעריב, קול ישראל. עדשות שונות על אותה מציאות. מגיל 16, אספתי פיסות. חדשות. סיפורים. חיים. טור אישי, פתוח, כנה.
+                </p>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300">
+                    מראה מנופצת, כל שבר - אמת. הרהור על מה שבוער. פוליטיקה. חברה. הלב הפצוע. מנקודות מבט משתנות, מורכבות אנושית נפרשת.
+                </p>
+            </div>
+            <div class="cubist-block flex flex-col justify-end transform -rotate-2 translate-y-6 md:col-start-3">
+                <div class="bg-blue-800 h-32 w-full flex items-center justify-center text-blue-300 text-sm italic">
+                    <p>אימג' מופשט של עיתון מתפרק לריבועים</p>
+                </div>
+                <p class="text-sm md:text-base text-neutral-500 mt-4">
+                    "האמת לא נמצאת בנקודה אחת, אלא בין כל הנקודות."
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: The Mediator – Mending Fragments -->
+        <section class="cubist-block max-w-4xl mx-auto p-8 md:p-10 lg:p-12 mb-20 md:mb-24 lg:mb-32 transform rotate-3 -translate-y-2">
+            <h3 class="section-header text-2xl md:text-3xl font-semibold mb-4 text-purple-400">
+                המגשרת - איחוי שברים
+            </h3>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-300 mb-3">
+                למצוא את המרווח בין הסדקים. לגשר. לאחד. בין שני סיפורים, אמת שלישית. קבוצת גושרים. מפות דרכים שבורות, לבנות מחדש.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed text-neutral-300">
+                הקשבה עמוקה, כלי עבודה. אתיקה, זוגיות, הרשת. פיסות מתחברות, קשרים נבנים. אמנות הריפוי דרך ההבנה, יצירת מבנים חדשים מתוך כאוס.
+            </p>
+        </section>
+
+        <!-- Section 5: Pain and Light – Clarity from Chaos -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 md:mb-24 lg:mb-32">
+            <div class="cubist-block transform -rotate-1 translate-y-2">
+                <h3 class="section-header text-2xl md:text-3xl font-semibold mb-4 text-red-400">
+                    כאב ואור - צלילות מתוך הכאוס
+                </h3>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300 mb-3">
+                    שבעה באוקטובר. הרסיסים חדים. המילים מתקשות. פחד. חוסר אונים. הצילו את הנפש.
+                </p>
+                <p class="text-md md:text-lg leading-relaxed text-neutral-300">
+                    אך בתוך השברים, קול. קול להתעלות, לחזק. למצוא את האנושי, את התקווה. פסיפס של כאב, ושל ריפוי.
+                </p>
+            </div>
+            <div class="cubist-block transform rotate-2 -translate-y-2 md:col-start-2">
+                <div class="bg-red-900 h-48 w-full flex items-center justify-center text-red-300 text-sm italic">
+                    <p>תמונה מופשטת של שברים הנאספים לאור</p>
+                </div>
+                <p class="text-sm md:text-base text-neutral-500 mt-4">
+                    "גם כשנדמה שהכל נשבר, יש דרך לבנות מחדש."
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-neutral-500 mt-20 mb-10 text-sm font-light">
+            <p>אורית נבון | אומנות הקשבה | דיגיטל כאן</p>
+            <p class="mt-2 text-neutral-600">&copy; 2024. כל הזכויות שמורות ליצירה זו.</p>
+        </footer>
+
+    </main>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+        גלול למטה
+    </div>
+
+    <!-- JavaScript for Custom Cursor, Parallax, and Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.custom-cursor');
+            const parallaxLayers = document.querySelectorAll('.cubist-bg-layer');
+            const fracturedTextSpans = document.querySelectorAll('.fractured-text span');
+
+            // Custom Cursor Logic
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+            });
+            document.addEventListener('mousedown', () => cursor.classList.add('active'));
+            document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+
+            // Parallax Scroll Logic
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                parallaxLayers.forEach(layer => {
+                    const depth = parseFloat(layer.dataset.depth);
+                    const movement = -(scrollY * depth);
+                    layer.style.transform = `translateY(${movement}px)`;
+                });
+
+                // Fractured Text Hover Effect (on scroll position)
+                // This is a subtle effect, not a full re-render on scroll for performance
+                // The primary fractured effect is via CSS hover.
+            });
+
+            // Initial random rotation for fractured text spans
+            fracturedTextSpans.forEach(span => {
+                const rotateDeg = (Math.random() * 6) - 3; // -3 to 3 degrees
+                const translateX = (Math.random() * 10) - 5; // -5 to 5 pixels
+                const translateY = (Math.random() * 10) - 5; // -5 to 5 pixels
+                span.style.transform = `rotate(${rotateDeg}deg) translateX(${translateX}px) translateY(${translateY}px)`;
+            });
+
+            // Scroll indicator visibility
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { // Hide after scrolling down a bit
+                    scrollIndicator.classList.add('opacity-0', 'pointer-events-none');
+                } else {
+                    scrollIndicator.classList.remove('opacity-0', 'pointer-events-none');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

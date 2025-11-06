@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: קול. מבנה. מהות.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            cursor: none; /* Hide default cursor */
+            font-family: 'IBM Plex Sans Hebrew', sans-serif;
+            background-color: #0a0a0a; /* A very dark gray, almost black */
+            color: #d1d5db; /* gray-300 for readability */
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out; /* Smooth movement */
+        }
+
+        /* High-contrast custom cursor */
+        .custom-cursor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #FFFFFF; /* White border */
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for visibility */
+        }
+        
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .font-ibm-plex-sans {
+            font-family: 'IBM Plex Sans Hebrew', sans-serif;
+        }
+
+        .bg-pattern-brutal {
+            /* Subtle grid pattern for brutalist texture */
+            background-image: linear-gradient(0deg, transparent 9px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 11px, transparent 12px),
+                              linear-gradient(90deg, transparent 9px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 11px, transparent 12px);
+            background-size: 10px 10px;
+            background-color: #1a1a1a; /* Darker gray for pattern base */
+        }
+
+        /* Scroll animations */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .reveal-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Brutalist line separators */
+        .brutal-line {
+            height: 4px;
+            background-color: #6d421d; /* A deep, earthy amber-900 */
+            width: 100%;
+            margin: 4rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Strong shadow for depth */
+        }
+
+        .container-section {
+            background-color: rgba(26, 26, 26, 0.9); /* Slightly lighter dark background for content blocks */
+            padding: 2.5rem; /* p-10 equivalent */
+            margin-bottom: 4rem; /* mb-16 equivalent */
+            box-shadow: 0 10px 15px rgba(0,0,0,0.5); /* shadow-xl equivalent */
+            border: 2px solid #3b3b3b; /* gray-800 for stark edges */
+            position: relative;
+            transform-origin: center;
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-700 selection:text-white">
+
+    <div class="custom-cursor"></div>
+
+    <!-- Fixed Brutalist Background with subtle pattern -->
+    <div class="fixed inset-0 bg-pattern-brutal z-[-1] opacity-75"></div>
+
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- Header - Orit Navon: Voice. Structure. Essence. -->
+        <header class="text-center mb-20 md:mb-24 lg:mb-32 reveal-section">
+            <h1 class="font-anton text-6xl md:text-8xl lg:text-9xl text-amber-700 leading-none mb-4 tracking-tight" style="text-shadow: 4px 4px 8px rgba(0,0,0,0.7);">אורית נבון</h1>
+            <p class="font-ibm-plex-sans text-3xl md:text-5xl text-gray-300 leading-tight">קול. מבנה. מהות.</p>
+            <p class="font-ibm-plex-sans text-xl md:text-2xl mt-4 text-gray-400">חשיפה וחיבור בברוטליזם דיגיטלי.</p>
+            <div class="brutal-line mt-16 w-3/4 mx-auto"></div>
+        </header>
+
+        <!-- Section 1: הקשבה עמוקה - עמוד היסוד (Deep Listening - The Foundation Pillar) -->
+        <section class="container-section reveal-section max-w-5xl mx-auto">
+            <h2 class="font-anton text-4xl md:text-5xl text-amber-500 border-b-2 border-amber-700 pb-4 mb-8">הקשבה עמוקה - עמוד היסוד</h2>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                לא תמיד שומעים. לא תמיד רוצים לשמוע. יש קולות שנדחקים לפינות. קולות שזקוקים למרחב.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                הקשבה היא מעשה בנייה. פירוק קירות שקופים. פירוק חוטי שתיקה. בניית גשרים מילים.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed">
+                הקשבה ברוטלית. חשופה. אל הליבה של האחר, אל הסדקים הנסתרים. שם מתגלה האמת.
+            </p>
+        </section>
+
+        <div class="brutal-line max-w-4xl mx-auto"></div>
+
+        <!-- Section 2: מבנה מתפרק, זהות נבנית (Deconstructing Structure, Building Identity) -->
+        <section class="container-section reveal-section max-w-5xl mx-auto -mr-8 sm:-mr-16 md:-mr-24 lg:-mr-32">
+            <h2 class="font-anton text-4xl md:text-5xl text-amber-500 border-b-2 border-amber-700 pb-4 mb-8">מבנה מתפרק, זהות נבנית</h2>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                נולדה לתוך קונקרטיות של אמונה. למבנה דתי. למסגרת. עכשיו? היא מפסלת את דרכה שלה.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                סדקים בבטון. לא כדי להרוס, אלא כדי לחשוף את הליבה. את המהות הפנימית.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed">
+                דתייה? חילונית? היא מעבר לתוויות. היא הגשר שבין - ברוטליות של התפתחות.
+            </p>
+        </section>
+
+        <div class="brutal-line max-w-4xl mx-auto"></div>
+
+        <!-- Section 3: אמיתות בלתי מתפשרות - המילה החדה (Uncompromising Truths - The Sharp Word) -->
+        <section class="container-section reveal-section max-w-5xl mx-auto ml-8 sm:ml-16 md:ml-24 lg:ml-32">
+            <h2 class="font-anton text-4xl md:text-5xl text-amber-500 border-b-2 border-amber-700 pb-4 mb-8">אמיתות בלתי מתפשרות - המילה החדה</h2>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                מילים אינן קישוט. הן כלים. חומרים כבדים. מפסלים אמת. חותכים דרך שקרים.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                טור שבועי. מכה. לא מתנצלת. לא ממצמצת. מה שהיה - נחשף. מה שצריך להיות - נאמר.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed">
+                ברוטליות של כנות. של עמוד שדרה. עיתונאית שמבנה מציאות בבטון של מילים.
+            </p>
+        </section>
+
+        <div class="brutal-line max-w-4xl mx-auto"></div>
+
+        <!-- Section 4: מגשרת בין שברים - חיבורים בבטון (Mediator Between Fractures - Connections in Concrete) -->
+        <section class="container-section reveal-section max-w-5xl mx-auto">
+            <h2 class="font-anton text-4xl md:text-5xl text-amber-500 border-b-2 border-amber-700 pb-4 mb-8">מגשרת בין שברים - חיבורים בבטון</h2>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                החברה הישראלית. רסיסים. קולות מתנגשים. תהומות.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed mb-6">
+                תפקיד המגשרת? לא לטשטש את הסדקים, אלא להכיר בהם. לבנות עליהם.
+            </p>
+            <p class="font-ibm-plex-sans text-lg md:text-xl leading-relaxed">
+                להפוך כאב לנקודת חיבור. הנדסה חברתית. אדריכלות הנפש. ברוטליזם של אנושיות.
+            </p>
+        </section>
+
+        <div class="brutal-line w-full mx-auto mb-16"></div>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-16 reveal-section">
+            <p>&copy; 2023 יצירה דיגיטלית בהשראת אורית נבון</p>
+            <p>כל הזכויות שמורות למציאות הנחשפת</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        // Intersection Observer for Scroll Reveal
+        const sections = document.querySelectorAll('.reveal-section');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once revealed
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

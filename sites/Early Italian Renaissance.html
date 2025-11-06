@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: גלריית הנפש המוארת</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the Renaissance aesthetic */
+        :root {
+            --color-parchment: #FDF8ED;
+            --color-fresco-light: #D8C6A5;
+            --color-fresco-dark: #B0987B;
+            --color-deep-teal: #1F4F5B;
+            --color-muted-gold: #B89F70;
+            --color-terracotta: #8C4F4A;
+            --color-dark-brown: #3A2D2A;
+            --color-charcoal: #2D2E30;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif; /* Body text */
+            color: var(--color-dark-brown);
+            background-color: var(--color-parchment);
+            line-height: 1.6;
+            text-align: right; /* Ensure RTL alignment */
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+            cursor: none; /* Hide default cursor */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Frank Ruhl Libre', serif; /* Headings */
+            color: var(--color-charcoal);
+            text-align: right; /* Ensure RTL alignment */
+        }
+
+        /* Custom Cursor Styling */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999; /* Always on top */
+            transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+            border: 2px solid var(--color-parchment); /* Light border for dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.4); /* Dark shadow for light backgrounds, subtle glow */
+            transform: translate(-50%, -50%); /* Center cursor on its own coordinates */
+        }
+        
+        /* Cursor interaction states */
+        .cursor-hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: var(--color-muted-gold);
+            border-color: var(--color-deep-teal);
+        }
+
+        /* Parallax layers */
+        .parallax-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            will-change: transform; /* Optimize for animation */
+            filter: sepia(0.2) brightness(0.9) contrast(1.1); /* Aged effect */
+        }
+
+        /* Content animation on scroll */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific background patterns for Renaissance feel */
+        .bg-pattern-1 {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="20" height="20" fill="%23FDF8ED"/><g fill="%23D8C6A5" opacity="0.4"><circle cx="10" cy="10" r="1.5"/><circle cx="0" cy="0" r="1.5"/><circle cx="20" cy="0" r="1.5"/><circle cx="0" cy="20" r="1.5"/><circle cx="20" cy="20" r="1.5"/><circle cx="10" cy="0" r="1.5"/><circle cx="0" cy="10" r="1.5"/><circle cx="20" cy="10" r="1.5"/><circle cx="10" cy="20" r="1.5"/></g></svg>');
+            background-size: 80px; /* Adjust pattern density */
+        }
+        .bg-pattern-2 {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="%23B0987B"/><path d="M0 0 L20 20 L0 40 Z M40 0 L20 20 L40 40 Z" fill="%23D8C6A5" opacity="0.3"/></svg>');
+            background-size: 150px;
+        }
+        .bg-pattern-3 {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="50" height="50" fill="%231F4F5B"/><path d="M0 0 H50 V50 H0 Z M10 10 L25 0 L40 10 L50 25 L40 40 L25 50 L10 40 L0 25 Z" fill="%23B89F70" opacity="0.2"/></svg>');
+            background-size: 200px;
+        }
+
+        /* Artistic div styles - placeholder for imagery */
+        .art-panel {
+            min-height: 250px;
+            background-color: var(--color-fresco-light);
+            border: 1px solid var(--color-muted-gold);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.15);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 0.5rem;
+        }
+
+        .art-panel::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px dashed var(--color-terracotta);
+            opacity: 0.5;
+            border-radius: 0.3rem;
+        }
+
+        .art-panel.variant-dark {
+            background-color: var(--color-deep-teal);
+            color: var(--color-parchment);
+            border-color: var(--color-fresco-light);
+        }
+        .art-panel.variant-dark h3, .art-panel.variant-dark p {
+            color: var(--color-parchment); /* Ensure high contrast */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Parallax Background Layers -->
+    <div class="parallax-layer bg-pattern-1 z-[-3]" data-speed="0.05"></div>
+    <div class="parallax-layer bg-pattern-2 z-[-2]" data-speed="0.1"></div>
+    <div class="parallax-layer bg-pattern-3 z-[-1] opacity-50" data-speed="0.2"></div>
+
+    <!-- Fixed background for main content area to sit atop parallax and provide blur -->
+    <div class="fixed inset-0 w-full h-full bg-[rgba(253,248,237,0.92)] z-[5] backdrop-blur-[1px]"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 p-4 md:p-8 max-w-4xl mx-auto">
+        
+        <header class="text-center py-12 mb-12 relative z-10 bg-[rgba(253,248,237,0.85)] rounded-lg shadow-lg">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 text-charcoal leading-tight">אורית נבון</h1>
+            <h2 class="text-3xl md:text-4xl text-deep-teal font-light">גלריית הנפש המוארת: מסע בעקבות קולות</h2>
+            <p class="text-xl md:text-2xl mt-6 text-dark-brown">ציור דיגיטלי בהשראת מסעה של אשת התקשורת אורית נבון</p>
+        </header>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel bg-fresco-light">
+                <h3 class="text-4xl font-bold mb-4 text-charcoal">פתח דבר: ממעמקי הנשמה</h3>
+                <p class="text-lg leading-relaxed text-dark-brown text-center max-w-2xl">
+                    כמו בציירי הרנסנס אשר חיפשו את הפאר האלוהי בתווי פנים אנושיים, כך אנו מתבוננים במסעה של אורית נבון.
+                    קולה, מילותיה ועבודתה הם כמכחול המצייר פורטרטים עדינים של הרוח האנושית, חושפים רבדים נסתרים של חברה, אמונה וחיפוש פנימי.
+                    דרך עיניה, אנו פוגשים את המורכבות של הקיום, את הדקויות שבין אור לצל, ואת הכוח שבדיאלוג ובהקשבה כנה.
+                    האתר הזה הוא ניסיון לצייר את מהותה של אישה המגשרת בין עולמות, מחברת לבבות ומאירה פינות חשוכות,
+                    באסתטיקה בהשראת העידן בו האדם נכנס למרכז היצירה וההתבוננות.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel variant-dark">
+                <h3 class="text-4xl font-bold mb-4">פרק א': אבני היסוד והשורשים</h3>
+                <p class="text-lg leading-relaxed text-parchment text-center max-w-2xl">
+                    נולדה ברמת גן, בחודש מאי של שנת 1978, ברוח משפחה דתית - אורית נבון הייתה הבכורה, נשמה ראשונה בין שלושה.
+                    תלמידת אולפנה בבני ברק, שם ספגה את יסודות המסורת והקהילה.
+                    לאחר שירות לאומי, פנתה לאוניברסיטת בר-אילן, ללמוד סוציולוגיה, כביטוי מוקדם לסקרנותה העמוקה כלפי החברה האנושית.
+                    אך לא רק תיאוריה - גם פרקטיקה: לימודי גישור, המהדהדים את ייעודה העתידי כמחברת בין לבבות ודעות.
+                    כמו ציור טמפרה ראשוני על לוח עץ, כך נבנו נדבכי חייה המוקדמים, רובדים רובדים של זהות וייעוד.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel bg-fresco-light">
+                <h3 class="text-4xl font-bold mb-4">פרק ב': המכחול הראשון - מסע העיתונות</h3>
+                <p class="text-lg leading-relaxed text-dark-brown text-center max-w-2xl">
+                    כבר בנעוריה, נשאה את עט הכתיבה ככלי בידה. במגזין "אותיות" הילדותי, ובגיל 16 כבר ב"מעריב לנוער".
+                    קולה החל להישמע דרך "יומן מורשת" של קול ישראל בגיל 17, סמל לכמיהה להבין ולספר.
+                    התפתחה, כתבה ב"רייטינג" ולאחר מכן שימשה סגנית עורכת במוסף "סגנון" של "מעריב", שם ליטשה את אמנות המילה.
+                    אבן דרך משמעותית הייתה בהצטרפותה לצוות ההקמה של אתר "מאקו", שם ערכה וכתבה טור אישי שבועי.
+                    טור זה, כמגילת קלף מתפתחת, נגע בנושאי דתיות מודרנית, חברה ואישיות, וריאיינה דמויות מרכזיות,
+                    כמו אמן המצייר סדרת פורטרטים של בני דורו, חושף את ליבם.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel variant-dark">
+                <h3 class="text-4xl font-bold mb-4">פרק ג': באור הזרקורים - תאגיד "כאן 11"</h3>
+                <p class="text-lg leading-relaxed text-parchment text-center max-w-2xl">
+                    בשנים האחרונות, כדמות מרכזית בחטיבת הדיגיטל של תאגיד השידור הישראלי "כאן 11", אורית נבון היא יוצרת, במאית ומגישה.
+                    יצירת המופת "כאן מקשיבים" עומדת בלב פועלה, סדרה בה היא נפגשת לשיחות אישיות ומרגשות עם אנשים אודות נושאים מורכבים ומושתקים.
+                    כמו צייר המבקש לחדור לנבכי הנפש, היא מאירה נושאים כאונס, התמודדויות נפש ומשברים אישיים, שהפכו לחומר לימודי באוניברסיטאות ובצבא.
+                    הגישה את "מונולוגים" על מיניות ואינטימיות ויצרה סרטונים קומיים, וכעת גם מנחה הסכת עם הרב דוד סתיו.
+                    כמו אמנית רבגונית המשתמשת במגוון טכניקות - מרישום פחם ועד ציור שמן - כך אורית מפיחה חיים בכל פלטפורמה, וקולה מהדהד במיליוני צפיות, חודר עמוק לנשמה.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel bg-fresco-light">
+                <h3 class="text-4xl font-bold mb-4">פרק ד': מגשרת הנשמות ומרצה הלבבות</h3>
+                <p class="text-lg leading-relaxed text-dark-brown text-center max-w-2xl">
+                    מעבר למסך, אורית היא מגשרת מוסמכת ומרצה בתחום התקשורת הבינאישית.
+                    בהרצאותיה, היא חושפת כלים לשיפור ההקשבה ומיומנויות הדיאלוג, מנחה ב"קבוצת גושרים" ומלמדת את אמנות הגישור.
+                    היא מפיחה חיים גם בתכניות רדיו כמו "המצפן", שבה היא דנה בסוגיות אתיות בוערות,
+                    כמו פיסול דמות בשיש, כך היא מפסלת את היכולת לתקשר, להבין ולהכיל, ומעניקה לכל אדם את המפתחות לגשר מעל תהומות של אי-הבנה.
+                    כמו אמנית המלמדת את סודות המלאכה, היא מעניקה כלים לעצב עולם טוב יותר, קשוב יותר.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16 relative z-10 scroll-animate">
+            <div class="art-panel variant-dark">
+                <h3 class="text-4xl font-bold mb-4">פרק ה': פסיפס החיים האישיים</h3>
+                <p class="text-lg leading-relaxed text-parchment text-center max-w-2xl">
+                    אורית נבון, אשת עמל ורוח, היא גם אשת משפחה.
+                    נשואה לאלעד, אם לשני ילדים - גיא ומיקה - ומתגוררת בשוהם.
+                    היא חווה ומבטאת את המורכבות של דתיות מודרנית, את המסע האישי הרחק מהשמרנות שבה גדלה,
+                    מבלי לנטוש את שורשי האמונה, אלא מפרשת אותה ברוח חופשית וביקורתית.
+                    בכתיבתה ובהופעותיה היא חושפת את לבטה הפנימי, משתפת בהתמודדויות אישיות וחוויות של הטרדה, של אובדן ושל תקווה.
+                    כמו מראה מלוטשת בתוך ציור רנסנסי, כך משתקפת אישיותה המורכבת, הפועמת, של אישה המשלבת את חיי הציבור והפרט באמנות מעוררת השראה,
+                    מטווה מסע של זהות ומשמעות בעולם משתנה.
+                </p>
+            </div>
+        </section>
+
+        <footer class="text-center py-12 mt-12 relative z-10 bg-[rgba(253,248,237,0.85)] rounded-lg shadow-lg">
+            <p class="text-xl text-charcoal mb-4">
+                "להקשיב יותר, לדבר פחות" - אורית נבון
+            </p>
+            <p class="text-md text-dark-brown">
+                יצירה דיגיטלית בהשראת מסע חייה ופועלה. כל הזכויות שמורות ליצירה האמנותית.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Initialize Tailwind classes for custom color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: 'var(--color-parchment)',
+                        'fresco-light': 'var(--color-fresco-light)',
+                        'fresco-dark': 'var(--color-fresco-dark)',
+                        'deep-teal': 'var(--color-deep-teal)',
+                        'muted-gold': 'var(--color-muted-gold)',
+                        terracotta: 'var(--color-terracotta)',
+                        'dark-brown': 'var(--color-dark-brown)',
+                        charcoal: 'var(--color-charcoal)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.getElementById('custom-cursor');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            const speed = 0.15; // Lower for slower, higher for faster
+
+            function animateCursor() {
+                const distX = mouseX - cursorX;
+                const distY = mouseY - cursorY;
+
+                cursorX += (distX * speed);
+                cursorY += (distY * speed);
+
+                cursor.style.left = `${cursorX}px`;
+                cursor.style.top = `${cursorY}px`;
+                
+                requestAnimationFrame(animateCursor);
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Set initial cursor position
+            cursorX = window.innerWidth / 2;
+            cursorY = window.innerHeight / 2;
+            
+            // Start cursor animation
+            animateCursor();
+
+            // Cursor hover effects on interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .art-panel, header, footer'); 
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+            });
+
+
+            // Parallax Scrolling Effect
+            const parallaxLayers = document.querySelectorAll('.parallax-layer');
+            
+            // Set initial position based on current scroll
+            parallaxLayers.forEach(layer => {
+                const speed = parseFloat(layer.dataset.speed);
+                layer.style.transform = `translateY(${-window.scrollY * speed}px)`;
+            });
+
+            // Update position on scroll
+            window.addEventListener('scroll', () => {
+                parallaxLayers.forEach(layer => {
+                    const speed = parseFloat(layer.dataset.speed);
+                    layer.style.transform = `translateY(${-window.scrollY * speed}px)`;
+                });
+            });
+
+
+            // Scroll-triggered content animations (Intersection Observer)
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: unobserve after animating once if desired
+                        // observer.unobserve(entry.target); 
+                    } else {
+                        // Optional: remove 'visible' class if element scrolls out of view
+                        // entry.target.classList.remove('visible'); 
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

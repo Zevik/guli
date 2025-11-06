@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: הים הפנימי – מסע של הקשבה ועומק</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Seascape Artistry */
+        body {
+            font-family: 'Assistant', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            cursor: none; /* Hide default cursor to use custom one */
+        }
+
+        h1, h2 {
+            font-family: 'Alef', sans-serif;
+        }
+
+        /* Custom Cursor Styling - High Contrast (Light border, Dark shadow) */
+        .custom-cursor {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Light border for dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for light backgrounds */
+            position: fixed;
+            pointer-events: none; /* Allows interaction with elements beneath */
+            transform: translate(-50%, -50%); /* Centers the cursor on the mouse point */
+            transition: width 0.2s ease-out, height 0.2s ease-out, opacity 0.2s ease-out, background-color 0.2s ease-out;
+            z-index: 9999;
+            opacity: 1; /* Always visible as per requirements */
+        }
+
+        .custom-cursor.active {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.2); /* Subtle glow on click */
+        }
+
+        /* Seascape Background Elements - Parallax & Animation */
+        .sea-layer {
+            position: fixed;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .layer-deep {
+            background-image: linear-gradient(to top, #0A0A2A, #051937, #004d7a); /* Very deep blue gradient */
+            z-index: -3; /* Farthest back */
+        }
+
+        .layer-mid {
+            /* Subtle noise overlay resembling water texture */
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><defs><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"></feTurbulence><feColorMatrix in="noise" type="saturate" values="0"></feColorMatrix><feComponentTransfer><feFuncA type="linear" slope="0.5" intercept="0.05"></feFuncA></feComponentTransfer></filter></defs><rect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.15" fill="%23CCE0EC"></rect></svg>');
+            z-index: -2; /* Mid-layer */
+            animation: flow 120s linear infinite alternate; /* Slow, subtle background flow */
+        }
+        
+        .layer-surface {
+            /* Radial gradient for a "light from above" effect, plus a subtle linear gradient */
+            background-image: radial-gradient(at 50% 100%, rgba(200, 230, 255, 0.1) 0%, transparent 70%), linear-gradient(to top, rgba(0, 77, 122, 0.15), rgba(0, 102, 153, 0.1));
+            z-index: -1; /* Closest background layer for more pronounced parallax */
+            transform: translateY(0px); /* Initial state, controlled by JS for parallax */
+        }
+
+        @keyframes flow {
+            from { transform: translateX(0%) translateY(0%); }
+            to { transform: translateX(10%) translateY(10%); }
+        }
+
+        /* Generative wave/bubble elements */
+        .wave-element {
+            position: absolute;
+            background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(150,200,255,0.2), rgba(255,255,255,0.1));
+            opacity: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatAndFade 5s ease-out forwards;
+            filter: blur(5px); /* Soft glow effect */
+        }
+
+        @keyframes floatAndFade {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; } /* Floats up and out */
+        }
+
+        /* Specific styles for artistic content sections */
+        .sea-section {
+            background-color: rgba(5, 25, 55, 0.7); /* Translucent dark blue for content */
+            backdrop-filter: blur(8px); /* Blurs background behind content for focus */
+            border-radius: 1.5rem; /* Large rounded corners for a fluid look */
+            padding: 2.5rem;
+            margin-bottom: 5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep shadow for depth */
+            border: 1px solid rgba(255,255,255,0.1); /* Subtle white border for definition */
+            position: relative;
+            transform: translateY(50px); /* Initial hidden state for scroll animation */
+            opacity: 0; /* Initial hidden state */
+            transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition */
+        }
+
+        .sea-section.visible {
+            transform: translateY(0); /* Slides up to visible position */
+            opacity: 1; /* Fades in */
+        }
+
+        .section-header {
+            color: #CCF2F4; /* Light teal for headers, good contrast */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Adds depth to text */
+        }
+
+        .section-text {
+            color: #E0F2F7; /* Lighter blue-white for body text, high contrast */
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            color: #E0F2F7;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+            font-weight: 700;
+        }
+        .hero-subtitle {
+             color: #CCF2F4;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body class="bg-blue-950 text-white min-h-screen">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- Seascape Background Layers (Parallax Effect) -->
+    <div id="layer-deep" class="sea-layer layer-deep"></div>
+    <div id="layer-mid" class="sea-layer layer-mid"></div>
+    <div id="layer-surface" class="sea-layer layer-surface"></div>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 container mx-auto px-4 py-20 lg:py-32 max-w-4xl">
+        <header class="text-center mb-24 lg:mb-36">
+            <h1 class="hero-title text-5xl lg:text-7xl mb-4 leading-tight">אורית נבון: הים הפנימי</h1>
+            <h2 class="hero-subtitle text-2xl lg:text-4xl">מסע של הקשבה ועומק</h2>
+            <p class="section-text text-lg lg:text-xl mt-8 max-w-2xl mx-auto opacity-90">
+                כמו ים רחב ידיים, כך נפרשים חייה של אורית נבון – עמוקים, מלאי תנועה, ומשנים פנים ללא הרף. מגלים ראשונים של סקרנות נעורים ועד למעמקים של שיחות נפש, היא ספינה אמיצה המפליגה בנתיבי התקשורת, נושאת עמה את קולותיהם המושתקים של רבים ומגשרת בין זרמים. זהו מסע אל ליבה של אשת תקשורת, אל גלי יצירתה ואל העוגנים המעצבים את זהותה המורכבת.
+            </p>
+        </header>
+
+        <section id="section-1" class="sea-section mb-24 lg:mb-36 p-8 lg:p-12">
+            <h2 class="section-header text-4xl lg:text-5xl mb-6 leading-relaxed">גלי ההתחלה: חופים ראשונים ורוחות חדשות</h2>
+            <p class="section-text text-lg lg:text-xl">
+                בת רמת גן שצמחה לפתחה של אולפנה, החלה דרכה בשיטוט בין שוניות המילים, עוד לפני שהפליגה אל מרחבי הים הגדול. 'אותיות', 'מעריב לנוער', 'קול ישראל' – אלו היו החופים הראשונים בהם אספה צדפים של סיפורים, למדה את שפת הגלים ואת כוחה של מילה כתובה. בזרם הסוציולוגיה בבר-אילן, החלה להבין את המעמקים החברתיים, לזהות את הזרמים התת-קרקעיים המניעים עולמות שלמים.
+            </p>
+            <div class="mt-8 flex justify-center" aria-hidden="true">
+                 <!-- Abstract visual element: "Reef of Words" -->
+                <div class="w-48 h-24 bg-gradient-to-l from-teal-400 to-blue-600 opacity-30 rounded-full blur-lg"></div>
+            </div>
+        </section>
+
+        <section id="section-2" class="sea-section mb-24 lg:mb-36 p-8 lg:p-12">
+            <h2 class="section-header text-4xl lg:text-5xl mb-6 leading-relaxed">אל מעמקי הים: פריצת דרך וגילויים חדשים</h2>
+            <p class="section-text text-lg lg:text-xl mb-4">
+                הים נפתח לפניה לרווחה עם הקמת 'מאקו' – אי יצירה חדשני שם שימשה כעוגן, כותבת ועורכת. טוריה השבועיים היו כמגדלור מאיר, שקילחו אור על 'דתיות מודרנית', צומת דרכים בין מסורת לחיים עכשוויים, בין שמרנות לפתיחות.
+            </p>
+            <p class="section-text text-lg lg:text-xl">
+                אך המעמקים האמיתיים נחשפו ב'כאן 11' – שם, ב'כאן מקשיבים', יצרה אוקיינוס של שיח. כל פרק הוא צלילה אל נבכי הנפש האנושית, אל סיפורים שקטים על התמודדות, פגיעה, משבר וחיים. היא לא רק שואלת – היא מקשיבה, מניחה את ליבה בים הסוער של סיפורי הזולת, ומאפשרת לקולות מושתקים לצוף על פני השטח, להישמע, להרפא.
+            </p>
+            <div class="mt-8 flex justify-center" aria-hidden="true">
+                <!-- Abstract visual element: "Lighthouse of Listening" -->
+                <div class="w-64 h-32 bg-gradient-to-r from-blue-700 to-emerald-500 opacity-40 rounded-full blur-xl"></div>
+            </div>
+        </section>
+
+        <section id="section-3" class="sea-section mb-24 lg:mb-36 p-8 lg:p-12">
+            <h2 class="section-header text-4xl lg:text-5xl mb-6 leading-relaxed">הגשרים מעל למים: חיבורים וריפוי</h2>
+            <p class="section-text text-lg lg:text-xl mb-4">
+                לא רק אל המעמקים, אלא גם מעל לגלים – שם אורית בונה גשרים. כמגשרת מוסמכת וכמרצה, היא מתווה דרכים לשיח, מלמדת את אמנות ההקשבה ומחברת בין נתיבים שונים.
+            </p>
+            <p class="section-text text-lg lg:text-xl">
+                בין אם זה ב'המצפן' ברדיו 'מהות החיים', שם היא מנווטת סוגיות אתיות, או בפודקאסט 'לא טוב לי', בו היא שטה במימי בריאות הנפש – תמיד תמצא את הדרך ליצור חיבור, להבין את זרמי התת-מודע ולסייע בהרכבת מפרשים חדשים. היא כמו סונאר אנושי, מזהה את מה שלא נאמר, ומובילה לחוף מבטחים.
+            </p>
+            <div class="mt-8 flex justify-center" aria-hidden="true">
+                 <!-- Abstract visual element: "Bridge of Dialogue" -->
+                <div class="w-56 h-28 bg-gradient-to-t from-sky-400 to-blue-500 opacity-35 rounded-full blur-xl"></div>
+            </div>
+        </section>
+
+        <section id="section-4" class="sea-section p-8 lg:p-12">
+            <h2 class="section-header text-4xl lg:text-5xl mb-6 leading-relaxed">עוגנים וזרמים: מסע אישי בים הבלתי נודע</h2>
+            <p class="section-text text-lg lg:text-xl mb-4">
+                בתוך כל השיט הזה, אורית היא גם אדם, אמא, אישה, אחות – היא עוגן למשפחתה בשוהם, ושייכת לזרם משתנה של זהות דתית-מסורתית. היא אינה חוששת לחשוף את גליה הפנימיים: את המאבקים עם הדת, עם הציפיות, עם האתגרים האישיים והחברתיים.
+            </p>
+            <p class="section-text text-lg lg:text-xl">
+                היא מבינה שבים החיים, הסערות הן חלק מהנוף, והאמת הפנימית היא המצפן האמיתי. סיפורה הוא סיפור של אומץ לשוט אל הלא נודע, להקשיב לליבה, ולהעניק לאחרים את הכוח להקשיב גם הם לעצמם – ולצאת אל מסע משלהם.
+            </p>
+             <div class="mt-8 flex justify-center" aria-hidden="true">
+                 <!-- Abstract visual element: "Personal Anchors" -->
+                <div class="w-72 h-36 bg-gradient-to-br from-indigo-700 to-purple-800 opacity-25 rounded-full blur-2xl"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // JavaScript for custom cursor, parallax, and generative elements
+
+        const customCursor = document.getElementById('custom-cursor');
+        const body = document.body;
+
+        // Custom Cursor Logic
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener('mousedown', () => {
+            customCursor.classList.add('active');
+        });
+
+        document.addEventListener('mouseup', () => {
+            customCursor.classList.remove('active');
+        });
+        
+        // Hide cursor on mouse leave for a cleaner experience
+        document.addEventListener('mouseleave', () => {
+            customCursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            customCursor.style.opacity = '1';
+        });
+
+        // Parallax Scrolling Logic
+        const layerSurface = document.getElementById('layer-surface');
+        const layerMid = document.getElementById('layer-mid');
+        
+        const parallaxFactorSurface = 0.1; // Slower for surface layer (closer)
+        const parallaxFactorMid = 0.05; // Even slower for mid layer (further)
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            layerSurface.style.transform = `translateY(${scrollY * parallaxFactorSurface}px)`;
+            layerMid.style.transform = `translateY(${scrollY * parallaxFactorMid}px)`;
+        });
+
+        // Generative Wave/Bubble Elements (subtle background animation)
+        const mainContent = document.querySelector('main');
+        const waveContainer = document.createElement('div');
+        waveContainer.style.cssText = 'position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;';
+        body.insertBefore(waveContainer, mainContent); // Insert behind main content but above fixed backgrounds
+
+        function createWaveElement() {
+            const wave = document.createElement('div');
+            wave.classList.add('wave-element');
+            
+            const size = Math.random() * 80 + 40; // Size between 40px and 120px
+            wave.style.width = `${size}px`;
+            wave.style.height = `${size}px`;
+            
+            wave.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+            wave.style.bottom = `${-size}px`; // Start from below the viewport
+
+            waveContainer.appendChild(wave);
+
+            // Remove wave after animation completes to prevent DOM clutter
+            wave.addEventListener('animationend', () => {
+                wave.remove();
+            });
+        }
+
+        // Generate a new wave/bubble every 2 seconds
+        setInterval(createWaveElement, 2000);
+
+        // Scroll animation for sections (fade in and slide up)
+        const sections = document.querySelectorAll('.sea-section');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: unobserve once visible to prevent re-triggering
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Optional: remove visible class if section scrolls out of view
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+    </script>
+</body>
+</html>

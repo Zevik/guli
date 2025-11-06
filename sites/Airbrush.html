@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קולה של הקשבה: מסע עם אורית נבון</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for the airbrush effect */
+        body {
+            background-color: #0d0d12; /* Deep dark background */
+            cursor: none; /* Hide default cursor */
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom cursor styles */
+        #custom-cursor {
+            position: fixed;
+            width: 28px; /* Larger cursor for visibility */
+            height: 28px;
+            border: 2px solid #FFFFFF; /* White border for visibility on dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.7); /* Dark shadow for visibility on light backgrounds */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999; /* Always on top */
+            transition: transform 0.1s ease-out, opacity 0.2s ease-out;
+            transform: translate(-50%, -50%); /* Center the cursor */
+        }
+
+        /* Airbrush background layers */
+        .airbrush-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            pointer-events: none;
+            opacity: 0.7; /* Soft overall opacity */
+        }
+
+        .layer-1 {
+            background: radial-gradient(circle at 10% 20%, #a78bfa, transparent 60%); /* Purple */
+            filter: blur(80px);
+            animation: pulse-1 15s infinite alternate ease-in-out;
+            transform: scale(1.1);
+        }
+        .layer-2 {
+            background: radial-gradient(circle at 80% 90%, #6366f1, transparent 70%); /* Indigo */
+            filter: blur(70px);
+            animation: pulse-2 18s infinite alternate ease-in-out;
+            transform: scale(1.2) rotate(10deg);
+        }
+        .layer-3 {
+            background: radial-gradient(circle at 40% 50%, #ec4899, transparent 65%); /* Pink */
+            filter: blur(90px);
+            animation: pulse-3 20s infinite alternate ease-in-out;
+            transform: scale(1.05) rotate(-5deg);
+        }
+        .layer-4 {
+            background: radial-gradient(circle at 60% 10%, #22d3ee, transparent 60%); /* Cyan */
+            filter: blur(75px);
+            animation: pulse-4 16s infinite alternate ease-in-out;
+            transform: scale(1.15) rotate(15deg);
+        }
+
+        @keyframes pulse-1 {
+            0% { transform: scale(1.1) translate(0, 0); opacity: 0.6; }
+            100% { transform: scale(1.15) translate(5vw, 5vh); opacity: 0.8; }
+        }
+        @keyframes pulse-2 {
+            0% { transform: scale(1.2) translate(0, 0) rotate(10deg); opacity: 0.7; }
+            100% { transform: scale(1.25) translate(-7vw, -3vh) rotate(15deg); opacity: 0.85; }
+        }
+        @keyframes pulse-3 {
+            0% { transform: scale(1.05) translate(0, 0) rotate(-5deg); opacity: 0.65; }
+            100% { transform: scale(1.1) translate(-4vw, 6vh) rotate(-8deg); opacity: 0.75; }
+        }
+        @keyframes pulse-4 {
+            0% { transform: scale(1.15) translate(0, 0) rotate(15deg); opacity: 0.75; }
+            100% { transform: scale(1.2) translate(8vw, -2vh) rotate(10deg); opacity: 0.8; }
+        }
+
+        /* Content section animation */
+        .content-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+        .content-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2a2a35; /* Darker track */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a78bfa; /* Purple thumb */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c084fc; /* Lighter purple on hover */
+        }
+    </style>
+</head>
+<body class="text-white selection:bg-purple-600 selection:text-white relative">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Airbrush Background Layers -->
+    <div class="airbrush-layer layer-1 z-[-1]"></div>
+    <div class="airbrush-layer layer-2 z-[-2]"></div>
+    <div class="airbrush-layer layer-3 z-[-3]"></div>
+    <div class="airbrush-layer layer-4 z-[-4]"></div>
+
+    <!-- Main Content Wrapper -->
+    <main id="content-wrapper" class="relative z-10 min-h-screen flex flex-col items-center justify-center p-8 lg:p-16">
+
+        <!-- Header -->
+        <header class="text-center mb-24 mt-20 content-section max-w-4xl mx-auto">
+            <h1 class="text-6xl lg:text-8xl font-extrabold mb-8 drop-shadow-lg leading-tight" style="font-family: 'Assistant', sans-serif; text-shadow: 0 0 20px rgba(167, 139, 250, 0.7);">קולה של הקשבה: מסע עם אורית נבון</h1>
+            <p class="text-2xl lg:text-3xl font-light leading-relaxed text-gray-200" style="font-family: 'Heebo', sans-serif;">מסע אינטימי אל תוך עולמה של אשת תקשורת פורצת דרך, המגלה את יופיו של הדיאלוג והאומץ שבחשיפה.</p>
+        </header>
+
+        <!-- Section 1: Roots and Shifting Hues -->
+        <section class="mb-24 content-section max-w-3xl mx-auto p-8 bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-purple-500/50 transition-shadow duration-500">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-purple-300 drop-shadow-md" style="font-family: 'Assistant', sans-serif;">שורשים וגוונים משתנים</h2>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 mb-6 text-right" style="font-family: 'Heebo', sans-serif;">אורית נבון, ילידת רמת גן 1978, החלה את דרכה מתוך עולם דתי-לאומי, אך במהרה נמשכה אל קשת רחבה יותר של גוונים. כתיבתה העיתונאית, שפרצה כבר בגיל צעיר במגזינים כמו "מעריב לנוער", הייתה עבורה שער אל האפשרות לחקור זהויות מתפתחות. היא סללה לעצמה נתיב של גמישות, והפכה את המורכבות האישית לנקודת מבט ייחודית, ממנה היא מביטה על העולם ועל החברה הישראלית.</p>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 text-right" style="font-family: 'Heebo', sans-serif;">המעבר מחינוך מסורתי לעמדה המגדירה עצמה כ"מסורתית" או "דתייה לייט", אינו ויתור על עבר, אלא יצירת גשרים. גשרים בין עולמות, בין אמונות, ובין פרשנויות אישיות למושגי דת, חברה ומשפחה. במסעה, היא מלמדת אותנו שאמת אינה חד-צדדית, אלא נמצאת בריבוי הקולות והפרספקטיבות.</p>
+        </section>
+
+        <!-- Section 2: The Art of Conversation -->
+        <section class="mb-24 content-section max-w-3xl mx-auto p-8 bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transition-shadow duration-500">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-indigo-300 drop-shadow-md" style="font-family: 'Assistant', sans-serif;">האומנות שבשיחה: "כאן מקשיבים"</h2>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 mb-6 text-right" style="font-family: 'Heebo', sans-serif;">אם יש עמוד תווך המגדיר את עבודתה של אורית נבון, הרי זו אומנות ההקשבה. בסדרת הדגל שלה, "כאן מקשיבים" (כאן 11), היא מזמינה את הצופים למרחב אינטימי, בו אנשים חושפים את סיפוריהם הכמוסים ביותר. נפש מול נפש, ללא שיפוט, אלא עם רצון עמוק להבין, להכיל וליצור חיבור אנושי.</p>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 text-right" style="font-family: 'Heebo', sans-serif;">כמגשרת מוסמכת, נבון מביאה את הכלים שרכשה אל עבודתה העיתונאית, ויוצרת שיח פתוח גם בנושאים סבוכים כמו התמודדות נפש, פגיעות מיניות ומשברים אישיים. מיליוני צפיות ושימוש בפרקים כחומר לימוד באקדמיה ובצה"ל מעידים על ההשפעה העצומה של יכולתה לייצר גשרים של הבנה ואמפתיה בחברה הישראלית.</p>
+        </section>
+
+        <!-- Section 3: Breaking the Silence -->
+        <section class="mb-24 content-section max-w-3xl mx-auto p-8 bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-pink-500/50 transition-shadow duration-500">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-pink-300 drop-shadow-md" style="font-family: 'Assistant', sans-serif;">לשבור את הדממה: מיניות, זהות ובריאות נפש</h2>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 mb-6 text-right" style="font-family: 'Heebo', sans-serif;">אורית נבון אינה חוששת לפרוץ גבולות ולגעת בנושאים שהושתקו במשך שנים, במיוחד במגזר הדתי. בסדרות כמו "מונולוגים מהאולפנה" ו"מונולוגים מהישיבה", היא העניקה קול אמיץ וחשוב לנושא המיניות במגזר הדתי, כשהיא חושפת את הדילמות, הכאבים והשאלות שנותרו בחשיכה.</p>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 text-right" style="font-family: 'Heebo', sans-serif;">גם בתחום בריאות הנפש, נבון מובילה שינוי תפיסתי. הסכתה "לא טוב לי" וסדרת "הצילו את הנפש" פותחים שיח חיוני על מצוקות נפשיות, תפקידן בחיינו והצורך בטיפול ובתמיכה, במיוחד לאחר אירועים קשים כמו 7 באוקטובר. היא מדגישה את חשיבות החשיפה והלגיטימציה לכאב, כצעד ראשון בדרך לריפוי.</p>
+        </section>
+
+        <!-- Section 4: Inner Compass, Public Compass -->
+        <section class="mb-24 content-section max-w-3xl mx-auto p-8 bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-cyan-500/50 transition-shadow duration-500">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-cyan-300 drop-shadow-md" style="font-family: 'Assistant', sans-serif;">מצפן פנימי, מצפן ציבורי</h2>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 mb-6 text-right" style="font-family: 'Heebo', sans-serif;">מעבר לעבודה האישית וההעמקה בנפש האדם, אורית נבון היא גם קול צלול וביקורתי בזירה הציבורית. בין אם בטוריה האישיים באתר מאקו, בתוכנית "המצפן" ברדיו "מהות החיים", או בפוסטים חדים ברשתות החברתיות, היא מביעה דעות נחרצות על פוליטיקה, חברה ומוסר.</p>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 text-right" style="font-family: 'Heebo', sans-serif;">היא אינה חוששת לבקר את הממסד, להצביע על שחיתות, ולקרוא לחשבון נפש אישי וציבורי. מצפנה המוסרי מוביל אותה לתמוך בשוויון, בצדק ובשלום, ולהיות סמל לאומץ לב אינטלקטואלי בעידן שבו קולות רבים נאלמים דום.</p>
+        </section>
+
+        <!-- Section 5: Beyond Words -->
+        <section class="mb-24 content-section max-w-3xl mx-auto p-8 bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-purple-500/50 transition-shadow duration-500">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-purple-300 drop-shadow-md" style="font-family: 'Assistant', sans-serif;">מעבר למילים</h2>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 mb-6 text-right" style="font-family: 'Heebo', sans-serif;">אורית נבון היא יותר מאשת תקשורת - היא גשר אנושי. בעבודתה היא מזכירה לנו את כוחה של ההקשבה, את יופיו של הדיאלוג, ואת האומץ הנדרש כדי לפתוח את הלב ולהשמיע את הקול האותנטי שלנו. דרך המבט המפוכח אך המכיל שלה, היא יוצרת מרחב בו גם הנושאים הכואבים ביותר יכולים לקבל אור, הבנה ותקווה.</p>
+            <p class="text-lg lg:text-xl leading-relaxed text-gray-100 text-right" style="font-family: 'Heebo', sans-serif;">מסעה ממשיך להתפתח, ותרומתה לחברה הישראלית מתעצמת מיום ליום, כשהיא מחברת בין עולמות שונים, מפרקת סטיגמות, ומעניקה לכולנו את המתנה הגדולה מכולן: היכולת לראות, לשמוע, ולהיות נראים ונשמעים.</p>
+        </section>
+
+        <!-- Footer / Credits -->
+        <footer class="text-center mt-20 mb-10 content-section max-w-4xl mx-auto">
+            <p class="text-sm text-gray-400" style="font-family: 'Heebo', sans-serif;">עיצוב ותוכן בהשראת מסעה של אורית נבון. 2024 &copy; יצירה דיגיטלית אמנותית.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        // Hide cursor when leaving the window
+        document.addEventListener('mouseleave', () => {
+            customCursor.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            customCursor.style.opacity = '1';
+        });
+
+
+        // Intersection Observer for content section animations
+        const sections = document.querySelectorAll('.content-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // observer.unobserve(entry.target); // Optional: uncomment if you only want it to animate once
+                } else {
+                    entry.target.classList.remove('is-visible'); // Optional: re-hide when out of view
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Parallax Effect for Airbrush Layers
+        const airbrushLayers = document.querySelectorAll('.airbrush-layer');
+        const parallaxSpeeds = [0.1, 0.05, 0.03, 0.01]; // Slower speeds for layers further back
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            airbrushLayers.forEach((layer, index) => {
+                // Adjust translateY based on scroll position and parallax speed
+                layer.style.transform = `translateY(${scrollY * parallaxSpeeds[index]}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

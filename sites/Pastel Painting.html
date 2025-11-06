@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: אמנות ההקשבה בצבעי פסטל</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+            background-color: #f7fafc; /* A very light base */
+        }
+        h1, h2 {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+
+        /* Custom Cursor Styling */
+        .custom-cursor {
+            position: fixed;
+            width: 24px; /* Larger to be easily visible */
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.9); /* Bright white border */
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.7); /* Strong dark shadow */
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, border-color 0.1s ease-out, box-shadow 0.1s ease-out;
+            z-index: 9999;
+            will-change: transform;
+        }
+        .custom-cursor.cursor-hover {
+            width: 36px;
+            height: 36px;
+            border-color: rgba(255, 200, 220, 0.9); /* Soft pink on hover */
+            box-shadow: 0 0 0 2px rgba(100, 0, 50, 0.8); /* Darker pink shadow */
+        }
+
+        /* Background Animations - Pastel Drifts */
+        @keyframes pastelDrift1 {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.5; }
+            33% { transform: translate(5vw, 5vh) rotate(5deg) scale(1.05); opacity: 0.6; }
+            66% { transform: translate(-3vw, 10vh) rotate(-3deg) scale(0.95); opacity: 0.4; }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.5; }
+        }
+        @keyframes pastelDrift2 {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.4; }
+            33% { transform: translate(-7vw, 8vh) rotate(-7deg) scale(0.9); opacity: 0.5; }
+            66% { transform: translate(4vw, -2vh) rotate(4deg) scale(1.1); opacity: 0.3; }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.4; }
+        }
+        @keyframes pastelDrift3 {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.6; }
+            33% { transform: translate(2vw, -6vh) rotate(2deg) scale(1.03); opacity: 0.5; }
+            66% { transform: translate(-5vw, 3vh) rotate(-6deg) scale(0.97); opacity: 0.7; }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.6; }
+        }
+        .drift1 { animation: pastelDrift1 25s ease-in-out infinite alternate; }
+        .drift2 { animation: pastelDrift2 30s ease-in-out infinite alternate-reverse; }
+        .drift3 { animation: pastelDrift3 20s ease-in-out infinite alternate; }
+
+        /* Scroll-triggered Fade-in */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            will-change: opacity, transform;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Backdrop filter for text blocks to give a soft, painted layer effect */
+        .text-block-background {
+            backdrop-filter: blur(6px) saturate(150%);
+            -webkit-backdrop-filter: blur(6px) saturate(150%);
+        }
+
+        /* Ensure scrollbar has some styling on webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4a5b4; /* Soft pinkish tone */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c28fa6;
+        }
+    </style>
+</head>
+<body class="selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- Animated Pastel Background Elements (fixed, z-[-1]) -->
+    <div class="fixed inset-0 overflow-hidden -z-10">
+        <div class="absolute w-1/2 h-1/2 bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 rounded-full mix-blend-multiply opacity-50 drift1" style="top: 10%; left: -10%;"></div>
+        <div class="absolute w-2/3 h-2/3 bg-gradient-to-tl from-teal-100 via-green-100 to-yellow-100 rounded-full mix-blend-multiply opacity-40 drift2" style="bottom: -20%; right: -20%;"></div>
+        <div class="absolute w-1/3 h-1/3 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 rounded-full mix-blend-multiply opacity-60 drift3" style="top: 60%; left: 30%;"></div>
+        <div class="absolute w-2/5 h-2/5 bg-gradient-to-bl from-indigo-100 via-sky-100 to-lime-100 rounded-full mix-blend-multiply opacity-55 drift1" style="top: -15%; right: 15%;"></div>
+    </div>
+
+    <!-- Main Content Wrapper (z-10) -->
+    <main class="relative z-10 min-h-screen p-4 md:p-8 lg:p-12 text-gray-900">
+        <div class="max-w-4xl mx-auto space-y-16 lg:space-y-24 mt-16 lg:mt-24">
+
+            <!-- Title Section -->
+            <header class="text-center fade-in-section">
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight text-pink-700 drop-shadow-lg [text-shadow:_2px_2px_4px_rgba(0,0,0,0.1)]">
+                    אורית נבון: אמנות ההקשבה בצבעי פסטל
+                </h1>
+                <p class="mt-6 text-xl md:text-2xl text-purple-800 tracking-wide leading-relaxed font-light">
+                    על קנבס הזמן, רכות נוגעת בעומק. ביוגרפיה שהיא יצירת אמנות של קשב וביטוי.
+                </p>
+            </header>
+
+            <!-- Intro Section -->
+            <section class="p-8 md:p-10 bg-white bg-opacity-70 rounded-3xl shadow-xl text-block-background fade-in-section [transform-origin:top_right] rotate-1">
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+                    אורית נבון, ציירת במילים, אורגת נרטיב חיים שהוא פסיפס של גוונים רכים, אך עם משיחות מכחול נועזות של אמת. מרמת גן של ילדות דתית, דרך שבילי הידע באוניברסיטה, ועד למסעותיה אל ליבת הנפש האנושית בתקשורת הישראלית. היא אינה רק מספרת סיפורים - היא חושפת עולמות פנימיים, מאירה אותם באור פסטל עדין המהדהד עומק ונשמה.
+                </p>
+            </section>
+
+            <!-- Section 1: שנות הפסטל הראשונות - הולדת קול -->
+            <section class="p-8 md:p-10 bg-blue-50 bg-opacity-75 rounded-3xl shadow-xl text-block-background fade-in-section [transform-origin:bottom_left] -rotate-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-teal-700 mb-6 drop-shadow-md">
+                    שנות הפסטל הראשונות - הולדת קול
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+                    ביומני נערות, במגזינים לילדים, התגלתה לחישה ראשונה. קול צעיר החל לרשום, לפענח עולמות. מילים היו לה צבעים, והדפים קנבסים לבנים. "מעריב לנוער", "קול ישראל" – אלה היו בתי הספר הראשונים שלה לציור דיוקנאות של החברה הישראלית, בטרם ידעה כי תהפוך למאסטרית של צבעי פסטל רגשיים. לימודי סוציולוגיה וגישור הוסיפו לפלטה גוונים של הבנה, של היכולת לראות את הקשרים העדינים בין האנשים, להבין את מורכבותם של מרקמי חיים.
+                </p>
+            </section>
+
+            <!-- Section 2: משיכות מכחול דיגיטליות - יצירת גשרים -->
+            <section class="p-8 md:p-10 bg-purple-50 bg-opacity-70 rounded-3xl shadow-xl text-block-background fade-in-section [transform-origin:top_right] rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-6 drop-shadow-md">
+                    משיכות מכחול דיגיטליות - יצירת גשרים
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+                    ואז הגיע העידן הדיגיטלי, קנבס חדש ואינסופי. ב"מאקו", הטור האישי שלה היה כמו סדרת ציורים שבועית, חושף "דתיות מודרנית" בגוונים של לבטים, אהבה, וחיפוש עצמי. כאן, עלתה על הבמה המרכזית אמנות הגישור שלה – לא רק בין אנשים, אלא בין עולמות, בין קצוות הנפש. היא למדה למזג את גווני המסורת עם צבעי הקדמה, ליצור הרמוניה של ניגודים, ולצייר גשרים של הבנה בין הקצוות שנראו לעיתים כה מרוחקים. עבודתה הייתה תמיד משיכת מכחול רכה המחברת בין מה שהיה ומה שיהיה.
+                </p>
+            </section>
+
+            <!-- Section 3: גלריית כאן 11 - דיוקנאות של אנושיות -->
+            <section class="p-8 md:p-10 bg-pink-50 bg-opacity-70 rounded-3xl shadow-xl text-block-background fade-in-section [transform-origin:bottom_right] -rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold text-rose-700 mb-6 drop-shadow-md">
+                    גלריית כאן 11 - דיוקנאות של אנושיות
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800 mb-4">
+                    ב"כאן 11" מצאה אורית את הגלריה המושלמת ליצירותיה העמוקות ביותר. "כאן מקשיבים" – סדרה שהיא סטודיו פתוח, מזמינה מיליוני צופים להיות חלק מתהליך הציור. כל שיחה היא דיוקן אינטימי של נפש אנושית, מוארת באור רך אך חושפני. נושאים כמו התמודדויות נפש, פגיעות מיניות, ומשברים אישיים – היא ציירה אותם בצבעי פסטל של אמפתיה, מביאה אליהם עדינות לצד כנות ברוטלית. פרקי הסדרה, הנלמדים באוניברסיטאות, הם הוכחה לכוחה של האמנות שלה לרפא, ללמד, ולפתוח לבבות.
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+                    "מונולוגים מהאולפנה" ו"מונולוגים מהישיבה" היו כמו משיכות מכחול פורצות דרך, שחשפו את המורכבות של מיניות ואינטימיות במגזר הדתי. היא העזה לצייר את מה שהיה חבוי, להאיר את הפינות המוצללות באור קבלה והבנה, הופכת את הטאבו לשיח פתוח.
+                </p>
+            </section>
+
+            <!-- Section 4: המצפן הפנימי - אמנית נשמה -->
+            <section class="p-8 md:p-10 bg-yellow-50 bg-opacity-75 rounded-3xl shadow-xl text-block-background fade-in-section [transform-origin:top_left] rotate-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-700 mb-6 drop-shadow-md">
+                    המצפן הפנימי - אמנית נשמה
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+                    מעבר למסך, אורית היא מגשרת ומרצה, חולקת את כלי ההקשבה שלה כמתנה. "להקשיב יותר, לדבר פחות" – זו לא רק סיסמה, זו פילוסופיית חיים, טכניקת ציור נשמתית. היא מלמדת אותנו לצייר את המציאות מתוך הקשבה אמיתית, לראות את הגוונים הסמויים, את המרקמים העדינים של הקיום האנושי. היא קול שמבקש להאיר את הנסתר, לתת צבע למושתק, וליצור גשרים של הבנה בתוך הכאוס של העולם. אורית נבון – לא רק עיתונאית, אלא אמנית, שחייה ויצירתה הם ציור פסטל חי, עמוק ומרגש, הזמין לכל מי שמוכן להקשיב ולהתבונן.
+                </p>
+            </section>
+
+            <!-- Footer / Conclusion -->
+            <footer class="text-center mt-16 fade-in-section">
+                <p class="text-xl md:text-2xl text-gray-700 font-light italic leading-relaxed">
+                    יצירה דיגיטלית בהשראת מסעה של אורית נבון, 2024.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.getElementById('custom-cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2; // Smoothness factor
+            cursorY += (mouseY - cursorY) * 0.2;
+            customCursor.style.left = `${cursorX}px`;
+            customCursor.style.top = `${cursorY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor Hover Effect
+        document.querySelectorAll('a, button, section, header, footer').forEach(el => {
+            el.addEventListener('mouseenter', () => customCursor.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => customCursor.classList.remove('cursor-hover'));
+        });
+
+        // Scroll-triggered Fade-in Logic
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

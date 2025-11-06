@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: שכבות של קשב וביטוי</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Noto+Serif+Hebrew:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define custom CSS variables for fresco colors */
+        :root {
+            --fresco-ochre: #D4B28C; /* Faded yellow-brown */
+            --fresco-terra: #A87D6C; /* Muted terracotta */
+            --fresco-sage: #8E9B8A; /* Dusty green-gray */
+            --fresco-sky: #6A869C;  /* Faded blue */
+            --fresco-stone: #E8E5DF; /* Off-white/light gray */
+            --fresco-shadow: #3D3A3A; /* Dark charcoal */
+        }
+    </style>
+    <script>
+        // Configure Tailwind CSS with custom colors and fonts
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fresco-ochre': 'var(--fresco-ochre)',
+                        'fresco-terra': 'var(--fresco-terra)',
+                        'fresco-sage': 'var(--fresco-sage)',
+                        'fresco-sky': 'var(--fresco-sky)',
+                        'fresco-stone': 'var(--fresco-stone)',
+                        'fresco-shadow': 'var(--fresco-shadow)',
+                    },
+                    fontFamily: {
+                        heading: ['Frank Ruhl Libre', 'serif'],
+                        body: ['Noto Serif Hebrew', 'serif'],
+                    },
+                    transitionDelay: {
+                        '200': '200ms',
+                        '400': '400ms',
+                        '600': '600ms',
+                        '800': '800ms',
+                        '1000': '1000ms',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles, scrollbar, and custom cursor */
+        body {
+            background-color: var(--fresco-shadow);
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Noto Serif Hebrew', serif;
+            color: var(--fresco-stone);
+            text-align: right; /* Default RTL text alignment */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+
+        /* Custom scrollbar for fresco aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--fresco-terra);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--fresco-sky);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--fresco-sage);
+        }
+
+        /* High-contrast custom cursor */
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Ensures visibility on dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Ensures visibility on light backgrounds */
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            transform: translate(-50%, -50%); /* Centers the cursor */
+        }
+
+        /* Subtle fresco texture pattern */
+        .fresco-texture-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236A869C' fill-opacity='0.1'%3E%3Cpath d='M12 0L0 12L12 24L24 12L12 0ZM12 36L0 48L12 60L24 48L12 36Z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 30px;
+            opacity: 0.1;
+        }
+
+        /* Overlay with a subtle crack effect for aged look */
+        .crack-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C50 0 55 10 50 20C45 30 50 40 50 40C50 40 55 50 50 60C45 70 50 80 50 80C50 80 55 90 50 100' stroke='%23e8e5df' stroke-width='0.5' fill='none' /%3E%3Cpath d='M30 0C30 0 35 10 30 20C25 30 30 40 30 40C30 40 35 50 30 60C25 70 30 80 30 80C30 80 35 90 30 100' stroke='%23e8e5df' stroke-width='0.5' fill='none' /%3E%3Cpath d='M70 0C70 0 75 10 70 20C65 30 70 40 70 40C70 40 75 50 70 60C65 70 70 80 70 80C70 80 75 90 70 100' stroke='%23e8e5df' stroke-width='0.5' fill='none' /%3E%3C/svg%3E");
+            background-size: cover;
+            opacity: 0.03; /* Very faint to suggest age */
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Text reveal on scroll effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism effect for content cards */
+        .glass-effect {
+            backdrop-filter: blur(5px) saturate(150%);
+            -webkit-backdrop-filter: blur(5px) saturate(150%);
+            /* Fallback background, using JS to get RGB for transparency */
+            background-color: rgba(var(--fresco-shadow-rgb, 61, 58, 58), 0.3);
+        }
+    </style>
+</head>
+<body class="font-body text-fresco-stone bg-fresco-shadow antialiased relative">
+
+    <!-- Custom Cursor Element -->
+    <div class="custom-cursor"></div>
+
+    <!-- Main Background Layers with Parallax Effect -->
+    <div id="parallax-bg-1" class="fixed inset-0 bg-fresco-terra opacity-10 fresco-texture-pattern z-[-1]"></div>
+    <div id="parallax-bg-2" class="fixed inset-0 bg-fresco-sage opacity-10 z-[-2]"></div>
+    <div id="parallax-bg-3" class="fixed inset-0 bg-fresco-sky opacity-5 z-[-3]"></div>
+
+    <!-- Subtle crack overlay for artistic aged effect -->
+    <div class="fixed inset-0 crack-overlay pointer-events-none z-[0]"></div>
+
+    <!-- Main Content Wrapper with a higher z-index -->
+    <div class="relative z-10 min-h-screen p-4 md:p-8 lg:p-16 flex flex-col items-center">
+
+        <!-- Header Section -->
+        <header class="w-full text-center py-8 mb-12 relative">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold text-fresco-stone leading-tight fade-in-section">
+                <span class="block mb-2">אורית נבון:</span>
+                <span class="block text-fresco-sky-300">אשת השיח, פסיפס של קולות</span>
+            </h1>
+            <p class="mt-4 text-fresco-stone text-lg md:text-xl font-light fade-in-section" style="transition-delay: 200ms;">
+                מסע בנבכי ההקשבה והביטוי
+            </p>
+            <!-- Decorative border for header -->
+            <div class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-fresco-terra to-transparent opacity-50"></div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="w-full max-w-4xl mx-auto space-y-24 py-12">
+
+            <!-- Introduction Section - "Carved Words" -->
+            <section class="relative p-8 bg-fresco-shadow/70 rounded-lg shadow-xl border border-fresco-terra/30 glass-effect fade-in-section">
+                <h2 class="font-heading text-4xl font-bold text-fresco-ochre mb-6">השכבה הראשונה: מילים חרוטות</h2>
+                <p class="font-body text-lg leading-relaxed">
+                    כמו ציור פרסקו עתיק, הנחשף שכבה אחר שכבה, כך נפרש בפנינו סיפורה של אורית נבון. אשת תקשורת, עיתונאית, מגישה, במאית ומגשרת – אך מעל הכל, אמנית של שיח. דרכה נסללה בין העולמות: מהאולפנה הדתית בבני ברק אל זירת התקשורת המודרנית, תוך שהיא חורטת במילים את הקולות המושתקים והדילמות האנושיות המורכבות. היא לא רק מספרת סיפורים; היא יוצרת מרחב להקשבה עמוקה, שבו כל מילה היא משיכת מכחול על קיר נשמת האדם.
+                </p>
+                <p class="font-body text-md leading-relaxed text-fresco-stone/80 mt-4 italic">
+                    "כל סיפור הוא שכבה נוספת בפסיפס האנושי."
+                </p>
+                <!-- Decorative inner border layer -->
+                <div class="absolute top-0 left-0 w-full h-full border border-fresco-sage/20 rounded-lg transform rotate-1 opacity-20 -z-10"></div>
+            </section>
+
+            <!-- Roots and Foundations Section - "Soil of Foundations" -->
+            <section class="relative p-8 bg-fresco-shadow/70 rounded-lg shadow-xl border border-fresco-terra/30 glass-effect fade-in-section">
+                <h2 class="font-heading text-4xl font-bold text-fresco-ochre mb-6">עפר יסודות: בין קודש לחול</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="font-body text-lg leading-relaxed">
+                            נבון, ילידת רמת גן 1978, גדלה במשפחה דתית; אבן על אבן נבנה עולמה באולפנה, ושירות לאומי שהטמיע בה ערכים. היא השלימה תואר בסוציולוגיה באוניברסיטת בר-אילן, הבסיס שממנו תצמח הבנתה העמוקה למארג החברתי. אך דרכה לא הייתה מסלול ישר; היא התפתחה, התרחקה, ועיצבה לעצמה זהות של "דתייה לייט" או "מסורתית", המשלבת את יסודות עברה עם פתיחות עכשווית.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-body text-lg leading-relaxed">
+                            "האמונה היא לא קיר אטום," היא רומזת, "אלא חלון נפתח שדרכו חודר אור חדש." כבר בגיל צעיר, 16 ב"מעריב לנוער" ו-17 ב"קול ישראל", היא החלה לפרק את הקירות, ולבנות גשרים של הבנה בין עולמות שונים, בין קודש לחול, בין יחיד לקהילה. עבודתה המוקדמת הניחה את היסודות לקריירה שבה תחקור את המורכבות של חיי הנפש והחברה בישראל.
+                        </p>
+                    </div>
+                </div>
+                <!-- Decorative inner layer -->
+                <div class="absolute inset-0 bg-fresco-sage/10 rounded-lg transform skew-y-1 opacity-10 -z-10"></div>
+            </section>
+
+            <!-- Career and Unveiling Section - "Unveiling: Peeling Back Layers of Truth" -->
+            <section class="relative p-8 bg-fresco-shadow/70 rounded-lg shadow-xl border border-fresco-terra/30 glass-effect fade-in-section">
+                <h2 class="font-heading text-4xl font-bold text-fresco-ochre mb-6">היחשפות: קילוף שכבות האמת</h2>
+                <div class="space-y-6">
+                    <p class="font-body text-lg leading-relaxed">
+                        בכל תחנותיה - מ"רייטינג" ו"מעריב" ועד להיותה חלק מצוות ההקמה של "מאקו", שם כתבה טור אישי שבועי שבו חקרה את "הדתיות המודרנית" – אורית נבון עסקה בחשיפת האמת הפנימית. היא לא היססה לגעת בנושאים שהיו פעם בגדר טאבו, בין אם מיניות במגזר הדתי, התמודדויות נפשיות או הטרדות. עבודתה היא מעשה מתמשך של קילוף שכבות הצבע הישנות, כדי להגיע אל הציור המקורי, הגולמי, הכואב לעיתים, אך תמיד אמיתי.
+                    </p>
+                    <p class="font-body text-lg leading-relaxed">
+                        היום, ב"כאן 11", היא ממשיכה את דרכה כמגישה, במאית וכותבת, מטביעה את חותמה על התקשורת הדיגיטלית. עבודתה בתאגיד מהווה פסגת היצירה שלה, עם סדרות שזוכות למיליוני צפיות ונלמדות באקדמיה ובצבא, כהוכחה לכוחה של הקשבה ככלי לשינוי חברתי.
+                    </p>
+                </div>
+                <!-- Decorative inner layer -->
+                <div class="absolute inset-0 bg-fresco-sky/10 rounded-lg transform skew-y-[-1] opacity-10 -z-10"></div>
+            </section>
+
+            <!-- "Kan Makshivim" Section - "Voices from the Wall" -->
+            <section class="relative p-8 bg-fresco-shadow/70 rounded-lg shadow-xl border border-fresco-terra/30 glass-effect fade-in-section">
+                <h2 class="font-heading text-4xl font-bold text-fresco-ochre mb-6">כאן מקשיבים: קולות מהקיר</h2>
+                <div class="space-y-6">
+                    <p class="font-body text-lg leading-relaxed">
+                        "כאן מקשיבים" – זו אינה רק כותרת לסדרת הדגל שלה, אלא עקרון מנחה המלווה את כל פועלה. אורית נבון יוצרת מרחב בטוח לשיחות אינטימיות עם אנשים המגדירים את גבולותיהם בעצמם. היא מאפשרת להם לצייר את סיפורם על קנבס החיים, מבלי פילטרים, מבלי שיפוטיות. כל ראיון הוא יצירת אמנות בפני עצמה, עדות לכוחו של הדיאלוג לרפא, להבין ולחבר.
+                    </p>
+                    <p class="font-body text-lg leading-relaxed">
+                        מהתמודדויות נפש ועד פגיעות מיניות, מסיפורי ילדות מורכבים ועד משברים אישיים – נבון מנגישה את המורכב, הופכת את המושתק לנשמע, ואת הנסתר לגלוי. היא מגשרת לא רק בפורמליות, אלא בכל ליבת עשייתה, בונה גשרים של אמפתיה מעל תהומות של בדידות ואי-הבנה.
+                    </p>
+                </div>
+                <!-- Decorative inner layer -->
+                <div class="absolute inset-0 bg-fresco-ochre/10 rounded-lg transform rotate-2 opacity-10 -z-10"></div>
+            </section>
+
+            <!-- Conclusion/Legacy Section - "The Eternal Mark: Artist of Change" -->
+            <section class="relative p-8 bg-fresco-shadow/70 rounded-lg shadow-xl border border-fresco-terra/30 glass-effect fade-in-section">
+                <h2 class="font-heading text-4xl font-bold text-fresco-ochre mb-6">החותם הנצחי: אמנית השינוי</h2>
+                <p class="font-body text-lg leading-relaxed">
+                    אורית נבון היא יותר מאשר אשת תקשורת; היא אמנית חברתית, שמשתמשת בפלטפורמות הדיגיטליות כמכחול וצבע. היא לוקחת את מורשת הפרסקו – אמנות שמטרתה לשמר סיפורים לקראת נצח – ומיישמת אותה בעולם המודרני, שבו הסיפורים נשכחים במהירות. דרך הקשבה, חשיפה וגישור, היא בונה גלריה של קולות אנושיים, ציורים חיים של נפשות שמבקשות להישמע ולהשמיע.
+                </p>
+                <p class="font-body text-lg leading-relaxed mt-4 italic text-fresco-stone/80">
+                    "כי בסוף, כולנו מחפשים את הדי וההד – קול שיענה לקולנו."
+                </p>
+                <!-- Decorative inner layer -->
+                <div class="absolute top-0 right-0 w-full h-full border border-fresco-terra/20 rounded-lg transform -rotate-1 opacity-20 -z-10"></div>
+            </section>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="w-full text-center py-12 mt-16 border-t border-fresco-terra/30 text-fresco-sky/70 text-sm fade-in-section">
+            <p class="font-body">יצירה דיגיטלית בהשראת מסעה של אורית נבון | &copy; 2023</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Custom Cursor, Parallax Effect, and Scroll Reveal -->
+    <script>
+        // Custom Cursor Functionality
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Parallax Effect for Background Layers
+        const parallaxBg1 = document.getElementById('parallax-bg-1');
+        const parallaxBg2 = document.getElementById('parallax-bg-2');
+        const parallaxBg3 = document.getElementById('parallax-bg-3');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (parallaxBg1) parallaxBg1.style.transform = `translateY(${scrollY * 0.1}px)`;
+            if (parallaxBg2) parallaxBg2.style.transform = `translateY(${scrollY * 0.05}px)`;
+            if (parallaxBg3) parallaxBg3.style.transform = `translateY(${scrollY * 0.02}px)`;
+        });
+
+        // Scroll Reveal / Fade-in Sections using Intersection Observer
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once the element is visible to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the section is visible
+            rootMargin: '0px 0px -50px 0px' // Slightly pre-load before fully entering viewport
+        });
+
+        fadeInSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Dynamically extract RGB values for the glass-effect fallback
+        // This ensures the rgba() fallback in CSS works even if the variable is not directly consumable by rgba()
+        document.addEventListener('DOMContentLoaded', () => {
+            const frescoShadowColor = getComputedStyle(document.documentElement).getPropertyValue('--fresco-shadow').trim();
+            // Convert hex color to RGB
+            let r = 0, g = 0, b = 0;
+            if (frescoShadowColor.startsWith('#')) {
+                const hex = frescoShadowColor.slice(1);
+                r = parseInt(hex.substring(0, 2), 16);
+                g = parseInt(hex.substring(2, 4), 16);
+                b = parseInt(hex.substring(4, 6), 16);
+            }
+            document.documentElement.style.setProperty('--fresco-shadow-rgb', `${r}, ${g}, ${b}`);
+        });
+    </script>
+</body>
+</html>

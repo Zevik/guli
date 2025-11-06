@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: קולות העיר, הדים מהנפש</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS Configuration for custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0a0a0a',
+                        'secondary-bg': '#1a1a1a',
+                        'text-light': '#e0e0e0',
+                        'accent-neon': '#00bcd4', /* Cyan */
+                        'accent-rust': '#ff5722', /* Deep Orange */
+                        'accent-gold': '#fbc02d', /* Gold */
+                        'cursor-border': '#FFFFFF',
+                        'cursor-shadow-base': 'rgba(0,0,0,0.8)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles and custom cursor setup */
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--tw-color-cursor-border);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease-out, height 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+            z-index: 9999;
+            box-shadow: 0 0 0 2px var(--tw-color-cursor-shadow-base); /* High-contrast shadow */
+            opacity: 1; /* Ensure visibility */
+        }
+        .custom-cursor.hovered {
+            width: 40px;
+            height: 40px;
+            border-color: var(--tw-color-accent-neon);
+            box-shadow: 0 0 0 2px var(--tw-color-cursor-shadow-base), 0 0 15px var(--tw-color-accent-neon);
+        }
+
+        /* Parallax background elements */
+        .parallax-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            will-change: transform; /* Optimize for animation */
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .layer-1 {
+            background: radial-gradient(circle at top left, rgba(0,188,212,0.1) 0%, transparent 40%),
+                        linear-gradient(135deg, rgba(255,87,34,0.05) 0%, transparent 60%),
+                        linear-gradient(45deg, rgba(251,192,45,0.05) 0%, transparent 60%);
+        }
+        .layer-2 {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255,255,255,0.02) 0px,
+                rgba(255,255,255,0.02) 2px,
+                transparent 2px,
+                transparent 10px
+            );
+            opacity: 0.3;
+        }
+        .layer-3 {
+            background: radial-gradient(circle at bottom right, rgba(255,87,34,0.1) 0%, transparent 30%),
+                        linear-gradient(225deg, rgba(0,188,212,0.05) 0%, transparent 70%);
+            opacity: 0.4;
+        }
+
+        /* Content specific styles */
+        .header-title {
+            font-family: 'Rubik Mono One', monospace;
+            text-shadow: 0 0 10px var(--tw-color-accent-neon), 0 0 20px var(--tw-color-accent-neon), 0 0 30px rgba(0,188,212,0.4);
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-family: 'Rubik Mono One', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(251,192,45,0.5);
+            border-right: 3px solid var(--tw-color-accent-neon); /* RTL border */
+            padding-right: 1rem; /* RTL padding */
+            margin-bottom: 1.5rem;
+            display: inline-block; /* to make border-right work nicely */
+        }
+
+        .content-card {
+            backdrop-filter: blur(5px) brightness(80%);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px rgba(0,188,212,0.1), 0 0 40px rgba(0,188,212,0.05);
+            transition: all 0.3s ease-in-out;
+        }
+        .content-card:hover {
+            box-shadow: 0 0 30px rgba(0,188,212,0.2), 0 0 60px rgba(0,188,212,0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Scroll-in effect for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-primary-bg text-text-light">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Parallax Background Layers -->
+    <div class="parallax-layer layer-1" data-parallax-speed="-0.1"></div>
+    <div class="parallax-layer layer-2" data-parallax-speed="-0.2"></div>
+    <div class="parallax-layer layer-3" data-parallax-speed="-0.3"></div>
+
+    <div class="relative z-0 min-h-screen p-4 md:p-8 flex flex-col items-center justify-start">
+        <header class="w-full max-w-4xl text-center my-16 fade-in-section">
+            <h1 class="header-title text-4xl md:text-6xl text-accent-neon mb-4">אורית נבון: קולות העיר, הדים מהנפש</h1>
+            <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed max-w-2xl mx-auto">בין מגדלי בטון ואספלט לוהט, עיר רוחשת סיפורים חבויים. צלילי חיים, לחשושי קיום, רחשים דקים בתוך שאון יומיומי. אורית נבון – ארכיטקטית של שיח, בונה גשרים של הקשבה בנוף האורבני המורכב של חיינו.</p>
+        </header>
+
+        <main class="w-full max-w-3xl space-y-16 mt-8 mb-24">
+
+            <section class="content-card p-8 rounded-lg shadow-xl bg-secondary-bg fade-in-section">
+                <h2 class="section-title text-3xl md:text-4xl text-accent-gold">שרטוטים ראשונים - המסע מהשוליים למרכז</h2>
+                <p class="text-lg leading-loose text-neutral-200">ברמת גן, עיר של בניינים ורחובות מתפתלים, החל המסלול. מילדה דתית שמעזה לחלום מחוץ לקווים, דרך כתבי נוער שבהם ציורים ראשונים של אמת נצרבו על הדף, אל רדיו קול ישראל – שם החלה ללכוד הדים ראשונים של העיר המתעוררת. היא לא ביקשה לצעוד בשבילים סלולים, אלא לפרוץ דרכים חדשות, להטביע חותם אישי בנוף התקשורתי.</p>
+            </section>
+
+            <section class="content-card p-8 rounded-lg shadow-xl bg-secondary-bg fade-in-section">
+                <h2 class="section-title text-3xl md:text-4xl text-accent-gold">קירות אילמים - מאקו וטורי הרחוב</h2>
+                <p class="text-lg leading-loose text-neutral-200">כשהעיר הדיגיטלית החלה לקרום עור וגידים, במאקו, אורית מצאה את קירותיה שלה. טור שבועי, כמו גרפיטי אישי, הופיע שוב ושוב – עסק בדתיות מודרנית, ניווט בין סמטאות האמונה למרחבי החיים החילוניים. הטורים שלה היו פנס רחוב שהאיר פינות חשוכות, הזמנה להתבונן בפרדוקסים של הזהות הישראלית, עם שקיפות כואבת וכנה. היא נתנה מילים לקונפליקטים, והפכה את קירות העיר למראה.</p>
+            </section>
+
+            <section class="content-card p-8 rounded-lg shadow-xl bg-secondary-bg fade-in-section">
+                <h2 class="section-title text-3xl md:text-4xl text-accent-gold">תחנות הקשבה - כאן 11 וקולות מהבטון</h2>
+                <p class="text-lg leading-loose text-neutral-200">בתאגיד כאן 11, היא בנתה את "תחנות ההקשבה" שלה. סדרת "כאן מקשיבים" אינה רק תוכנית, היא מגדלור של אנושיות בלב הכרך. שיחות אינטימיות, חשופות, עם אלו שסיפוריהם נשכחו בפינות אפלות – התמודדויות נפש, פגיעות מיניות, משברים אישיים. כל פרק הוא חלון שנפתח, וחושף נוף פנימי שקשה להתבונן בו, אך חיוני להבין. "מונולוגים מהאולפנה" ו"מונולוגים מהישיבה" היו ניסיון אמיץ לפצח את קירות הטאבו סביב מיניות במגזר הדתי. כמו קרני שמש החודרות לסדקים בבניין ישן, הם האירו את המורכבות והעניקו קול לעולמות שלמים של שתיקה.</p>
+            </section>
+
+            <section class="content-card p-8 rounded-lg shadow-xl bg-secondary-bg fade-in-section">
+                <h2 class="section-title text-3xl md:text-4xl text-accent-gold">מגשרת בין שברים - בונה גשרים של הבנה</h2>
+                <p class="text-lg leading-loose text-neutral-200">מעבר לעיתונות, אורית היא מגשרת. היא לא רק מציגה סוגיות, היא פועלת לאחות שברים, לבנות קשרים, להחזיר את האמון ביכולתנו לדבר זה עם זה. בהרצאותיה, היא מלמדת את אמנות ההקשבה – מיומנות חיונית בעיר רועשת בה כולם מדברים, אך מעטים באמת מקשיבים. היא כמו מהנדסת חברתית, מתכננת נתיבי תקשורת בתוך תנועת החיים הסוערת.</p>
+            </section>
+
+            <section class="content-card p-8 rounded-lg shadow-xl bg-secondary-bg fade-in-section">
+                <h2 class="section-title text-3xl md:text-4xl text-accent-gold">מגדלור של אמת - מעל קו הרקיע</h2>
+                <p class="text-lg leading-loose text-neutral-200">קולה של אורית נבון הוא קול שמבקר, מפקפק, ומעז להגיד את האמת – גם כשזו לא פופולרית. היא מביטה אל הנוף הפוליטי והחברתי בעיניים פקוחות, לא חוששת להצביע על הסדקים והכשלים. מגינה על ערכים של שוויון וצדק, גם כשהזרם מנסה לסחוף אותה. היא לא רק מדווחת על העיר, היא מעצבת את המצפון שלה.</p>
+            </section>
+
+        </main>
+
+        <footer class="w-full max-w-4xl text-center mt-16 py-8 border-t border-neutral-700 fade-in-section">
+            <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed max-w-2xl mx-auto">בתוך המטרופולין של קיום, אורית נבון מזכירה לנו שיש מעבר לבטון ולזכוכית – ישנם קולות אנושיים, צורך עמוק בחיבור, ובאומץ להקשיב. היא הופכת את רעש הרקע לסימפוניה של אנושיות, ומציירת בעבורנו מפה חדשה לניווט בעיר המורכבת של חיינו.</p>
+            <p class="mt-8 text-sm text-neutral-500">
+                <span class="text-accent-neon">&copy;</span> יצירה דיגיטלית בהשראת אורית נבון.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor JS
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Elements that trigger cursor hover effect
+        const interactiveElements = document.querySelectorAll('a, button, .content-card, h1, h2, p');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+
+        // Parallax Scrolling JS
+        const parallaxLayers = document.querySelectorAll('.parallax-layer');
+        window.addEventListener('scroll', () => {
+            let scrollY = window.pageYOffset;
+            parallaxLayers.forEach(layer => {
+                const speed = parseFloat(layer.dataset.parallaxSpeed);
+                layer.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        });
+
+        // Fade-in Sections on Scroll JS
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+        const options = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, options);
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

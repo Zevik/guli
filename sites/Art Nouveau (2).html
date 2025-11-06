@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: גשרים של קול, נבטים של דיאלוג</title>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @layer base {
+            body {
+                font-family: 'Frank Ruhl Libre', serif;
+                cursor: none; /* Hide default cursor */
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Cormorant Garamond', serif;
+            }
+        }
+
+        /* Custom Tailwind Configuration */
+        :root {
+            --art-noir-dark: #1F2937; /* Dark slate/charcoal */
+            --art-noir-teal: #2F4F4F; /* Deep teal */
+            --art-noir-gold: #B8860B; /* Muted gold */
+            --art-noir-cream: #F5DEB3; /* Wheat/Cream */
+            --art-noir-emerald: #004B49; /* Darker emerald */
+            --art-noir-rose: #8B4513; /* Sienna/earthy brown with a hint of rose */
+            --art-noir-light-gold: #D4AF37; /* Lighter gold accent */
+            --art-noir-muted-purple: #4B0082; /* Deep purple */
+        }
+
+        .custom-cursor {
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8);
+            background-color: rgba(212, 175, 55, 0.3); /* Semi-transparent gold */
+            transition: transform 0.1s ease-out;
+            pointer-events: none;
+            z-index: 9999;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            position: fixed;
+            left: -100px; /* Initial off-screen position */
+            top: -100px;
+        }
+
+        .element-hovered .custom-cursor {
+            transform: scale(1.5);
+            background-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.8);
+        }
+
+        .art-nouveau-pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232F4F4F' fill-opacity='0.4'%3E%3Cpath d='M12 0L0 12L12 24L24 12L12 0ZM12 48L0 60L12 72L24 60L12 48Z'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        .decorative-border {
+            border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0H80C91.0457 0 100 8.95431 100 20V80C100 91.0457 91.0457 100 80 100H20C8.95431 100 0 91.0457 0 80V20C0 8.95431 8.95431 0 20 0Z' fill='%23B8860B'/%3E%3Cpath d='M10 10V90H90V10H10Z' fill='%231F2937'/%3E%3Cpath d='M25 25C25 25 35 15 50 25C65 35 75 25 75 25L50 50L25 25Z' fill='%23D4AF37' opacity='0.7'/%3E%3Cpath d='M25 75C25 75 35 85 50 75C65 65 75 75 75 75L50 50L25 75Z' fill='%23D4AF37' opacity='0.7'/%3E%3Cpath d='M75 25C75 25 85 35 75 50C65 65 75 75 75 75L50 50L75 25Z' fill='%23D4AF37' opacity='0.7'/%3E%3Cpath d='M25 25C25 25 15 35 25 50C35 65 25 75 25 75L50 50L25 25Z' fill='%23D4AF37' opacity='0.7'/%3E%3C/svg%3E") 30 / 100px stretch;
+            border-width: 15px; /* Adjust thickness */
+            border-style: solid;
+        }
+
+        /* Parallax effect for background elements */
+        .parallax-layer {
+            transition: transform 0.1s linear;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Decorative flourishes with pseudo-elements */
+        .section-divider {
+            position: relative;
+            margin: 4rem 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--art-noir-gold), transparent);
+            width: 80%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            position: absolute;
+            background-color: var(--art-noir-light-gold);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            top: -4px;
+        }
+        .section-divider::before { left: 0; }
+        .section-divider::after { right: 0; }
+
+        /* General link styling */
+        a {
+            color: var(--art-noir-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--art-noir-light-gold);
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'art-noir-dark': 'var(--art-noir-dark)',
+                        'art-noir-teal': 'var(--art-noir-teal)',
+                        'art-noir-gold': 'var(--art-noir-gold)',
+                        'art-noir-cream': 'var(--art-noir-cream)',
+                        'art-noir-emerald': 'var(--art-noir-emerald)',
+                        'art-noir-rose': 'var(--art-noir-rose)',
+                        'art-noir-light-gold': 'var(--art-noir-light-gold)',
+                        'art-noir-muted-purple': 'var(--art-noir-muted-purple)',
+                    },
+                    fontFamily: {
+                        'heading': ['Cormorant Garamond', 'serif'],
+                        'body': ['Frank Ruhl Libre', 'serif'],
+                    },
+                    boxShadow: {
+                        'art-glow': '0 0 15px rgba(184, 134, 11, 0.7)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-art-noir-dark text-art-noir-cream leading-relaxed antialiased overflow-x-hidden">
+    <div class="custom-cursor"></div>
+
+    <!-- Background Layer 1 (Slowest parallax) -->
+    <div class="fixed inset-0 art-nouveau-pattern-bg bg-art-noir-dark opacity-30 parallax-layer" data-parallax-speed="0.1"></div>
+
+    <!-- Background Layer 2 (Faster parallax - subtle swirls) -->
+    <div class="fixed inset-0 opacity-20 parallax-layer" data-parallax-speed="0.2" style="background-image: url('data:image/svg+xml,%3Csvg width=\"100%\" height=\"100%\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cdefs%3E%3ClinearGradient id=\"a\" x1=\"-10%\" y1=\"-10%\" x2=\"110%\" y2=\"110%\"%3E%3Cstop offset=\"0%\" stop-color=\"%232F4F4F\" stop-opacity=\"0.8\"/%3E%3Cstop offset=\"100%\" stop-color=\"%23004B49\" stop-opacity=\"0.8\"/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill=\"none\" stroke=\"url(%23a)\" stroke-width=\"1\" d=\"M0 50c0-27.614 22.386-50 50-50s50 22.386 50 50-22.386 50-50 50-50-22.386-50-50zM10 50c0-22.091 17.909-40 40-40s40 17.909 40 40-17.909 40-40 40-40-17.909-40-40zM20 50c0-16.569 13.431-30 30-30s30 13.431 30 30-13.431 30-30 30-30-13.431-30-30zM30 50c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zM40 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z\"/%3E%3C/svg%3E'); background-size: cover;"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-between p-4 md:p-8 lg:p-12">
+        <header class="text-center mb-16 scroll-reveal">
+            <h1 class="text-5xl md:text-7xl font-heading text-art-noir-light-gold drop-shadow-lg mb-4 hover:text-art-noir-gold transition-colors duration-300">
+                <span class="block mb-2">אורית נבון:</span>
+                <span class="block">זרמים של מילים, גשרים של הקשבה</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-art-noir-cream font-body border-b-2 border-art-noir-gold pb-2 mx-auto max-w-xl">
+                מסע בנבכי עבודתה ויצירתה של אשת תקשורת פורצת דרך
+            </p>
+        </header>
+
+        <main class="flex-grow max-w-4xl mx-auto space-y-24">
+
+            <section id="intro" class="bg-art-noir-teal bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">פורטרט עולה: האמנית והמקשיבה</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    כמו קווי מתאר מתעגלים בעבודת זכוכית ארט נובו, כך נשזר סיפורה של אורית נבון - אשת תקשורת רבגונית, קולה מהדהד במרחבי השיח הישראלי.
+                    עיתונאית, מגישה, במאית ומגשרת - היא אינה רק מספרת סיפורים, אלא אורגת אותם מחוטי הקשבה עדינים, בונה גשרים של הבנה במקום בו פעורים פערי תהום.
+                    נוכחותה הופכת כל מפגש לשיחה עמוקה, כל נושא - לליבון רגיש, וכל עבודה - ליצירת אמנות המאירה פינות נסתרות בנפש ובחברה.
+                </p>
+                <p class="text-md text-art-noir-cream italic text-center">
+                    "המילה היא כלי, אך השתיקה - היא הבד שעליו נרקם הדיאלוג האמיתי."
+                </p>
+            </section>
+
+            <div class="section-divider scroll-reveal"></div>
+
+            <section id="career-roots" class="bg-art-noir-emerald bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">מעיין היצירה: שנות העיצוב</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    זרעי הקריירה של נבון ניטעו מוקדם, כשהפרוזה שלה החלה לפרוח במגזינים לילדים ונוער, כמו "אותיות" ו"מעריב לנוער".
+                    כמו תבליטי פריחה עדינה על עמוד עץ, כך התעצבה יכולתה לגעת בלב הקהל, לעורר מחשבה, ולחקור את המורכבות האנושית.
+                    עם השנים, התפתחה דרכה מ"קול ישראל" דרך "רייטינג" ו"מעריב", ועד לצוות ההקמה של אתר "מאקו" - אבן דרך בה ביססה את מעמדה ככותבת טור אישי, טור שהפך למראה של דתיות מודרנית ושיח ציבורי נוקב.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="#" class="inline-block px-6 py-3 bg-art-noir-gold text-art-noir-dark font-semibold rounded-full hover:bg-art-noir-light-gold shadow-md hover:shadow-lg transition-all duration-300">
+                        קראו עוד על תחילת דרכה
+                    </a>
+                </div>
+            </section>
+
+            <div class="section-divider scroll-reveal"></div>
+
+            <section id="listening-art" class="bg-art-noir-muted-purple bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">אריגת קולות: אמנות ההקשבה</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    ב"כאן 11", תאגיד השידור הישראלי, הגיעה אמנותה של אורית נבון לשיאה בסדרה "כאן מקשיבים" - פרויקט ששמו כשמו כן הוא: מקשיב.
+                    כמו סבך עדין של עלי גפן מתפתלים, כך היא אורגת שיחות אינטימיות ומרגשות עם אנשים אנונימיים וידועים כאחד, מעניקה במה לנושאים מושתקים: התמודדויות נפש, פגיעות מיניות ומשברים אישיים.
+                    מיליוני צופים ועשרות פרקים באקדמיה ובצה"ל הם עדות לעוצמת ההשפעה של אמנות ההקשבה, המרפאת ומחברת.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="https://kan.org.il/item/?itemId=12148" target="_blank" class="inline-block px-6 py-3 bg-art-noir-gold text-art-noir-dark font-semibold rounded-full hover:bg-art-noir-light-gold shadow-md hover:shadow-lg transition-all duration-300">
+                        לצפייה ב"כאן מקשיבים"
+                    </a>
+                </div>
+            </section>
+
+            <div class="section-divider scroll-reveal"></div>
+
+            <section id="modern-faith" class="bg-art-noir-teal bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">גוונים של אמונה: בין קודש לחול</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    המסע האישי של אורית נבון, מבית דתי שמרני אל עבר תפיסת עולם פתוחה ומודרנית, משתקף עמוקות ביצירתה.
+                    בסדרות כמו "מונולוגים מהאולפנה" ו"מונולוגים מהישיבה", היא פרצה גבולות וניפצה טאבו, העזה לדבר על מיניות ואינטימיות במגזר הדתי - נושאים שלרוב נותרו עטופים בשתיקה.
+                    כמו חלון ויטראז' ארט נובו, המשלב זכוכיות בצבעים שונים ליצירה שלמה, כך היא משלבת את עולמות הקודש והחול, המאפשרת לאנשים לחפש את דרכם הרוחנית מתוך שיח אמיתי וכנה.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="https://www.youtube.com/watch?v=ukKrUdy77gg" target="_blank" class="inline-block px-6 py-3 bg-art-noir-gold text-art-noir-dark font-semibold rounded-full hover:bg-art-noir-light-gold shadow-md hover:shadow-lg transition-all duration-300">
+                        צפו ב"מונולוגים מהאולפנה"
+                    </a>
+                </div>
+            </section>
+
+            <div class="section-divider scroll-reveal"></div>
+
+            <section id="healing-dialogues" class="bg-art-noir-emerald bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">הגשר אל הלב: ריפוי הנפש</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    בעולם שבו קולות רבים מתנגשים, אורית נבון מציעה מרחב של הקשבה וריפוי.
+                    כמגשרת מוסמכת ומרצה בתחום התקשורת הבינאישית, היא חולקת כלים ותובנות לשיפור הדיאלוג הפנימי והחיצוני.
+                    פרויקטים כמו הפודקאסט "לא טוב לי", בשיתוף עמותת סהר, וסדרת "הצילו את הנפש", מעידים על מחויבותה העמוקה לרווחה הנפשית של הציבור, במיוחד בתקופות משבר.
+                    היא מאמינה בכוחה של המילה המכילה, וביכולתו של האדם למצוא נחמה ואור בתוך השיחה, כמו קרן שמש החודרת מבעד לעלי עץ צפופים.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="https://sahar.org.il/blog/%D7%94%D7%9B%D7%99%D7%A8%D7%95-%D7%90%D7%AA-%D7%94%D7%A4%D7%95%D7%93%D7%A7%D7%90%D7%A1%D7%98-%D7%9C%D7%90-%D7%98%D7%95%D7%91-%D7%9C%D7%99/" target="_blank" class="inline-block px-6 py-3 bg-art-noir-gold text-art-noir-dark font-semibold rounded-full hover:bg-art-noir-light-gold shadow-md hover:shadow-lg transition-all duration-300">
+                        האזינו לפודקאסט "לא טוב לי"
+                    </a>
+                </div>
+            </section>
+
+            <div class="section-divider scroll-reveal"></div>
+
+            <section id="legacy" class="bg-art-noir-muted-purple bg-opacity-70 backdrop-blur-sm p-8 rounded-2xl shadow-art-glow scroll-reveal decorative-border">
+                <h2 class="text-4xl font-heading text-art-noir-light-gold mb-6 text-center">זרעי העתיד: הקשבה למחר</h2>
+                <p class="text-lg text-art-noir-cream mb-4">
+                    אורית נבון ממשיכה לזרוע זרעים של שיח מעמיק ומשמעותי. בין אם בהגשת הסכתים חדשים כמו "המצפן", שדן בסוגיות אתיות, ובין אם בהרצאותיה המעוררות השראה, היא מנחה את הדרך לשיפור התקשורת האנושית.
+                    כמו פרחי לילך ארט נובו הנפתחים לעולם, היא פותחת בפנינו אפשרויות חדשות להבין, להכיל, ולגשר על פני מחלוקות.
+                    חייה האישיים בשוהם, כאם לשניים וכאשת איש, משמשים אף הם השראה לעבודתה, מוכיחים שניתן לשלב חיים של משפחה, אמונה וקריירה תובענית, הכל תחת מטריה אחת של הקשבה בלתי מתפשרת.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="https://www.facebook.com/orit.navon" target="_blank" class="inline-block px-6 py-3 bg-art-noir-gold text-art-noir-dark font-semibold rounded-full hover:bg-art-noir-light-gold shadow-md hover:shadow-lg transition-all duration-300">
+                        עקבו אחר אורית נבון בפייסבוק
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-20 text-art-noir-cream text-sm opacity-80 scroll-reveal">
+            <p>&copy; 2024 יצירה בהשראת אורית נבון - אמן דיגיטלי וקוד יצירתי</p>
+            <p class="mt-2">
+                <a href="#intro" class="text-art-noir-gold hover:text-art-noir-light-gold transition-colors duration-300">חזרה למעלה</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const customCursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = `${e.clientX - customCursor.offsetWidth / 2}px`;
+            customCursor.style.top = `${e.clientY - customCursor.offsetHeight / 2}px`;
+        });
+
+        const clickableElements = document.querySelectorAll('a, button, [role="button"], .shadow-art-glow');
+        clickableElements.forEach(el => {
+            el.addEventListener('mouseenter', () => customCursor.classList.add('element-hovered'));
+            el.addEventListener('mouseleave', () => customCursor.classList.remove('element-hovered'));
+        });
+
+        // Parallax Effect Logic
+        document.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.parallax-layer').forEach(layer => {
+                const speed = parseFloat(layer.getAttribute('data-parallax-speed') || 0.5);
+                layer.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Scroll Reveal Animation
+        const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            scrollRevealObserver.observe(el);
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

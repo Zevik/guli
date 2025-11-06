@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון - מסע של מילים וקסם</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Fonts */
+        .font-fredoka { font-family: 'Fredoka', sans-serif; }
+        .font-assistant { font-family: 'Assistant', sans-serif; }
+
+        /* Custom Cursor Styling - MANDATORY High Contrast */
+        #custom-cursor {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s ease-out; /* Smooth movement */
+            z-index: 9999; /* Always on top */
+            border: 2px solid #FFFFFF; /* Light border */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow */
+            background-color: transparent; /* Ensure transparent fill */
+            mix-blend-mode: normal; /* Explicitly normal as required */
+            transform: translate(-50%, -50%); /* Center cursor */
+            display: none; /* Hidden until JS activates */
+        }
+
+        /* Parallax Background */
+        .parallax-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="f1" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="1.5" /></filter></defs><rect width="100" height="100" fill="%23e0f7fa"/><circle cx="20" cy="20" r="10" fill="%23add8e6" filter="url(%23f1)"/><circle cx="80" cy="30" r="12" fill="%23cbe9f7" filter="url(%23f1)"/><circle cx="50" cy="70" r="8" fill="%23b0e0e6" filter="url(%23f1)"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Simple parallax effect on background position */
+            background-attachment: fixed;
+        }
+
+        /* Children's Book Illustration styles */
+        .story-card {
+            background-color: #fffaf0; /* Creamy paper */
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.1), -8px -8px 0px 0px rgba(255, 255, 255, 0.3); /* Soft, playful shadow */
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f8d7da; /* Gentle border */
+        }
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at top left, rgba(255,255,255,0.3) 10%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .decorative-cloud {
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            opacity: 0.8;
+            transform: scale(0);
+            animation: cloud-float 15s infinite ease-in-out alternate;
+        }
+        .decorative-cloud:nth-child(1) { width: 100px; height: 60px; top: 10%; left: 10%; animation-delay: 0s; }
+        .decorative-cloud:nth-child(2) { width: 120px; height: 70px; top: 20%; right: 15%; animation-delay: 5s; }
+        .decorative-cloud:nth-child(3) { width: 80px; height: 50px; bottom: 5%; left: 20%; animation-delay: 10s; }
+
+        @keyframes cloud-float {
+            0% { transform: translateY(0) scale(0.8); opacity: 0.7; }
+            50% { transform: translateY(-10px) scale(1); opacity: 0.9; }
+            100% { transform: translateY(0) scale(0.8); opacity: 0.7; }
+        }
+
+        /* Entrance Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .slide-in-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .pop-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .pop-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Specific styles for illustrative elements (e.g., a "sun" or "stars") */
+        .sun-illustration {
+            width: 120px;
+            height: 120px;
+            background-color: #ffd700; /* Gold color */
+            border-radius: 50%;
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+        .sun-ray {
+            width: 20px;
+            height: 80px;
+            background-color: #ffd700;
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            transform-origin: bottom center;
+            border-radius: 5px;
+            opacity: 0.7;
+        }
+        .sun-ray:nth-child(1) { transform: rotate(30deg); top: 50px; right: 5px; }
+        .sun-ray:nth-child(2) { transform: rotate(90deg); top: 90px; right: 60px; }
+        .sun-ray:nth-child(3) { transform: rotate(150deg); top: 50px; right: 115px; }
+
+
+        .book-page-turn {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 50px;
+            height: 50px;
+            background-color: #f0e6d6;
+            border-radius: 0 0 20px 0;
+            box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+            transform: rotateY(0deg);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-in-out;
+        }
+        .story-card:hover .book-page-turn {
+            transform: rotateY(40deg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .story-card {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            .decorative-cloud {
+                display: none; /* Hide complex elements on small screens */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-gray-800 font-assistant cursor-none">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Parallax Background Layer -->
+    <div class="parallax-bg"></div>
+
+    <!-- Main Storybook Wrapper -->
+    <div class="relative z-10 mx-auto max-w-4xl py-12 lg:py-24 space-y-20">
+
+        <!-- Header Section: A welcoming illustration -->
+        <header class="text-center mb-16 fade-in-up">
+            <h1 class="text-6xl md:text-8xl font-fredoka text-indigo-700 leading-tight mb-4 drop-shadow-lg">
+                <span class="block animate-pulse-slow">אורית נבון:</span>
+                <span class="block text-purple-600 text-5xl md:text-7xl">מסע של מילים וקסם</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-assistant text-gray-700 max-w-2xl mx-auto">
+                בואו נצא יחד למסע מרתק אל תוך עולמה של אישה יוצאת דופן, מגשרת, סופרת של סיפורי חיים ומקשיבה גדולה.
+            </p>
+            <div class="relative w-48 h-12 mx-auto mt-8 bg-blue-400 rounded-full flex items-center justify-center shadow-lg text-white font-fredoka text-xl transform hover:scale-105 transition-transform duration-300">
+                התחילו לקרוא!
+                <div class="absolute -left-4 -top-4 w-8 h-8 bg-yellow-300 rounded-full shadow-md animate-bounce-slow"></div>
+            </div>
+        </header>
+
+        <!-- Chapter 1: The Seed of Curiosity -->
+        <section class="story-card fade-in-up">
+            <h2 class="text-5xl font-fredoka text-red-500 mb-6 border-b-4 border-red-200 pb-3 inline-block">הילדה שאהבה מילים</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                בבית דתי ברמת גן, נולדה אורית הקטנה, הבכורה מבין שלושה ילדים. כבר אז, ניצוץ של סקרנות בער בעיניה, וכישרון למילים התגלה באצבעותיה. היא לא חיכתה לגדול, ובגיל צעיר החלה לכתוב למגזין הילדים "אותיות", ומהר מאוד מצאה את דרכה אל "מעריב לנוער" ואל "יומן מורשת" של קול ישראל. הדיו על הדף היה לה עולם שלם, בו יכלה לחקור, לשאול ולספר.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                כמו זרע קטן שנשתל באדמה פורייה, כך נבטה אהבתה לעיתונות – אהבה שתלווה אותה לאורך כל הדרך, ותהפוך לכלי רב עוצמה בידיה.
+            </p>
+            <div class="decorative-cloud w-24 h-16 top-10 right-10"></div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Chapter 2: Unfolding Pages -->
+        <section class="story-card slide-in-right">
+            <h2 class="text-5xl font-fredoka text-green-600 mb-6 border-b-4 border-green-200 pb-3 inline-block">דרכים חדשות נפתחות</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                אחרי שסיימה את האולפנה בבני ברק ושירות לאומי משמעותי, אורית פנתה ללימודים באוניברסיטת בר-אילן, שם למדה סוציולוגיה ואנתרופולוגיה. היא הבינה שהסיפורים הגדולים ביותר נמצאים בלב האנשים, בחברה, בחיבורים ובקונפליקטים. במקביל, המשיכה לכתוב, הפעם במגזין "רייטינג" ובתפקיד סגנית עורכת במוסף "סגנון" של מעריב.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                לאט לאט, התגלתה בפניה דרך נוספת – דרך הגישור. אורית הבינה שכמו שמילים יכולות לחבר סיפורים, כך הן יכולות גם לחבר בין אנשים. היא למדה גישור, ומאז היא משלבת את היכולת הנדירה הזו בכל תחומי חייה.
+            </p>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-300 rounded-full opacity-70 animate-float"></div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Chapter 3: A Bridge to Voices -->
+        <section class="story-card pop-in">
+            <h2 class="text-5xl font-fredoka text-yellow-600 mb-6 border-b-4 border-yellow-200 pb-3 inline-block">גשרים של סיפורים במאקו</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                כשאתר "מאקו" הוקם, אורית הייתה שם. היא הצטרפה לצוות ההקמה, ובמהרה הפכה לעורכת וכתבת מובילה. במשך שנים רבות, כתבה טור אישי שבועי שבו חלקה את מחשבותיה על "דתיות מודרנית", על משפחה, זוגיות, ועל כל מה שביניהם. היא לא פחדה לגעת בנושאים מורכבים ומושתקים, ופתחה שיח חשוב על הצטלבות עולמות – עולם הדת ועולם המודרנה.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                הטורים שלה היו כמו גשרים, שחיברו בין קוראים שונים, ונתנו קול למגוון חוויות וזהויות. היא יצרה קהילה של אנשים שחיפשו אמת ופתיחות, והוכיחה שאפשר להיות גם וגם, בלי לוותר על אף חלק מהעצמי.
+            </p>
+            <div class="sun-illustration">
+                <div class="sun-ray" style="transform: rotate(30deg); top: 50px; right: 5px;"></div>
+                <div class="sun-ray" style="transform: rotate(90deg); top: 90px; right: 60px;"></div>
+                <div class="sun-ray" style="transform: rotate(150deg); top: 50px; right: 115px;"></div>
+            </div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Chapter 4: The Listening Heart -->
+        <section class="story-card fade-in-up">
+            <h2 class="text-5xl font-fredoka text-teal-600 mb-6 border-b-4 border-teal-200 pb-3 inline-block">אוזן קשבת ב"כאן"</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                בשנים האחרונות, אורית נבון היא חלק בלתי נפרד מחטיבת הדיגיטל של תאגיד השידור הישראלי "כאן 11". שם, היא ממשיכה לרגש ולגעת בלבבות בתכנית הדגל שלה, "כאן מקשיבים". אורית יוצרת, מביימת ומגישה סדרת שיחות אינטימיות ומרגשות עם אנשים אמיצים החושפים את סיפוריהם בנושאים כמו התמודדויות נפש, פגיעות מיניות ומשברים אישיים.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                מיליוני צופים הקשיבו לקולה הרגיש והאנושי, ופרקי התכנית אף נלמדים בקורסים באוניברסיטאות ובהדרכות בצבא. אורית פותחת את הלב ואת הדלת לשיח כן ואמיתי, ומעניקה פתח תקווה ואוזן קשבת לכל מי שזקוק.
+            </p>
+            <div class="absolute -top-10 -right-10 w-24 h-24 bg-blue-300 rounded-full opacity-70 animate-pulse"></div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Chapter 5: Whispers of Wisdom -->
+        <section class="story-card slide-in-right">
+            <h2 class="text-5xl font-fredoka text-orange-600 mb-6 border-b-4 border-orange-200 pb-3 inline-block">ללמוד להקשיב באמת</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                מעבר למסכי הטלוויזיה והדיגיטל, אורית היא גם מגשרת מוסמכת ומרצה מבוקשת בתחום התקשורת הבינאישית. היא חולקת מניסיונה העשיר כלים מעשיים ותובנות עמוקות לשיפור יכולות ההקשבה והמיומנויות הבינאישיות. בהרצאותיה, היא מזמינה את הקהל לחשוב מחדש על אופן הדיבור וההקשבה שלנו, ועל הכוח שיש במילים כשהן נאמרות מתוך לב פתוח.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                היא מאמינה שהקשבה אמיתית היא מפתח לפתרון קונפליקטים, לחיזוק קשרים וליצירת חברה טובה יותר. אורית מעבירה את הידע שלה בקבוצת "גושרים", שם היא מכשירה את דור המגשרים הבא.
+            </p>
+            <div class="decorative-cloud w-28 h-20 bottom-10 left-10" style="animation-delay: 2s;"></div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Chapter 6: A Colorful World -->
+        <section class="story-card pop-in">
+            <h2 class="text-5xl font-fredoka text-purple-600 mb-6 border-b-4 border-purple-200 pb-3 inline-block">צבעים של בית ושל חלום</h2>
+            <p class="text-lg leading-relaxed mb-4 text-gray-800">
+                בחייה האישיים, אורית נשואה לאלעד, והיא אם לשני ילדים, גיא ומיקה, איתם היא מתגוררת בשוהם. ביתה הוא המקום שבו כל הסיפורים נפגשים – המסע האישי שלה כאישה שגדלה בבית דתי ועברה שינוי, השילוב בין קריירה תובענית לחיי משפחה, והרצון להעניק לילדיה את הטוב ביותר מכל העולמות.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-800">
+                אורית נבון היא קול חשוב ומרגש בתקשורת הישראלית, פורצת דרך שמעזה לדבר על הכל, ומזמינה את כולנו להקשיב – לעצמנו, לאחרים, ולסיפורים המדהימים שמרכיבים את חיינו. מסעה ממשיך, ואין ספק שעוד המון עמודים מרתקים יתווספו לספר חייה.
+            </p>
+            <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-pink-300 rounded-full opacity-60 animate-spin-slow"></div>
+            <div class="book-page-turn"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-20 py-8 text-gray-600 text-sm font-assistant border-t border-gray-300">
+            <p class="fade-in-up">
+                © 2024 עבודה אמנותית בהשראת מסעה של אורית נבון. כל הזכויות שמורות.
+            </p>
+            <p class="text-xs mt-2 fade-in-up" style="animation-delay: 0.5s;">
+                יצירה דיגיטלית בסגנון איור ספרי ילדים.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Custom Cursor JavaScript
+        const customCursor = document.getElementById('custom-cursor');
+        let cursorVisible = false;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!cursorVisible) {
+                customCursor.style.display = 'block';
+                cursorVisible = true;
+            }
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        document.body.addEventListener('mouseenter', () => {
+            if (!cursorVisible) {
+                customCursor.style.display = 'block';
+                cursorVisible = true;
+            }
+        });
+
+        document.body.addEventListener('mouseleave', () => {
+            customCursor.style.display = 'none';
+            cursorVisible = false;
+        });
+
+        // Scroll-based Animations
+        const sections = document.querySelectorAll('.story-card, header, footer p');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Unobserve after activation to prevent re-triggering
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Optional: Remove active class when out of view
+                    // entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.2, // Trigger when 20% of the item is visible
+            rootMargin: '0px 0px -100px 0px' // Adjust for earlier trigger
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Simple Parallax Effect on Background
+        // This is optional if background-attachment: fixed is sufficient.
+        // For more dynamic parallax, you would adjust translateY of elements.
+        // Let's add a subtle, purely JS-driven background element parallax for one cloud.
+        const header = document.querySelector('header');
+        if (header) {
+            const cloud = document.createElement('div');
+            cloud.classList.add('decorative-cloud', 'w-48', 'h-32', 'top-1/4', 'left-1/4', 'opacity-90');
+            cloud.style.animation = 'none'; // Disable CSS animation to control with JS
+            cloud.style.transform = 'scale(1)'; // Ensure visible
+            cloud.style.transition = 'none'; // No transition for direct JS control
+            cloud.style.zIndex = '0'; // Behind header content
+            header.style.position = 'relative'; // Ensure cloud is positioned relative to header
+            header.appendChild(cloud);
+
+            document.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                // Move cloud slightly less than scroll
+                cloud.style.transform = `translateY(${scrollY * 0.1}px) scale(1)`;
+            });
+        }
+
+    </script>
+</body>
+</html>

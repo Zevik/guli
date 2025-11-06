@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית נבון: תמונה מורכבת</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Heebo', sans-serif; /* Primary font for body text */
+            cursor: none; /* Hide default cursor */
+            background-color: #0d0d0d; /* Dark base background */
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Rubik', sans-serif; /* Accent font for headings */
+        }
+
+        /* Custom cursor styling */
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Visible on dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Visible on light backgrounds */
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+            will-change: transform, width, height;
+        }
+        .custom-cursor.text-hover {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Photomontage elements styling (abstract shapes/gradients for layered effect) */
+        .photomontage-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .layer-1 {
+            background: linear-gradient(135deg, rgba(23, 23, 23, 0.8) 0%, rgba(39, 39, 39, 0.6) 100%);
+            transform: scale(1.1) rotate(-3deg);
+            z-index: -5;
+            opacity: 0.4; /* Adjusted for blending without mix-blend-mode */
+        }
+        .layer-2 {
+            background: radial-gradient(circle, rgba(63,63,63,0.7) 0%, rgba(13,13,13,0.5) 70%);
+            transform: scale(0.9) rotate(5deg);
+            z-index: -6;
+            opacity: 0.3; /* Adjusted for blending without mix-blend-mode */
+            bottom: -10%; right: -10%; top: auto; left: auto; /* reposition */
+        }
+        .layer-3 {
+            background: linear-gradient(to top left, rgba(100, 100, 100, 0.1) 0%, rgba(50, 50, 50, 0.3) 100%);
+            transform: rotate(2deg) translateX(10%);
+            z-index: -4;
+            opacity: 0.5; /* Adjusted for blending without mix-blend-mode */
+            top: 15%; left: 5%; width: 80%; height: 70%;
+        }
+        .layer-overlay-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.05; /* Adjusted for blending without mix-blend-mode */
+            z-index: -3;
+        }
+
+        /* Parallax Scroll effect (subtle movement of fixed layers) */
+        /* The JS handles the transform, CSS prepares the base */
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* RTL - right side */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Main artistic content container -->
+    <div class="relative min-h-screen z-10 overflow-hidden">
+
+        <!-- Photomontage background layers (fixed elements for depth and parallax effect) -->
+        <div class="fixed inset-0 photomontage-layer layer-1"></div>
+        <div class="fixed inset-0 photomontage-layer layer-2"></div>
+        <div class="fixed inset-0 photomontage-layer layer-3"></div>
+        <div class="fixed inset-0 photomontage-layer layer-overlay-texture"></div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator animate-bounce">↓</div>
+
+        <!-- Section 1: Introduction - The Unfolding Narrative -->
+        <section class="min-h-screen flex items-center justify-center text-center p-8 relative">
+            <div class="max-w-4xl mx-auto space-y-8 relative z-20">
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight text-white drop-shadow-lg opacity-0 animate-fade-in">
+                    אורית נבון:<br>מקטעי הקשבה, מראות חיים
+                </h1>
+                <p class="text-xl md:text-2xl mt-4 max-w-2xl mx-auto opacity-0 animate-fade-in-delay-1 text-gray-300">
+                    קול צלול החוצה רעש, מחפש את האמת.<br>מסע בין מילים, דימויים ונפשות מדברות.
+                </p>
+                <div class="mt-12 opacity-0 animate-fade-in-delay-2">
+                    <button class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                        התחילו לצלול
+                    </button>
+                </div>
+            </div>
+            <!-- Abstract shapes for foreground photomontage effect -->
+            <div class="absolute w-64 h-64 bg-indigo-700 opacity-20 blur-3xl rounded-full top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 rotate-12 z-10 pointer-events-none"></div>
+            <div class="absolute w-80 h-80 bg-purple-700 opacity-15 blur-3xl rounded-full bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 -rotate-24 z-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Section 2: The Journalist & Storyteller - Words & Echoes -->
+        <section class="min-h-screen flex flex-col items-center justify-center text-center p-8 relative bg-gray-900 bg-opacity-70">
+            <div class="max-w-5xl mx-auto space-y-12 relative z-20">
+                <h2 class="text-5xl md:text-6xl font-bold text-teal-400 mb-8 opacity-0 animate-fade-in">
+                    ארכיאולוגית המילים: הקול שמאחורי הסיפור
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 text-right">
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-700 opacity-0 animate-fade-in-delay-1">
+                        <h3 class="text-3xl font-semibold text-white mb-4">השנים הראשונות</h3>
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            ממגזיני ילדים ונוער, דרך רייטינג ועד מאקו – אורית סללה דרך בעולם המדיה כבר מנעוריה. כתיבתה, חדה ורגישה, החלה לעצב את נוף התקשורת הישראלי, פורטת על נימי הנפש החברתית. כל מילה הייתה צעד בבניית גשר בין העולמות.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-700 opacity-0 animate-fade-in-delay-2">
+                        <h3 class="text-3xl font-semibold text-white mb-4">טורים אישיים, נגיעות באמת</h3>
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            בטורה השבועי במאקו, התעמתה עם דתיות מודרנית, משפחה, זהות. לא חששה לשבור מוסכמות, לחשוף רבדים אישיים, ולהציף שאלות נוקבות על מהות הקיום והאמונה בחברה משתנה. כל טור – רסיס חיים, נבון ומעורר מחשבה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- More abstract shapes -->
+            <div class="absolute w-52 h-52 bg-pink-700 opacity-10 blur-3xl rounded-full top-1/2 right-0 transform -translate-x-1/2 rotate-45 z-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Section 3: The Listener - "כאן מקשיבים" & Deeper Conversations -->
+        <section class="min-h-screen flex flex-col items-center justify-center p-8 relative bg-black bg-opacity-80">
+            <div class="max-w-6xl mx-auto space-y-16 relative z-20 text-center">
+                <h2 class="text-5xl md:text-6xl font-bold text-purple-400 mb-8 opacity-0 animate-fade-in">
+                    הקשבה כמעשה אמנות: לגעת בשקוף
+                </h2>
+                <div class="grid md:grid-cols-3 gap-10 text-right">
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-800 opacity-0 animate-fade-in-delay-1">
+                        <h3 class="text-2xl font-semibold text-white mb-3">כאן מקשיבים: שיחות נפש</h3>
+                        <p class="text-md leading-relaxed text-gray-400">
+                            סדרת הדגל של אורית. היא לא מראיינת, היא מקשיבה. מאפשרת לאנשים לחלוק סיפורים אישיים, לפרוץ שתיקות בנושאים כמו התמודדות נפשית, פגיעות מיניות, ומשברים. כל פרק – חלון לנשמה, שיעור באנושיות.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-800 opacity-0 animate-fade-in-delay-2">
+                        <h3 class="text-2xl font-semibold text-white mb-3">מונולוגים: שוברת מחיצות</h3>
+                        <p class="text-md leading-relaxed text-gray-400">
+                            "מונולוגים מהאולפנה" ו"מהישיבה" – חשיפה אמיצה של נושאי מיניות ואינטימיות במגזר הדתי. העזה, רגישות ופתיחות ששינו את השיח, והראו שגם נושאים טאבו יכולים להיות מוארים באור יום.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-800 opacity-0 animate-fade-in-delay-3">
+                        <h3 class="text-2xl font-semibold text-white mb-3">בריאות הנפש: קול במצוקה</h3>
+                        <p class="text-md leading-relaxed text-gray-400">
+                            בסדרת "הצילו את הנפש" ובהסכת "לא טוב לי", אורית מעניקה במה למצוקות של כולנו. היא מזמינה אותנו לא לפחד לדבר, לחפש עזרה, ולדעת שאנחנו לא לבד במסע המורכב של הנפש.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Diagonal element for photomontage -->
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 to-gray-900 opacity-30 transform -skew-y-3 z-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Section 4: The Mediator & Thinker - Bridging Worlds -->
+        <section class="min-h-screen flex flex-col items-center justify-center p-8 relative bg-gray-800 bg-opacity-70">
+            <div class="max-w-5xl mx-auto space-y-12 relative z-20 text-center">
+                <h2 class="text-5xl md:text-6xl font-bold text-yellow-300 mb-8 opacity-0 animate-fade-in">
+                    מגשרת בין עולמות: אתיקה, אמת ודיאלוג
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 text-right">
+                    <div class="bg-gray-700 p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-600 opacity-0 animate-fade-in-delay-1">
+                        <h3 class="text-3xl font-semibold text-white mb-4">פילוסופיית הגישור</h3>
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            מעבר לעיתונות, אורית היא מגשרת מוסמכת. היא מאמינה בכוחו של הדיאלוג, היכולת לגשר על פערים, למצוא שפה משותפת גם כשנדמה שהתקשורת אבדה. הרצאותיה הן שיעורים באמנות ההקשבה.
+                        </p>
+                    </div>
+                    <div class="bg-gray-700 p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-600 opacity-0 animate-fade-in-delay-2">
+                        <h3 class="text-3xl font-semibold text-white mb-4">המצפן: סוגיות אתיות</h3>
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            בתוכנית "המצפן", היא מנווטת בין דילמות אתיות מורכבות בעולם המודרני: פוריות, זוגיות, רשתות חברתיות. יחד עם הרב יובל שרלו ומומחים, היא מציעה כלים להתמודדות עם האתגרים המוסריים של זמננו.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Grid pattern overlay -->
+            <div class="absolute inset-0 bg-grid-pattern opacity-10 z-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Section 5: The Personal Journey - Fragments of Self -->
+        <section class="min-h-screen flex flex-col items-center justify-center p-8 relative bg-gray-950 bg-opacity-90">
+            <div class="max-w-4xl mx-auto space-y-10 relative z-20 text-center">
+                <h2 class="text-5xl md:text-6xl font-bold text-orange-400 mb-8 opacity-0 animate-fade-in">
+                    המסע האישי: אמונה, משפחה וזהות
+                </h2>
+                <p class="text-xl leading-relaxed text-gray-300 text-right opacity-0 animate-fade-in-delay-1">
+                    מבת למשפחה דתית שמרנית, דרך שירות לאומי ולימודי סוציולוגיה, ועד להגדרה עצמית כ"מסורתית" – אורית משרטטת מסלול חיים ספוג בחיפוש ושינוי. היא אשת אשכולות שנוגעת בכל תחום בחייה בעומק, בפתיחות ובכנות. נשואה לאלעד, אם לגיא ומיקה, היא משלבת קריירה ענפה עם חיי משפחה עשירים, תוך כדי התמודדות עם הקונפליקטים והמורכבויות של דתיות מודרנית בישראל.
+                </p>
+                <p class="text-xl leading-relaxed text-gray-300 text-right opacity-0 animate-fade-in-delay-2">
+                    מביקורת חריפה על פוליטיקה, דרך חשיפה של חוויות אישיות של הטרדה מינית ומשברים נפשיים, ועד לכתיבה מרגשת על אירועי השבעה באוקטובר – אורית נבון אינה חוששת להביע דעה, לגעת בכאב, ולצייר תמונה מורכבת של המציאות הישראלית. היא קול בולט, בלתי מתפשר, ותמיד אנושי.
+                </p>
+            </div>
+            <!-- More abstract shapes / lines -->
+            <div class="absolute w-full h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent bottom-1/4 left-0 rotate-1 z-10 pointer-events-none"></div>
+            <div class="absolute w-full h-1 bg-gradient-to-l from-transparent via-purple-500 to-transparent top-1/4 right-0 -rotate-2 z-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-500 text-center p-8 relative z-20">
+            <p class="text-sm">
+                "הקשבה היא לא רק עניין של אוזניים, אלא של לב ונפש." – בהשראת אורית נבון
+            </p>
+            <p class="text-xs mt-2">
+                © 2023 יצירה דיגיטלית בהשראת חייה ופועלה של אורית נבון. כל הזכויות שמורות למורכבות האדם.
+            </p>
+        </footer>
+
+    </div> <!-- End of main artistic content container -->
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        // Elements that cause the cursor to change on hover
+        const hoverableElements = document.querySelectorAll('button, a, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl, h1, h2, h3, p');
+        hoverableElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('text-hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('text-hover'));
+        });
+
+        // Parallax Scrolling Logic for fixed background layers
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Animate fixed photomontage layers slightly
+            document.querySelector('.layer-1').style.transform = `scale(1.1) rotate(-3deg) translateY(${scrollY * 0.05}px)`;
+            document.querySelector('.layer-2').style.transform = `scale(0.9) rotate(5deg) translateY(${scrollY * -0.03}px)`;
+            document.querySelector('.layer-3').style.transform = `rotate(2deg) translateX(10%) translateY(${scrollY * 0.02}px)`;
+
+            // Hide scroll indicator after some scrolling
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '0.7';
+            }
+        });
+
+        // Define keyframe animations in JS because Tailwind doesn't support delays easily for initial load
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .animate-fade-in {
+                animation: fadeIn 1s ease-out forwards;
+            }
+            .animate-fade-in-delay-1 {
+                animation: fadeIn 1s ease-out 0.5s forwards;
+            }
+            .animate-fade-in-delay-2 {
+                animation: fadeIn 1s ease-out 1s forwards;
+            }
+            .animate-fade-in-delay-3 {
+                animation: fadeIn 1s ease-out 1.5s forwards;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .animate-bounce {
+                animation: bounce 2s infinite;
+            }
+
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scroll for the "התחילו לצלול" button
+        document.querySelector('button').addEventListener('click', () => {
+            document.querySelector('section:nth-of-type(2)').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
