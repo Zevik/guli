@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>לידה טבעית בישראל: מסע של כוח וחיבור | גאולה מגילובסקי</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;family=Rubik:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        /* Custom fonts */
+        .font-lora { font-family: 'Lora', serif; }
+        .font-rubik { font-family: 'Rubik', sans-serif; }
+
+        /* Custom cursor styling for high contrast */
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+            transform: translate(-50%, -50%);
+            border: 2px solid #FFFFFF; /* Light border for visibility on dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for visibility on light backgrounds */
+        }
+        .custom-cursor.active {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2); /* Subtle fill on interactive elements */
+        }
+
+        /* General body styling for smooth scrolling and base background */
+        body {
+            overflow-x: hidden;
+            background-color: #f7f3ed; /* Soft, earthy background */
+        }
+
+        /* Parallax specific styles */
+        .parallax-bg {
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* Crucial for parallax effect */
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensures background is behind content */
+            filter: brightness(0.7) contrast(1.1); /* Subtle realism enhancement */
+            transition: filter 0.3s ease;
+        }
+
+        /* Ensure content is always on top */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Fade-in effect for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Generative particle styling */
+        .generative-particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-flow 10s infinite ease-out;
+            pointer-events: none;
+            z-index: 0; /* Behind content, above fixed backgrounds */
+        }
+
+        @keyframes particle-flow {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            20% { opacity: 0.5; }
+            80% { opacity: 0.2; }
+            100% { transform: translateY(-200px) scale(1); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body class="text-stone-800 font-rubik leading-relaxed">
+<!-- Custom High-Contrast Cursor -->
+<div class="custom-cursor" id="customCursor"></div>
+<!-- Main Content Wrapper to ensure content is above parallax backgrounds -->
+<div class="content-wrapper">
+<!-- Hero Section - Art style: Realism, Theme: Natural Birth in Israel -->
+<section class="relative h-screen flex items-center justify-center text-center overflow-hidden hero-section">
+<img alt="A pregnant woman, in the third trimester, standing outdoors with her hands gently resting on her belly. She is silhouetted against a breathtaking Israeli sunset, with hues of deep orange, soft pink, and lavender painting the sky. The light casts a warm, ethereal glow around her, highlighting her serene expression and the graceful curve of her body. Sparse, iconic Israeli flora like olive trees or cactuses are subtly visible in the soft focus background, grounding the scene in the local landscape." class="absolute inset-0 w-full h-full object-cover z-[-1] parallax-bg" data-speed="0.4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603328/my_website_images/realism_pregnant-woman-sunset.png" style="filter: brightness(0.6) contrast(1.05);"/>
+<div class="relative z-10 p-8 md:p-16 bg-black bg-opacity-40 rounded-lg max-w-4xl mx-auto shadow-2xl fade-in text-white">
+<h1 class="text-5xl md:text-7xl font-lora font-bold mb-6 drop-shadow-lg leading-tight">
+                    לידה טבעית בישראל:<br/> מסע של כוח וחיבור
+                </h1>
+<p class="text-xl md:text-2xl font-rubik mb-8 drop-shadow-md">
+                    בהשראת דרכה של גאולה מגילובסקי, אחות מילדת
+                </p>
+<a class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-10 rounded-full text-lg md:text-xl transition duration-300 ease-in-out shadow-lg transform hover:scale-105" href="#essence">
+                    התחילי את המסע
+                </a>
+</div>
+</section>
+<!-- The Essence of Natural Birth -->
+<section class="py-20 md:py-32 px-4 md:px-8 bg-stone-50 fade-in" id="essence">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-10 text-teal-700">מהות הלידה הטבעית: להקשיב לגוף</h2>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="md:order-2">
+<img alt="A highly realistic and serene depiction of a woman experiencing a water birth. She is submerged in a warm, inviting birthing pool, with her eyes closed in peaceful concentration. Soft, diffused natural light illuminates the scene, highlighting the gentle ripples on the water's surface and the subtle expression of strength and calm on her face. The water is clear, and the surrounding environment is minimalist and tranquil." class="w-full h-auto rounded-xl shadow-xl transform hover:scale-103 transition duration-300 ease-in-out object-cover aspect-video" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603336/my_website_images/realism_water-birth-serenity.png"/>
+</div>
+<div class="md:order-1 text-right">
+<p class="text-lg md:text-xl mb-6 text-stone-700">
+                            לידה טבעית היא קריאה לחזור אל הידע העתיק הטמון בכל אישה-
+                            היכולת ללדת מתוך כוחה הפנימי, ללא התערבות, תוך הקשבה עמוקה לגוף ולתינוק. זהו ריקוד של הורמונים-
+                            האוקסיטוצין עוטף את היולדת באהבה ומניע את הצירים, והאנדורפינים משמשים כמשכך כאבים טבעי, מאפשרים חוויה ייחודית של עוצמה ושלווה.
+                        </p>
+<p class="text-lg md:text-xl text-stone-700">
+                            בליבה של לידה טבעית עומדת התנועה-
+                            החופש להתהלך, להתנדנד, למצוא תנוחה שמרגישה נכונה, לשקוע במים המרגיעים.
+                            זוהי היכולת לשלוט בסביבה – בעמעום האורות, בבחירת המוזיקה, בקרבת התומכים, כל אלו כדי לברוא מרחב בטוח ואינטימי שיעודד את הטבע לפעול.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Sanctuaries of Birth in Israel -->
+<section class="py-20 md:py-32 px-4 md:px-8 bg-gray-800 text-white fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-10 text-teal-400">מקדשי לידה: מרכזי הלידה הטבעית בישראל</h2>
+<p class="text-lg md:text-xl mb-12 text-gray-300 max-w-4xl mx-auto">
+                    בישראל, השילוב המופלא בין רפואה מתקדמת לכיבוד רצונות היולדת הוליד מרחבים ייעודיים ללידה טבעית.
+                    ממרכז הלידה בשיבא, עם חדרי "עדן" ו"ניצן" המעוצבים בקפידה, דרך הדסה עין כרם המציעה לידות מים מרגיעות, ועד ליס, לניאדו, אסותא אשדוד ואסף הרופא –
+                    כל אחד מהם מהווה עדות למחויבות לתת ליולדת את המרחב הטבעי והתומך שהיא מבקשת. מיילדות מנוסות, ברוח של גאולה מגילובסקי, מלוות בעדינות כל שלב.
+                </p>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+<img alt="A realistic and inviting depiction of a natural birthing room at Sheba Medical Center. The room features a large, modern birthing tub with soft, indirect lighting. Natural wood accents, comfortable seating, and muted, calming colors dominate the space, creating a serene, home-like atmosphere within a hospital setting. Subtle medical equipment is present but discreetly integrated." class="w-full h-48 object-cover rounded-lg mb-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603345/my_website_images/realism_sheba-natural-room.png"/>
+<h3 class="text-2xl font-lora font-semibold mb-2 text-teal-300">שיבא, תל השומר: חדרי "עדן" ו"ניצן"</h3>
+<p class="text-gray-400">אמבטיות מים, מערכת מולטימדיה, ציוד תומך ותאורה ייחודית – חוויה הוליסטית בלב המרכז הרפואי. מיילדות מוסמכות ללידת מים.</p>
+</div>
+<div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+<img alt="A realistic and peaceful image inside the Hadassah Ein Kerem natural birth center. The focus is on a spacious, inviting birthing tub filled with warm water. Soft, ambient lighting from strategically placed lamps creates a calming glow. A towel-draped edge suggests comfort, and a few essential oils bottles are visible on a nearby shelf, enhancing the tranquil, home-like atmosphere for a water birth." class="w-full h-48 object-cover rounded-lg mb-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603356/my_website_images/realism_hadassah-water-birth.png"/>
+<h3 class="text-2xl font-lora font-semibold mb-2 text-teal-300">הדסה עין כרם: ג'קוזי ושמנים</h3>
+<p class="text-gray-400">חדרים מעוצבים בסגנון ביתי, עם ג'קוזי מרווח, שמנים ארומתיים ופינות ישיבה למשפחה, בקרבת חדרי הלידה הרגילים.</p>
+</div>
+<div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+<img alt="A realistic and modern natural birthing room at Lis Maternity and Women's Hospital (Ichilov). The room is expansive and filled with natural light, featuring a contemporary birthing tub and an adjacent walk-in shower. Subtle, high-tech features like a waterproof, wireless monitor are integrated seamlessly. The aesthetic is clean, minimalist, and designed for comfort and privacy, with ample space for movement." class="w-full h-48 object-cover rounded-lg mb-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603364/my_website_images/realism_lis-natural-room.png"/>
+<h3 class="text-2xl font-lora font-semibold mb-2 text-teal-300">ליס (איכילוב): פרטיות וחידושים</h3>
+<p class="text-gray-400">חדרים מרווחים עם מקלחת ואמבטיה, מוניטור אלחוטי, וחדשנות פורצת דרך עם לידות מים בבריכה ייעודית בבית חולים ציבורי.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Symphony of Support -->
+<section class="py-20 md:py-32 px-4 md:px-8 bg-stone-100 fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-10 text-orange-600">הכנה ותמיכה: עמוד השדרה של הלידה הטבעית</h2>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="text-right">
+<p class="text-lg md:text-xl mb-6 text-stone-700">
+                            מסע הלידה הטבעית מתחיל עוד לפני הציר הראשון.
+                            הכנה מקיפה – פיזית, רגשית ומנטלית – היא המפתח.
+                            קורסי הכנה ייעודיים מלמדים את טכניקות הנשימה וההרפיה, תנוחות הלידה,
+                            ומאפשרים ליולדת ולבן זוגה לבנות ביטחון ביכולתם ללדת באופן טבעי.
+                        </p>
+<p class="text-lg md:text-xl mb-6 text-stone-700">
+                            מיילדת כמו גאולה מגילובסקי, או דולה (תומכת לידה), הן שותפות למסע.
+                            הדולה, בנוכחותה הרציפה, העיסויים המרפאים והתמיכה הרגשית, מעניקה ביטחון ושלווה, ומאפשרת ליולדת להתמסר לתהליך.
+                            היא כגשר בין העולם הפנימי של היולדת לבין סביבת הלידה.
+                        </p>
+<p class="text-lg md:text-xl text-stone-700">
+                            כתיבת תוכנית לידה, פגישה עם מיילדת ודיונים פתוחים,
+                            מבססים תיאום ציפיות ומחזקים את תחושת השליטה והמעורבות של היולדת,
+                            הופכים אותה לשותפה פעילה ומועצמת בתהליך הלידה.
+                        </p>
+</div>
+<div>
+<img alt="A tender, realistic depiction of a doula providing support to a laboring woman. The woman is leaning against her partner, who is gently stroking her hair. The doula, a calm and reassuring figure, is applying gentle pressure or massage to the woman's lower back. The scene is intimate, with soft, warm lighting, emphasizing connection and human touch. All three individuals convey a sense of focused support and shared experience." class="w-full h-auto rounded-xl shadow-xl transform hover:scale-103 transition duration-300 ease-in-out object-cover aspect-video" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603372/my_website_images/realism_doula-support-couple.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Journey Through Sensation: Coping Naturally -->
+<section class="py-20 md:py-32 px-4 md:px-8 bg-stone-50 fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-10 text-teal-700">כלים טבעיים לכוחה של אישה</h2>
+<p class="text-lg md:text-xl mb-12 text-stone-700 max-w-4xl mx-auto">
+                    הגוף הנשי הוא מקדש של חוכמה. בתוך כל ציר, טמונים כלים טבעיים ועוצמתיים להתמודדות עם כאב, לא כדי להכחישו, אלא כדי לחבק אותו כחלק מהמסע.
+                </p>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="text-2xl font-lora font-semibold mb-2 text-teal-600">מגע מים עוטף</h3>
+<p class="text-stone-700">הטבילה באמבטיה או במקלחת חמה משנה את חווית הכאב, מרפה שרירים ומאפשרת התמסרות עמוקה.</p>
+<img alt="A realistic and intimate scene of a woman in active labor taking a warm shower. The steam is visible, creating a soft, diffused light effect. Her partner is gently supporting her or massaging her back. The focus is on the comfort and pain relief provided by the warm water, with a sense of privacy and quiet strength." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603375/my_website_images/realism_warm-shower-labor.png"/>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="text-2xl font-lora font-semibold mb-2 text-orange-500">תנועה חופשית</h3>
+<p class="text-stone-700">הליכה, ריקוד, כדור פיזיו – תנועתיות לא רק מקלה על כאב אלא מזרזת את התקדמות הלידה. לכל אישה התנוחה שלה.</p>
+<img alt="A realistic close-up shot of a pregnant woman gently bouncing or rocking on a birthing ball in a dimly lit room, indicating early labor. Her focus is internal, and her movements are fluid and calm, illustrating the benefits of movement for pain management and labor progression." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603377/my_website_images/realism_birthing-ball-movement.png"/>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="2xl font-lora font-semibold mb-2 text-teal-600">נשימה והרפיה</h3>
+<p class="text-stone-700">טכניקות נשימה מודעות ודמיון מודרך הן עוגן עוצמתי, המחבר בין הנפש לגוף ומאפשר שליטה.</p>
+<img alt="A close-up, realistic portrait of a woman in active labor, eyes softly closed in deep concentration. Her expression is focused yet serene, demonstrating the power of breathing techniques during contractions. Soft, natural light illuminates her face, highlighting the subtle tension and release as she breathes deeply." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603378/my_website_images/realism_breathing-technique-focus.png"/>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="text-2xl font-lora font-semibold mb-2 text-orange-500">מגע מחזק</h3>
+<p class="text-stone-700">עיסויים, לחיצות בנקודות לחץ, ורטיות חמות – המגע האנושי הוא כוח מרפא בתהליך הלידה.</p>
+<img alt="A realistic and intimate scene of a partner gently massaging the lower back of a laboring woman. The woman is leaning forward, perhaps over a birthing ball or bed, and her partner's hands are visible, applying firm but comforting pressure. The lighting is soft, emphasizing the supportive and loving touch." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603381/my_website_images/realism_partner-massage-labor.png"/>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="text-2xl font-lora font-semibold mb-2 text-teal-600">רפואה משלימה</h3>
+<p class="text-stone-700">דיקור סיני, רפלקסולוגיה ושיאצו – שיטות עתיקות לקידום הלידה והקלה על כאב, המוצעות בבתי חולים רבים.</p>
+<img alt="A realistic and clinical yet comforting image of acupuncture needles gently placed on a laboring woman's ear or hand. The background is softly blurred, focusing on the careful placement of the needles. The woman's face is out of focus but conveys a sense of calm and relief, suggesting the efficacy of the treatment." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603382/my_website_images/realism_acupuncture-labor.png"/>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white border border-stone-200">
+<h3 class="text-2xl font-lora font-semibold mb-2 text-orange-500">אווירה אינטימית</h3>
+<p class="text-stone-700">תאורה עמומה, מוזיקה מרגיעה, ונוכחות תומכת יוצרות מקדש של שקט המאפשר לגוף להתרפות וללדת.</p>
+<img alt="A realistic and inviting scene of a birthing room designed for natural birth, with soft, warm, dimmed lighting creating a cozy and intimate atmosphere. Candles or string lights might be subtly visible. The focus is on the overall ambiance of peace and tranquility, encouraging relaxation during labor." class="w-full h-32 object-cover rounded-lg mt-4" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603385/my_website_images/realism_calm-birthing-room-atmosphere.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Home as a Haven -->
+<section class="relative py-20 md:py-32 px-4 md:px-8 text-white overflow-hidden home-as-haven">
+<img alt="A realistic and comforting interior scene of a room prepared for a home birth. The lighting is soft and natural, streaming through a window. A birthing mat or low bed is adorned with clean, natural-fiber linens. Minimalist decor and warm wooden tones create a serene, private, and familiar atmosphere. Subtle elements of support, like a nearby stool or a stack of towels, are visible." class="absolute inset-0 w-full h-full object-cover z-[-1] parallax-bg" data-speed="0.2" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603389/my_website_images/realism_calm-home-birth-scene.png" style="filter: brightness(0.55) contrast(1.1);"/>
+<div class="relative z-10 p-8 md:p-16 bg-black bg-opacity-40 rounded-lg max-w-4xl mx-auto shadow-2xl fade-in text-white text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-6 text-orange-300 drop-shadow-lg">הבית כמקום מבטחים: לידת בית</h2>
+<p class="text-lg md:text-xl mb-8 drop-shadow-md">
+                    עבור נשים מסוימות, המסע אל האימהות עובר דרך הקסם והאינטימיות של הבית.
+                    לידת בית היא בחירה אישית עמוקה, המתרחשת בסביבה המוכרת והאוהבת,
+                    בליווי מיילדת מוסמכת המעניקה תשומת לב מלאה ורציפה.
+                </p>
+<p class="text-md md:text-lg text-gray-200 drop-shadow-sm">
+                    זוהי חוויה של שליטה מוחלטת, פרטיות מירבית, וחיבור עמוק לסביבה האישית.
+                    עם זאת, היא דורשת תכנון קפדני, הריון תקין, וקירבה למוסד רפואי, כדי להבטיח את בטיחות האם והתינוק מעל הכל.
+                </p>
+</div>
+</section>
+<!-- Embracing the Unfolding -->
+<section class="py-20 md:py-32 px-4 md:px-8 bg-stone-50 fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-6xl font-lora font-bold mb-10 text-teal-700">להתמסר להתפתחות: גמישות ואמון</h2>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="md:order-2">
+<img alt="A deeply realistic and emotionally moving close-up of a newborn baby lying skin-to-skin on its mother's chest, moments after birth. The baby's tiny hand is grasping its mother's finger. The mother's face is out of focus but shows profound emotion, possibly tears of joy or awe. The lighting is soft and natural, emphasizing the tender, immediate bond between mother and child." class="w-full h-auto rounded-xl shadow-xl transform hover:scale-103 transition duration-300 ease-in-out object-cover aspect-video" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603396/my_website_images/realism_newborn-first-embrace.png"/>
+</div>
+<div class="md:order-1 text-right">
+<p class="text-lg md:text-xl mb-6 text-stone-700">
+                            הכנה ללידה טבעית היא מסע של רצון ובחירה, אך הלידה עצמה היא לעיתים קרובות אומנות של גמישות.
+                            למרות כל התוכניות והציפיות, לעיתים נדרשת התערבות רפואית למען בריאות האם והתינוק.
+                            היו מוכנות לכך, והבינו שהבחירה בבריאות היא תמיד הבחירה הנכונה והטבעית ביותר.
+                        </p>
+<p class="text-lg md:text-xl text-stone-700">
+                            כל לידה היא חוויה ייחודית, מעצימה ומלאת כוח.
+                            בין אם היא מתרחשת בחדר טבעי בבית החולים, בחיק הבית, או עם עזרה תרופתית -
+                            היא רגע מכונן של יצירה ובריאה.
+                            האמונה בגוף, האמון בצוות, והאהבה האינסופית שמגיעה עם התינוק – אלו הם יסודות המסע.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Closing / Footer -->
+<footer class="py-16 md:py-20 px-4 md:px-8 bg-gray-900 text-white text-center">
+<div class="max-w-4xl mx-auto">
+<h3 class="text-3xl md:text-4xl font-lora font-bold mb-6 text-teal-400">
+                    "לידה אינה רק על עשיית תינוק. היא על עשיית אמהות חזקות, בעלות יכולת, ובטוחות."
+                </h3>
+<p class="text-lg md:text-xl text-gray-400 mb-8">
+                    - ברברה קייסי, מיילדת
+                </p>
+<p class="text-sm text-gray-500">
+                    אתר זה נוצר בהשראת מסירותה של גאולה מגילובסקי ומסען המדהים של נשים רבות לבחירה בלידה טבעית בישראל.
+                </p>
+</div>
+</footer>
+</div> <!-- End of content-wrapper -->
+<script>
+        // --- Custom High-Contrast Cursor ---
+        const customCursor = document.getElementById('customCursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        const speed = 0.2; // Adjust for smoother/snappier movement
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            customCursor.style.transform = `translate(${cursorX - customCursor.offsetWidth / 2}px, ${cursorY - customCursor.offsetHeight / 2}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Add 'active' class on hover over interactive elements
+        const interactiveElements = document.querySelectorAll('a, button'); // Add more selectors as needed
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => customCursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => customCursor.classList.remove('active'));
+        });
+
+        // --- Parallax Scrolling Effect ---
+        const parallaxBgs = document.querySelectorAll('.parallax-bg');
+        window.addEventListener('scroll', () => {
+            parallaxBgs.forEach(bg => {
+                const scrollPosition = window.pageYOffset;
+                // Adjust data-speed to control parallax intensity
+                const speed = parseFloat(bg.dataset.speed || 0.3); // Default speed
+                bg.style.transform = `translateY(${scrollPosition * speed}px)`;
+            });
+        });
+        // Initial call to set position correctly if page is not at top on load
+        window.dispatchEvent(new Event('scroll'));
+
+        // --- Fade-in on Scroll ---
+        const fadeIns = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        fadeIns.forEach(el => observer.observe(el));
+
+
+        // --- Generative Particles (Subtle for Realism) ---
+        const createParticle = (container) => {
+            const particle = document.createElement('div');
+            particle.classList.add('generative-particle');
+            const size = Math.random() * 5 + 3; // Small particles for subtlety
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            // Particles should animate from slightly below to above the section, but start within visibility
+            particle.style.top = `${container.offsetHeight + Math.random() * 100}px`; 
+            particle.style.animationDelay = `${Math.random() * 10}s`; // Stagger animation start
+            particle.style.animationDuration = `${Math.random() * 15 + 10}s`; // Vary duration
+            container.appendChild(particle);
+
+            // Remove particle after animation ends to prevent accumulation
+            particle.addEventListener('animationend', () => particle.remove());
+        };
+
+        const particleSections = document.querySelectorAll('section');
+        particleSections.forEach(section => {
+            section.style.position = 'relative'; // Ensure particles are positioned relative to the section
+            // Only add a few particles per section to keep it subtle
+            for (let i = 0; i < 5; i++) {
+                createParticle(section);
+            }
+        });
+        
+    </script>
+</body>
+</html>

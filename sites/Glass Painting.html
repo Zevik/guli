@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>גאולה מגילובסקי: מדריך לידה טבעית - יצירת זכוכית</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Frank+Ruhl+Libre:wght@300..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --glass-bg-dark: rgba(2, 6, 23, 0.85); /* Darker indigo for depth */
+            --glass-panel-light: rgba(255, 255, 255, 0.1);
+            --glass-panel-medium: rgba(180, 220, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-glow-start: rgba(255, 255, 255, 0.5);
+            --glass-glow-end: rgba(255, 255, 255, 0);
+            --accent-purple: #8B5CF6; /* Lighter purple */
+            --accent-green: #34D399; /* Seafoam green */
+            --accent-gold: #FCD34D; /* Soft gold */
+        }
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #020617; /* Slate 950 for deep background */
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* High contrast border */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.7); /* High contrast shadow and a glow */
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, box-shadow 0.2s;
+            z-index: 9999;
+            will-change: transform;
+        }
+        .custom-cursor.active {
+            width: 36px;
+            height: 36px;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8), 0 0 25px rgba(255,255,255,0.9);
+        }
+        .glass-panel {
+            background-color: var(--glass-panel-light);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 1rem;
+            transition: all 0.3s ease-in-out;
+            transform-origin: center;
+        }
+        .glass-panel:hover {
+            background-color: var(--glass-panel-medium);
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px) scale(1.02);
+        }
+        .hero-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--glass-bg-dark); /* Overlay for image */
+            z-index: -1;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-background img {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            filter: blur(8px) brightness(0.6);
+            transform: scale(1.05); /* Slight scale to hide blur edges */
+            opacity: 0.7;
+        }
+
+        /* Unique artistic effects */
+        .glow-text {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px var(--accent-purple);
+        }
+        .gradient-border-text {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-separator {
+            position: relative;
+            height: 100px;
+            margin: 80px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .section-separator::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+            z-index: 1;
+        }
+        .section-separator .icon {
+            position: relative;
+            z-index: 2;
+            width: 60px;
+            height: 60px;
+            background-color: var(--glass-panel-medium);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body class="text-gray-100 leading-relaxed">
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="custom-cursor"></div>
+<!-- Background Image with Overlay -->
+<div class="hero-background">
+<img alt="A dreamy, ethereal glass painting depicting a pregnant woman's silhouette gently merging with swirling patterns of light and translucent colors, symbolizing natural birth. Soft blues, purples, and golds emanate from her womb, suggesting life and serene energy." src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603155/my_website_images/glass_painting_ethereal_birth_light.png"/>
+</div>
+<!-- Main Content Wrapper -->
+<div class="relative z-10 p-4 md:p-8 lg:p-12 min-h-screen flex flex-col items-center">
+<!-- Header -->
+<header class="w-full max-w-4xl mx-auto mb-16 text-center">
+<h1 class="text-6xl md:text-8xl text-white glow-text mb-4 mt-16 md:mt-24 gradient-border-text">גאולה מגילובסקי</h1>
+<h2 class="text-3xl md:text-5xl text-gray-200 mt-2 glow-text">מסע הלידה הטבעית בישראל</h2>
+<p class="text-xl md:text-2xl text-gray-300 mt-6 glass-panel p-6 shadow-xl leading-relaxed max-w-2xl mx-auto">
+                ברוכה הבאה לעולם הלידה הטבעית, שער לחוויה עמוקה המגלה את הכוח הטמון בגופך וברוחך.
+                כאן, בין שקיפויות צבעוניות וזרימת אור, ננווט יחד במדריך המקיף של נתיבים, אפשרויות ותמיכה.
+                זהו אינו רק אתר - זוהי יצירת אמנות דיגיטלית המזמינה אותך להתמסר למסע.
+            </p>
+</header>
+<!-- Section 1: Introduction - The Essence of Natural Birth -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-reverse md:space-x-12">
+<div class="md:w-1/2 text-right">
+<h3 class="text-4xl md:text-5xl text-accent-gold mb-6 glow-text">הקריאה הפנימית: מהי לידה טבעית?</h3>
+<p class="text-lg md:text-xl text-gray-200 leading-loose mb-4">
+                    לידה טבעית היא כמו ריקוד קדום, תהליך חיבור עמוק לגוף, ללא התערבויות רפואיות שגרתיות.
+                    זהו מסע של אמון, שבו הורמוני האהבה וההתמודדות - אוקסיטוצין ואנדורפינים - מובילים את הקצב,
+                    ומאפשרים לך לחוות את הלידה כאירוע אינטימי, עוצמתי ואישי.
+                </p>
+<p class="text-base md:text-lg text-gray-300 leading-loose">
+                    במרחב המוגן של הלידה הטבעית, את חופשייה לזוז, לנשום, להתחבר לכוחותייך הפנימיים.
+                    זו הזדמנות לשמוע את קול הגוף, לקבל אותו, ולהפוך את רגע הבריאה לחוויה בלתי נשכחת, עטופה בהבנה ותמיכה.
+                </p>
+</div>
+<div class="md:w-1/2">
+<img alt="A stunning glass painting depicting a pregnant woman's silhouette outlined in deep blue, surrounded by swirling organic forms of green leaves and gentle water currents. The overall effect is translucent and luminous, embodying natural harmony and the journey of life." class="rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603157/my_website_images/glass_painting_pregnant_silhouette_nature.png"/>
+</div>
+</section>
+<!-- Separator -->
+<div class="section-separator">
+<div class="icon">✨</div>
+</div>
+<!-- Section 2: The Flow of Body and Spirit - Methods of Support -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12">
+<h3 class="text-4xl md:text-5xl text-accent-green mb-10 text-center glow-text">ריקוד הגוף והרוח: דרכים להתמודדות</h3>
+<div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+<div class="space-y-6">
+<div class="bg-gradient-to-br from-blue-700/30 to-purple-700/30 glass-panel p-6 shadow-lg rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+<h4 class="text-2xl md:text-3xl text-accent-gold mb-4">החיבוק המרפא של המים</h4>
+<p class="text-lg text-gray-200 leading-loose">
+                            המים - ערש החיים - מציעים הקלה מופלאה בכאב ומעניקים תחושת ריחוף ושחרור.
+                            בין אם באמבטיה חמה, במקלחת מרעננת או בלידת מים מלאה, הנוזל העוטף מרפה שרירים ומאפשר לגופך לנוע בחופשיות,
+                            כמו ריקוד עדין בתוך תנועת הצירים.
+                        </p>
+</div>
+<div class="bg-gradient-to-br from-green-700/30 to-blue-700/30 glass-panel p-6 shadow-lg rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+<h4 class="text-2xl md:text-3xl text-accent-gold mb-4">תנועה: שפת הגוף בלידה</h4>
+<p class="text-lg text-gray-200 leading-loose">
+                            הגוף יודע לנוע. הליכה, כדור פיזיו, תנוחות כריעה או עמידה - כל תנועה מקדמת את הלידה,
+                            מפחיתה כאב ומסייעת לתינוק למצוא את דרכו אל האור.
+                            היכולת לנוע בחופשיות היא מפתח לחוויה פעילה ושותפה.
+                        </p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-gradient-to-br from-purple-700/30 to-pink-700/30 glass-panel p-6 shadow-lg rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+<h4 class="text-2xl md:text-3xl text-accent-gold mb-4">נשימה ומגע: עוגנים של שלווה</h4>
+<p class="text-lg text-gray-200 leading-loose">
+                            נשימות מודעות וטכניקות הרפיה הן כלי עוצמתי להתמודדות עם גלי הצירים.
+                            מגע עדין, עיסויים, לחיצות בנקודות לחץ, או אף דיקור סיני - כל אלו יכולים להרגיע, לשחרר ולהעניק תחושת ביטחון ותמיכה,
+                            ולהפוך את הכאב לעוצמה מתמירה.
+                        </p>
+</div>
+<div>
+<img alt="A soft, translucent glass painting showing a mother's hands gently supporting a newborn's head, with a shimmering, almost liquid quality to the light around them. The background features blurred, warm pastel colors, emphasizing intimacy and tender connection." class="rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603159/my_website_images/glass_painting_hands_touch_birth.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Separator -->
+<div class="section-separator">
+<div class="icon">🌟</div>
+</div>
+<!-- Section 3: The Journey of Preparation -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12 text-center">
+<h3 class="text-4xl md:text-5xl text-accent-purple mb-8 glow-text">הכנה למסע: מעטפת של ידע ותמיכה</h3>
+<p class="text-lg md:text-xl text-gray-200 leading-loose mb-8">
+                הכנה נכונה היא המפתח ללידה טבעית מוצלחת ומעצימה. היא כוללת היבטים פיזיים, רגשיים ולימודיים, ומאפשרת לך להגיע אל רגע האמת מוכנה ובטוחה.
+            </p>
+<div class="grid md:grid-cols-3 gap-8 text-right">
+<div class="glass-panel p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+<h4 class="text-2xl text-accent-gold mb-3">קורסי הכנה ללידה</h4>
+<p class="text-lg text-gray-200">הכרת שלבי הלידה, טכניקות נשימה, הרפיה ותנועה. מסגרת לימודית חשובה לך ולבן/בת זוגך.</p>
+</div>
+<div class="glass-panel p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+<h4 class="text-2xl text-accent-gold mb-3">דולה ותומכת לידה</h4>
+<p class="text-lg text-gray-200">ליווי רציף ואישי לאורך ההריון, הלידה וגם לאחריה. תמיכה פיזית, רגשית וייעוץ מקצועי.</p>
+</div>
+<div class="glass-panel p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+<h4 class="text-2xl text-accent-gold mb-3">הכנה גופנית ונפשית</h4>
+<p class="text-lg text-gray-200">תרגילי רצפת אגן, יציבה, עבודה על פחדים, כתיבת תוכנית לידה ובניית ביטחון עצמי.</p>
+</div>
+</div>
+<div class="mt-12">
+<img alt="A stylized glass painting showing a caring doula's hand gently placed on a pregnant woman's back, surrounded by soft, glowing light and flowing patterns. The colors are warm and comforting, emphasizing support and reassurance during the birthing journey." class="rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105 max-w-lg mx-auto" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603162/my_website_images/glass_painting_doula_support_light.png"/>
+</div>
+</section>
+<!-- Separator -->
+<div class="section-separator">
+<div class="icon">💖</div>
+</div>
+<!-- Section 4: Centers in Israel - A Spectrum of Care -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12">
+<h3 class="text-4xl md:text-5xl text-accent-gold mb-10 text-center glow-text">קשת הבחירות: מרכזי לידה טבעית בישראל</h3>
+<p class="text-lg md:text-xl text-gray-200 leading-loose mb-8 text-center">
+                ישראל מציעה מגוון עשיר של מרכזים ייעודיים ללידה טבעית, המשלבים בטיחות רפואית עם כיבוד רצונות היולדת.
+                מבתי חולים מובילים ועד האפשרות ללידת בית - הבחירה היא שלך.
+            </p>
+<div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+<div class="glass-panel p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+<h4 class="text-2xl text-accent-purple mb-3">מרכזי לידה בבתי חולים</h4>
+<p class="text-lg text-gray-200 leading-loose">
+                        בתי חולים כמו שיבא, הדסה, ליס ואסף הרופא מציעים חדרים מעוצבים ללידה טבעית, אמבטיות מים, ציוד עזר
+                        ומיילדות מנוסות. סביבה בטוחה ותומכת ללא תשלום נוסף.
+                    </p>
+<img alt="A vibrant glass painting depicting the natural birth center at Sheba Medical Center. Stylized figures of a mother and a baby are surrounded by flowing water motifs and soft, glowing light, with architectural elements subtly integrated into the glass-like structure." class="mt-4 rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603167/my_website_images/glass_painting_sheba_natural_birth.png"/>
+</div>
+<div class="glass-panel p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+<h4 class="text-2xl text-accent-green mb-3">לידת מים ולידת בית</h4>
+<p class="text-lg text-gray-200 leading-loose">
+                        לידת מים זמינה במרכזים רבים, המאפשרת הקלה דרמטית בכאב.
+                        לידת בית מתוכננת, עם מיילדת מוסמכת ובריאות תקינה, נחשבת לבטוחה ומציעה פרטיות ושליטה מלאה.
+                    </p>
+<img alt="A serene glass painting illustrating a woman giving birth in water, with gentle blue and green hues creating a calming atmosphere. Another panel depicts a cozy home interior with soft lighting, symbolizing a planned home birth, both scenarios radiating peace and natural energy." class="mt-4 rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603170/my_website_images/glass_painting_water_home_birth.png"/>
+</div>
+</div>
+<div class="mt-12 text-center">
+<h4 class="text-3xl text-accent-gold mb-4 glow-text">לידה טבעית מול אפידורל: השוואה</h4>
+<p class="text-lg md:text-xl text-gray-200 leading-loose max-w-2xl mx-auto">
+                    הבחירה בין לידה טבעית לאפידורל היא אישית. בעוד שאפידורל מציע הקלה בכאב, לידה טבעית מדגישה תנועה,
+                    התאוששות מהירה וחוויה מעצימה. כל דרך היא לגיטימית, והחשוב ביותר הוא בריאותך ובריאות תינוקך.
+                </p>
+</div>
+</section>
+<!-- Separator -->
+<div class="section-separator">
+<div class="icon">🌈</div>
+</div>
+<!-- Section 5: Myths and Tips -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12">
+<h3 class="text-4xl md:text-5xl text-accent-purple mb-10 text-center glow-text">מנפצים מיתוסים, מאירים דרך: טיפים ללידה טבעית</h3>
+<div class="grid md:grid-cols-2 gap-8 lg:gap-12 text-right">
+<div>
+<h4 class="text-3xl text-accent-gold mb-4">מיתוסים נפוצים</h4>
+<ul class="list-none space-y-4 text-lg text-gray-200 leading-loose">
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>"לידה טבעית מסוכנת":</strong> עובדה - בליווי מקצועי, היא בטוחה לנשים בריאות עם הריון תקין.
+                        </li>
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>"הכאב בלתי נסבל":</strong> עובדה - שיטות רבות, כולל מים, תנועה ומגע, מסייעות בהתמודדות.
+                        </li>
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>"רק בבית":</strong> עובדה - רוב בתי החולים מציעים מרכזים ללידה טבעית.
+                        </li>
+</ul>
+</div>
+<div>
+<h4 class="text-3xl text-accent-green mb-4">טיפים מוארים</h4>
+<ul class="list-none space-y-4 text-lg text-gray-200 leading-loose">
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>התכונני:</strong> קורס, מיילדת אישית, בניית תוכנית לידה.
+                        </li>
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>הקשיבי לגופך:</strong> נועי בחופשיות, נשמי עמוק, השתמשי במים.
+                        </li>
+<li class="p-4 glass-panel hover:scale-[1.02] transition-transform duration-200">
+<strong>צרי סביבה תומכת:</strong> עמעמי אורות, שימי מוזיקה, היעזרי במלווים.
+                        </li>
+</ul>
+</div>
+</div>
+<div class="mt-12">
+<img alt="A radiant glass painting of a mother holding her newborn, bathed in warm, golden light. The figures are rendered with soft, translucent colors, suggesting hope and a new beginning. Abstract swirling patterns imply a gentle, loving embrace." class="rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105 max-w-lg mx-auto" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603173/my_website_images/glass_painting_mother_baby_new_light.png"/>
+</div>
+</section>
+<!-- Separator -->
+<div class="section-separator">
+<div class="icon">✨</div>
+</div>
+<!-- Section 6: Conclusion - New Light -->
+<section class="w-full max-w-4xl mx-auto mb-16 glass-panel p-8 md:p-12 text-center">
+<h3 class="text-4xl md:text-5xl text-accent-gold mb-8 glow-text">אור חדש: סיום ומסר</h3>
+<p class="text-xl md:text-2xl text-gray-200 leading-loose mb-8">
+                לידה טבעית היא פתח לחוויה של העצמה, חיבור עמוק ובריאה.
+                בין אם בחדר לידה מודרני או בסביבתך הביתית, עם הכנה נכונה ותמיכה אוהבת,
+                את מסוגלת לחבק את מסע הלידה במלוא הדרו.
+                זכרי, החשוב מכל הוא בריאותך ובריאות תינוקך, והיכולת להיות גמישה בתהליך.
+            </p>
+<p class="text-lg md:text-xl text-gray-300 leading-loose">
+                מי ייתן ומסע זה יאיר לך את הדרך אל האימהות, באהבה, שלווה ואמונה בכוחותייך.
+                תודה שבחרת בנו ללוות אותך באור הזה.
+            </p>
+</section>
+<!-- Footer -->
+<footer class="w-full max-w-4xl mx-auto text-center text-gray-400 py-8 border-t border-gray-700/50 mt-16">
+<p class="text-lg">מדריך לידה טבעית בישראל - יצירת אמנות דיגיטלית של גאולה מגילובסקי</p>
+<p class="text-sm mt-2">כל הזכויות שמורות © 2024</p>
+</footer>
+</div> <!-- End Main Content Wrapper -->
+<script>
+        const customCursor = document.getElementById('custom-cursor');
+        const interactiveElements = document.querySelectorAll('a, button, .glass-panel');
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                customCursor.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                customCursor.classList.remove('active');
+            });
+        });
+
+        // Simple Parallax Effect for the background image
+        const backgroundImage = document.querySelector('.hero-background img');
+        if (backgroundImage) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                backgroundImage.style.transform = `scale(1.05) translateY(${scrollY * 0.2}px) blur(8px) brightness(0.6)`;
+            });
+        }
+    </script>
+</body>
+</html>

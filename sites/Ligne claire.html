@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>גאולה מגילובסקי - לידות טבעיות: דרך האור</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+            background-color: #f0f8ff; /* A base light background */
+        }
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF; /* Light border for visibility */
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8); /* Dark shadow for visibility */
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out; /* Smooth movement */
+            z-index: 9999; /* Always on top */
+        }
+        .ligne-claire-section {
+            @apply relative py-20 min-h-screen flex items-center justify-center border-b-4 border-black;
+        }
+        .ligne-claire-card {
+            @apply bg-white p-8 md:p-12 rounded-lg shadow-xl border-4 border-black text-gray-800 transform-gpu hover:scale-103 transition-transform duration-300;
+        }
+        /* Custom Ligne Claire colors & typography for specific elements */
+        h1 {
+            @apply text-5xl md:text-7xl font-bold mb-8 leading-tight;
+        }
+        h2 {
+            @apply text-4xl md:text-5xl font-bold mb-6 border-b-4 border-black pb-4;
+        }
+        h3 {
+            @apply text-3xl md:text-4xl font-bold mb-4;
+        }
+        p {
+            @apply text-lg md:text-xl leading-relaxed mb-4;
+        }
+        ul {
+            @apply list-none p-0;
+        }
+        li {
+            @apply text-lg md:text-xl leading-relaxed mb-2 flex items-center;
+        }
+        li::before {
+            content: '•'; /* Ligne Claire bullet point */
+            @apply text-2xl ml-2 text-black;
+        }
+        .bg-parallax-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -2; /* Behind everything but above the very first static background */
+            will-change: transform; /* Optimize for animation */
+        }
+        .static-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f0f8ff; /* Base light blue */
+            z-index: -3; /* Farthest back */
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+        /* Ligne Claire specific patterns/gradients for background layers */
+        .pattern-dots {
+            background-image: radial-gradient(rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .pattern-stripes {
+            background-image: linear-gradient(45deg, rgba(255,193,7,0.1) 25%, transparent 25%, transparent 75%, rgba(255,193,7,0.1) 75%, rgba(255,193,7,0.1)),
+                              linear-gradient(45deg, rgba(255,193,7,0.1) 25%, transparent 25%, transparent 75%, rgba(255,193,7,0.1) 75%, rgba(255,193,7,0.1));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        .pattern-grid {
+            background-image: linear-gradient(to right, rgba(204,204,204,0.3) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(204,204,204,0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<div class="custom-cursor"></div>
+<!-- Static background for overall Ligne Claire base -->
+<div class="static-background bg-sky-100"></div>
+<div class="relative min-h-screen" id="parallax-container">
+<!-- Parallax layers -->
+<div class="bg-parallax-layer" id="parallax-layer-1" style="background-color: #e0f2fe; transform: translate3d(0, 0, 0);"></div>
+<div class="bg-parallax-layer pattern-grid" id="parallax-layer-2" style="transform: translate3d(0, 0, 0);"></div>
+<div class="bg-parallax-layer" id="parallax-layer-3" style="background-color: #f0fdf4; transform: translate3d(0, 0, 0);"></div>
+<div class="bg-parallax-layer pattern-dots" id="parallax-layer-4" style="transform: translate3d(0, 0, 0);"></div>
+<div class="content-wrapper max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="ligne-claire-section bg-rose-100">
+<div class="container mx-auto text-center px-4">
+<h1 class="text-black drop-shadow-lg">גאולה מגילובסקי: האחות המילדת ודרך האור</h1>
+<p class="text-black text-2xl md:text-3xl font-medium mb-8">מדריך מקיף ופורץ דרך ללידה טבעית בישראל - חוויה של עוצמה וחיבור</p>
+<img alt="איור בסגנון קו נקי של אחות מילדת מחייכת, לבושה במדים צחורים, מרימה בשתי ידיה תינוק עטוף בבגד לבן. ברקע, קווים גיאומטריים פשוטים וצבעי פסטל בהירים של ירוק תכלת וורוד. הכל עם קווי מתאר שחורים בולטים." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603175/my_website_images/ligne_claire_midwife-hero.png"/>
+<p class="text-black">הצטרפי למסע אל הלידה הטבעית, תהליך של הקשבה עמוקה לגוף, התחברות לכוח פנימי וחוויה מעצימה המעצבת את דרכך כאם.</p>
+</div>
+</section>
+<!-- What is Natural Birth Section -->
+<section class="ligne-claire-section bg-sky-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">מהי לידה טבעית? ריקוד של חיים</h2>
+<p class="text-black">לידה טבעית היא שירה ללא תווים, מחול ללא כוריאוגרפיה – היא החופש להיות, לנוע ולהתמסר לכוח החיים שבך. ללא התערבות, ללא תרופות, רק את, גופך והתינוק שלך, בהרמוניה מושלמת.</p>
+<img alt="איור בסגנון קו נקי המציג אישה כורעת בתנוחת לידה עדינה, מוקפת באור רך. סביבה, צורות מופשטות וזורמות בצבעי ורוד, כתום ותכלת, המרמזות על זרימה והרפיה. קווי המתאר שחורים ועזים." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603177/my_website_images/ligne_claire_natural-birth-concept.png"/>
+<div class="ligne-claire-card mt-8 max-w-3xl mx-auto">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">בלידה טבעית, את בוחרת:</h3>
+<ul class="text-right">
+<li>לנוע בחופשיות, לרקוד עם הצירים.</li>
+<li>לטבול במים חמים, להתחבר ליסוד החיים.</li>
+<li>לבחור את תנוחת הלידה המושלמת עבורך.</li>
+<li>להשפיע על האווירה - אור, צליל ומרחב.</li>
+<li>לנשום את דרכך דרך כל רגע, בעיסוי ותמיכה.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Criteria Section -->
+<section class="ligne-claire-section bg-emerald-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">דרך בטוחה: קריטריונים ללידה טבעית</h2>
+<p class="text-black">המסע הטבעי דורש תנאים שלמים של בריאות והרמוניה. הצוות הרפואי שותף לדרך, מוודא שכל צעד בטוח עבורך ועבור תינוקך.</p>
+<img alt="איור בסגנון קו נקי של שתי דמויות מעוקלות: אישה הרה עם בטן עגולה ורופא או אחות ידידותיים, שניהם עם קווי מתאר שחורים בולטים. הם עומדים זה מול זו עם חיוכים, סביבם סמלי לב וכוכבים קטנים בצבעי ירוק בהיר וצהוב, המדגישים בריאות וביטחון." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603179/my_website_images/ligne_claire_health-check.png"/>
+<div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">למען האם:</h3>
+<ul class="text-right">
+<li>הריון תקין ובריא.</li>
+<li>סיכון נמוך.</li>
+<li>שבועות 37-41 להריון.</li>
+<li>ללא מחלות רקע משמעותיות.</li>
+</ul>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">למען העובר:</h3>
+<ul class="text-right">
+<li>עובר יחיד במצג ראש.</li>
+<li>ללא סיכונים עובריים מיוחדים.</li>
+<li>ניטור תקין בקבלה ללידה.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Leading Centers Section -->
+<section class="ligne-claire-section bg-yellow-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">בתי המקדש של הלידה הטבעית בישראל</h2>
+<p class="text-black">ברחבי הארץ, שוכנים מרכזים ייעודיים המעניקים בית חם ותומך ללידה טבעית. כל אחד מהם מציע מרחב של שקט, ביטחון ואפשרויות בלתי מוגבלות עבורך.</p>
+<img alt="איור בסגנון קו נקי של מפה מופשטת של ישראל, עם נקודות בולטות המסומנות בצבעים בהירים כמו כחול, ירוק וורוד. כל נקודה מייצגת בית חולים עם מרכז לידה טבעית, מלווה באייקונים מינימליסטיים של לבבות או ידיים תומכות. קווי מתאר שחורים עבים מקיפים את המפה והנקודות." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603180/my_website_images/ligne_claire_hospitals-map.png"/>
+<div class="grid md:grid-cols-3 gap-8 mt-8">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">שיבא, תל השומר</h3>
+<p>חדרי עדן וניצן: חוויה של מים, תאורה ומוזיקה, עם מיילדות מוסמכות ללידות מים.</p>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">הדסה, עין כרם</h3>
+<p>אווירה ביתית ומרגיעה, עם אמבטיות ג'קוזי ושמנים ארומתיים ללידה רכה.</p>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">ליס (איכילוב), תל אביב</h3>
+<p>מרחב פרטי ותומך, עם מוניטור אלחוטי ואפשרות ללידת מים פורצת דרך.</p>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">לניאדו, נתניה</h3>
+<p>ליווי אישי על ידי מיילדת בעלת אוריינטציה טבעית בכל חדרי הלידה.</p>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">אסף הרופא (שמיר)</h3>
+<p>חדרים מעוצבים עם אמבטיה רחבה וציוד מגוון לכל צורך.</p>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black">אסותא אשדוד</h3>
+<p>חדרי לידה טבעית מרווחים ומאובזרים, כולל אמבטיה ללידות מים.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="ligne-claire-section bg-rose-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">מתנות הלידה הטבעית: גוף ונפש</h2>
+<p class="text-black">הבחירה בלידה טבעית היא מתנה לעצמך ולתינוקך - שחרור, חיבור ועוצמה שאין כדוגמתה, מעבר לזמן ולמקום.</p>
+<img alt="איור בסגנון קו נקי של אם ותינוקה מחובקים קרוב, עם קווי מתאר שחורים בולטים. דמויותיהן פשוטות ואיקוניות. סביבן הילה עדינה בצבעי פסטל חמים, המדגישה קשר ואהבה. קווי המתאר ברורים ונקיים." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603181/my_website_images/ligne_claire_mother-baby-bond.png"/>
+<div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">יתרונות פיזיים:</h3>
+<ul class="text-right">
+<li>פחות התערבויות רפואיות.</li>
+<li>התאוששות מהירה לאם.</li>
+<li>תינוק חשוף פחות לתרופות.</li>
+<li>סיוע בתהליך ההנקה הראשוני.</li>
+</ul>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">יתרונות רגשיים:</h3>
+<ul class="text-right">
+<li>חוויה מעצימה ובלתי נשכחת.</li>
+<li>תחושת שליטה מלאה בתהליך.</li>
+<li>חיבור עמוק לגוף ולעצמי.</li>
+<li>הפרשה טבעית של הורמוני אהבה.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Pain Relief Methods Section -->
+<section class="ligne-claire-section bg-sky-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">קסם הטבע: דרכים טבעיות להקלה</h2>
+<p class="text-black">גופך יודע. נשימתך מנחה. המים מרפים. כלים טבעיים, עתיקים וחדשניים, עומדים לרשותך כדי להפוך את הכאב לחלק מריקוד הלידה.</p>
+<img alt="איור בסגנון קו נקי של אישה רגועה בתוך בריכת לידה, המים סביבה בצבע כחול בהיר. קווי מתאר שחורים עבים מקיפים את האישה והבריכה. סביב לה בועות עדינות וצורות מופשטות של גלים המרמזות על שלווה ורוגע." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603183/my_website_images/ligne_claire_water-birth-illustration.png"/>
+<div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">כלים פיזיים:</h3>
+<ul class="text-right">
+<li>**שימוש במים:** אמבטיה, מקלחת, לידת מים.</li>
+<li>**תנועתיות:** הליכה, כדור פיזיו, תנוחות מגוונות.</li>
+<li>**מגע:** עיסויים, לחיצות, שמנים ארומתיים.</li>
+</ul>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">כלים מנטליים ומשלימים:</h3>
+<ul class="text-right">
+<li>**נשימות והרפיה:** נשימות מודעות, דמיון מודרך.</li>
+<li>**אווירה תומכת:** מוזיקה, תאורה עמומה, סביבה שקטה.</li>
+<li>**רפואה משלימה:** דיקור סיני, רפלקסולוגיה, שיאצו.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Preparation Section -->
+<section class="ligne-claire-section bg-emerald-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">דרך ההכנה: בונים את מסע הלידה</h2>
+<p class="text-black">הלידה הטבעית היא פסגה, וההכנה אליה היא המסלול המפתל והיפה. קורסים, תרגילים ובניית תוכנית לידה - כל אלו כלים לבטחון ולשלווה.</p>
+<img alt="איור בסגנון קו נקי של אישה הרה מבצעת תנוחת יוגה עדינה, מוקפת באלמנטים של טבע כמו עלים ופרחים בצבעי ירוק וורוד בהירים. קווי מתאר שחורים בולטים מדגישים את קווי הגוף והסביבה, ויוצרים תחושה של רוגע ואיזון." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603184/my_website_images/ligne_claire_preparation-yoga.png"/>
+<div class="ligne-claire-card mt-8 max-w-3xl mx-auto text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">מרכיבי ההכנה:</h3>
+<ul class="text-right">
+<li>**קורסי הכנה:** ידע, כלים וביטחון.</li>
+<li>**הכנה פיזית:** רצפת אגן, נשימה, תנועה.</li>
+<li>**הכנה רגשית:** התמודדות עם פחדים, בניית ביטחון.</li>
+<li>**תוכנית לידה:** מפת הדרך שלך.</li>
+<li>**פגישה עם מיילדת:** תיאום ציפיות ובניית אמון.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Support Section -->
+<section class="ligne-claire-section bg-yellow-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">תמיכה במסע: דולה ולידת בית</h2>
+<p class="text-black">אינך לבד. יד תומכת, ליווי צמוד, או קן חמים בביתך - הבחירה במי ואיפה ללדת היא שלך, וכל דרך מעניקה ביטחון.</p>
+<img alt="איור בסגנון קו נקי של דולה תומכת באישה הרה במהלך לידה. הדולה עומדת מאחורי האישה, מניחה ידיה על כתפיה בתמיכה. שתיהן עם קווי מתאר שחורים בולטים, וסביבן אלמנטים גרפיים המרמזים על זרימה וחיבור, בצבעי כתום וסגול בהירים." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603185/my_website_images/ligne_claire_doula-support.png"/>
+<div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">הדולה: חברה לדרך</h3>
+<ul class="text-right">
+<li>תמיכה רגשית ופיזית לפני, בזמן ואחרי הלידה.</li>
+<li>ליווי בן/בת הזוג.</li>
+<li>תיווך עם הצוות הרפואי.</li>
+</ul>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">לידת בית: הקן הפרטי</h3>
+<ul class="text-right">
+<li>לידה בסביבה מוכרת ונוחה.</li>
+<li>פרטיות ושליטה מלאה.</li>
+<li>ליווי צמוד של מיילדת מוסמכת.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Section -->
+<section class="ligne-claire-section bg-rose-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">שני נתיבים, בחירה אחת: טבעי מול אפידורל</h2>
+<p class="text-black">כל בחירה היא לגיטימית. חשוב להבין את משמעותה, יתרונותיה וחסרונותיה, ולבחור את הדרך המתאימה ביותר לך ולתינוקך.</p>
+<img alt="איור בסגנון קו נקי של דרך מתפצלת לשניים. נתיב אחד מעוטר בפרחים ועלים בצבעי ירוק וורוד בהירים, המייצג לידה טבעית. הנתיב השני בעל קווים ישרים וצורות מודרניות בצבעי אפור וכחול. קווי מתאר שחורים עבים מקיפים את השבילים ומוסיפים תחושה של בחירה חשובה." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603187/my_website_images/ligne_claire_choice-path.png"/>
+<div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">לידה טבעית:</h3>
+<ul class="text-right">
+<li>תנועה חופשית והתאוששות מהירה.</li>
+<li>פחות התערבויות.</li>
+<li>חוויה מעצימה וחיבור עמוק.</li>
+</ul>
+</div>
+<div class="ligne-claire-card text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">לידה עם אפידורל:</h3>
+<ul class="text-right">
+<li>הקלה משמעותית בכאב.</li>
+<li>אפשרות למנוחה.</li>
+<li>הגבלת תנועה אפשרית.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics & Tips Section -->
+<section class="ligne-claire-section bg-sky-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">מספרים ותובנות: דרך הלידה בישראל</h2>
+<p class="text-black">למרות שהלידה הטבעית הולכת וצוברת תאוצה, היא עדיין בחירה של מיעוט. אך עם ידע והכנה, את יכולה להיות חלק מהשינוי.</p>
+<img alt="איור בסגנון קו נקי של תרשים עוגה או עמודות פשוט, המציג נתונים סטטיסטיים על לידות טבעיות בישראל. הצבעים בתרשים בהירים ונקיים, עם קווי מתאר שחורים בולטים. סביב התרשים סמלים מינימליסטיים של תינוקות או לבבות." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603189/my_website_images/ligne_claire_statistics-chart.png"/>
+<div class="ligne-claire-card mt-8 max-w-3xl mx-auto text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">טיפים ללידה טבעית מוצלחת:</h3>
+<ul class="text-right">
+<li>התכונני: קורס, תרגול פיזי ורגשי.</li>
+<li>הכירי: בתי חולים, מיילדות, דולות.</li>
+<li>תנועי: אל תחששי לשנות תנוחות.</li>
+<li>הקשיבי: לגוף שלך, לקול הפנימי.</li>
+<li>שתפי: את רצונותייך עם הצוות.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Myths Section -->
+<section class="ligne-claire-section bg-emerald-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">מיתוסים וגילויים: נחשפים לאמת</h2>
+<p class="text-black">נפזר את העננים, נבהיר את האמת. הלידה הטבעית מוקפת לעיתים בפחדים ואי-הבנות. הגיע הזמן להפריך אותם.</p>
+<img alt="איור בסגנון קו נקי המציג שתי בועות דיבור: אחת עם סימן שאלה גדול בצבע אדום-כתום המייצגת מיתוס, והשנייה עם סימן וי ירוק-כחול המייצגת עובדה. קווי מתאר שחורים בולטים מקיפים את הבועות, ורקע בהיר ונקי מדגיש את המסר." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603190/my_website_images/ligne_claire_myth-truth.png"/>
+<div class="ligne-claire-card mt-8 max-w-3xl mx-auto text-right">
+<h3 class="text-black mb-4 border-b-2 border-black pb-2">הבה נפריך:</h3>
+<ul class="text-right">
+<li>**"מסוכנת?"** - עובדה: בטוחה עם ליווי מקצועי.</li>
+<li>**"כאב בלתי נסבל?"** - עובדה: כלים רבים להקלה.</li>
+<li>**"רק בבית?"** - עובדה: מרכזים ייעודיים בבתי חולים.</li>
+<li>**"לא ללידה ראשונה?"** - עובדה: מתאימה גם ללידה ראשונה.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Conclusion Section -->
+<section class="ligne-claire-section bg-yellow-100">
+<div class="container mx-auto text-center px-4">
+<h2 class="text-black">הלידה שלך, הדרך שלך</h2>
+<p class="text-black text-2xl md:text-3xl font-medium mb-8">גאולה מגילובסקי מלווה אותך במסע אל האמהות, מתוך אמונה עמוקה בכוח הנשי, בחוכמת הגוף ובקסם הלידה הטבעית. שתהא דרכך מוארת, בטוחה ומעצימה.</p>
+<img alt="איור בסגנון קו נקי של אם רגועה מחזיקה את תינוקה החדש בידיה. שניהם נראים שלווים ומחוברים. קווי מתאר שחורים בולטים מדגישים את קווי הדמויות. ברקע, שמש זורחת או ירח מלא עם קרניים רכות בצבע צהוב בהיר, המשרים אווירה שלווה וסיום טוב." class="w-full max-w-md mx-auto mb-8 border-4 border-black rounded-lg" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603193/my_website_images/ligne_claire_mother-baby-peace.png"/>
+<p class="text-black">עם ידע, הכנה ותמיכה, הלידה הטבעית יכולה להיות אחת החוויות העוצמתיות והמרגשות בחייך. אנו כאן ללוות אותך בכל צעד.</p>
+</div>
+</section>
+<!-- Footer - simple for Ligne Claire -->
+<footer class="bg-black text-white text-center py-8 border-t-4 border-black">
+<p class="text-sm md:text-base">© 2024 גאולה מגילובסקי - כל הזכויות שמורות.</p>
+</footer>
+</div> <!-- End content-wrapper -->
+</div> <!-- End parallax-container -->
+<script>
+        // Custom Cursor JavaScript
+        const customCursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
+
+        // Parallax Scrolling JavaScript
+        const parallaxContainer = document.getElementById('parallax-container');
+        const layers = [
+            { id: 'parallax-layer-1', speed: 0.1 },
+            { id: 'parallax-layer-2', speed: 0.2 },
+            { id: 'parallax-layer-3', speed: 0.3 },
+            { id: 'parallax-layer-4', speed: 0.4 }
+        ];
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            layers.forEach(layer => {
+                const element = document.getElementById(layer.id);
+                if (element) {
+                    element.style.transform = `translate3d(0, ${scrollY * layer.speed}px, 0)`;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateParallax);
+        window.addEventListener('resize', updateParallax); // Recalculate on resize
+        updateParallax(); // Initial call to set positions
+    </script>
+</body>
+</html>

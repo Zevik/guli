@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>קריאת הגוף: המסע הטבעי של לידה</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🤰&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&amp;family=Open+Sans+Hebrew:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Open Sans Hebrew', sans-serif;
+            cursor: none; /* Hide default cursor */
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif Hebrew', serif;
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            border-radius: 50%;
+            transition: transform 0.075s ease-out; /* Smoother movement */
+            transform: translate(-50%, -50%);
+            /* High Contrast Cursor Requirement: light border + dark shadow */
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8);
+        }
+        .parallax-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image covers the area */
+            z-index: -1; /* Ensure background layers are behind content */
+            /* Cyanotype filter: grayscale, saturate, hue-rotate, brightness, contrast for blue tones */
+            filter: grayscale(20%) saturate(150%) hue-rotate(200deg) brightness(80%) contrast(120%);
+        }
+        /* Override filter for the gradient background, as it's not an image */
+        .bg-gradient-parallax {
+             z-index: -4; /* Deepest layer */
+             filter: none; /* No filter on gradient */
+        }
+        /* Custom scrollbar for aesthetic consistency */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #011627; /* Dark blue */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a6f8b; /* Cyan/blue */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3c93b3;
+        }
+    </style>
+</head>
+<body class="bg-blue-950 text-gray-200">
+<!-- Custom Cursor - Always visible with high contrast -->
+<div class="custom-cursor"></div>
+<!-- Parallax Background Layers - Abstract Cyanotype Imagery -->
+<div class="parallax-layer bg-gradient-to-t from-blue-950 to-indigo-900 bg-gradient-parallax" data-speed="0.1"></div>
+<img alt="עננים כחולים עדינים וערפיליים נעים בשמיים ציפונייטים, יוצרים תחושה של עומק וחלום." class="parallax-layer w-full h-full opacity-10" data-speed="0.05" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603037/my_website_images/cyanotype_wispy-clouds.png" style="z-index: -2;"/>
+<img alt="דפוס גלי עמוק של ים ציפונייטי, המרמז על תנועה בלתי פוסקת ועוצמה טבעית, בגווני כחול כהה." class="parallax-layer w-full h-full opacity-5" data-speed="0.02" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603045/my_website_images/cyanotype_deep-sea-pattern.png" style="z-index: -3;"/>
+<!-- Main Content Wrapper - Holds all interactive and readable content -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center p-8 sm:p-12 md:p-16 lg:p-20 text-right">
+<!-- Hero Section - Introduction to the theme and dedication -->
+<section class="min-h-screen w-full max-w-4xl flex flex-col justify-center items-center text-center p-8 mb-24 relative">
+<h1 class="text-5xl sm:text-7xl font-bold text-cyan-200 leading-tight mb-8 drop-shadow-lg [text-shadow:_0_0_8px_rgb(45_212_191_/_0.7)]">
+                קריאת הגוף:<br/>המסע הטבעי של לידה
+            </h1>
+<p class="text-xl sm:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-12">
+                אתר זה הוא מנחת כבוד לגאולה מגילובסקי, אחות מילדת, ולאמון הבלתי מעורער בכוחה ובחכמתה של לידה טבעית בישראל.
+                מסע חיים שלם נפתח ברגעים אלה, ואנו כאן כדי לחשוף את היופי, העוצמה והשלווה שבתהליך העתיק והמודרני כאחד.
+            </p>
+<img alt="צללית כחולה עמוקה של אישה הרה עומדת בשלווה ליד ים סוער תחת שמיים זרועי כוכבים, בהדפס ציפונייט עתיק. גופה משדר כוח וחיבור לכוחות הטבע." class="w-full max-w-2xl h-auto rounded-lg shadow-xl border-2 border-cyan-400 opacity-90 object-cover mt-12 transition-transform duration-700 hover:scale-105" loading="lazy" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603052/my_website_images/cyanotype_pregnant-silhouette-sea.png"/>
+</section>
+<!-- Section 1: Listening Inward - Definition of Natural Birth -->
+<section class="w-full max-w-4xl bg-blue-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-indigo-700 mb-24 animate-fade-in" style="--delay: 0.2s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                הקשבה פנימה – מהי לידה טבעית?
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                לידה טבעית היא קריאה לחזור אל המקור, אל החכמה הקדמונית הטבועה בכל אישה. זהו ריקוד עדין בין הגוף לנפש, ללא התערבות מלאכותית, בו הצירים הם גלים של עוצמה, והרפיה היא נשימה עמוקה המלווה את התינוק בדרכו החוצה. זוהי חוויה המעצימה את האישה, מחברת אותה לכוחותיה הפנימיים, ומאפשרת לה לחוות את הלידה כאירוע אינטימי וטרנספורמטיבי. הסביבה הופכת למקדש, והגוף למורה דרך, כשאוקסיטוצין ואנדורפינים, "הורמוני האהבה והאושר", סוללים את השביל.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="תמונה ציפונייטית של ידיים עדינות המחזיקות מים זורמים, המסמלות טהרה וזרימה טבעית. האור משתקף על פני המים בגווני כחול לבן." class="w-full max-w-md h-auto rounded-full shadow-lg border-2 border-cyan-500 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603060/my_website_images/cyanotype_flowing-water-hands.png"/>
+</div>
+</section>
+<!-- Section 2: Sacredness of the Body - Eligibility for Natural Birth -->
+<section class="w-full max-w-4xl bg-indigo-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-blue-700 mb-24 animate-fade-in" style="--delay: 0.4s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                הקודש שבגוף – מי יכולה ללדת באופן טבעי?
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                המסע אל לידה טבעית מתחיל באמון עמוק בגוף ובקריטריונים המקודשים שמבטיחים בטיחות ושלווה. הוא מיועד לאישה הבריאה, זו שהריונה התנהל כשורה, ללא סיכונים מיוחדים. כשהעובר יחיד, במצג ראש, ומוכן לצאת לאוויר העולם בין שבוע 37 ל-41. זהו מצב של סימביוזה אולטימטיבית בין האם לתינוק, שבו שניהם מוכנים לאתגר ולמתנה. הצוות הרפואי, בזהירות ובכבוד, מלווה את התהליך, מוודא שהדרך בטוחה ומוארת עבורם.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="דיוקן ציפונייטי מרגש של אם ותינוקה הרך, עיניהן נפגשות בחיבור עמוק לאחר לידה. האור עוטף אותן בהילה שלווה." class="w-full max-w-md h-auto rounded-lg shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603068/my_website_images/cyanotype_mother-child-bond.png"/>
+</div>
+</section>
+<!-- Section 3: Birth Temples - Natural Birth Centers in Israel -->
+<section class="w-full max-w-4xl bg-blue-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-indigo-700 mb-24 animate-fade-in" style="--delay: 0.6s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                בתי המקדש של הלידה – מרכזי הלידה הטבעית בישראל
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                בישראל, בתי החולים פותחים שעריהם למסע הלידה הטבעית, ומציעים מרכזים ייעודיים שהם בתי מקדש של שלווה. במקומות כמו שיבא, הדסה, ליס, לניאדו ואסף הרופא, תוכלי למצוא מרחבים מעוצבים בקפידה, המאפשרים לידות מים, תנועה חופשית ופרטיות מרבית. מיילדות מנוסות ומסורות, המוסמכות גם ללידות מים, מלוות את היולדת בעדינות ומקצועיות, יוצרות את האיזון המושלם בין בטיחות רפואית לכיבוד רצונותיה העמוקים ביותר של האישה.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="חדר לידה טבעי שקט ומואר באור רך, עם אמבט מים גדול וחלון המשקיף לנוף ירוק, בהדפס ציפונייט." class="w-full max-w-lg h-auto rounded-xl shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603078/my_website_images/cyanotype_birth-room-light.png"/>
+</div>
+</section>
+<!-- Section 4: Water, Movement, Breath - Natural Pain Relief Methods -->
+<section class="w-full max-w-4xl bg-indigo-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-blue-700 mb-24 animate-fade-in" style="--delay: 0.8s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                המים, התנועה, הנשימה – שירת ההקלה
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                במסע הלידה הטבעית, הטבע עצמו מעניק לנו את הכלים החזקים ביותר להקלה ולחיבור. המים, בעלי תכונות ריפוי והרפיה, עוטפים את הגוף ומפחיתים את עוצמת הצירים. התנועה החופשית – ריקוד עדין, הליכה, כריעה – מאפשרת לתינוק למצוא את דרכו בקלות רבה יותר. והנשימה, אותה נשימה עמוקה ומודעת, הופכת לעוגן של רוגע ושלווה בתוך הסערה. יחד עם מגע, עיסוי וטכניקות רפואה משלימה, נוצרת סימפוניה של הקלה המאפשרת לאישה להתמסר לתהליך בביטחון מלא.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="אישה הרה צפה בשלווה מתחת למים בבריכת לידה, גופה עטוף באור כחול עמוק, משדרת רוגע ועוצמה. הסצנה נראית כמו ציפונייט מודרני." class="w-full max-w-lg h-auto rounded-full shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603088/my_website_images/cyanotype_pregnant-woman-underwater.png"/>
+</div>
+</section>
+<!-- Section 5: Doula and Gila - The Role of Support -->
+<section class="w-full max-w-4xl bg-blue-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-indigo-700 mb-24 animate-fade-in" style="--delay: 1s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                יד תומכת, לב מלווה – הדולה וגאולה
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                במסע הלידה, נוכחות של יד תומכת ולב מלווה היא לא רק סיוע, אלא עוגן רגשי עצום. הדולה, תומכת הלידה, היא המצפן האנושי המכוון את הזוג בדרך. היא מציעה תמיכה פיזית באמצעות עיסויים ולחיצות, ובעיקר, תמיכה רגשית בלתי פוסקת, מעניקה ביטחון ומחזקת את האמון ביכולת ללדת. גאולה מגילובסקי, אחות מילדת, היא השראה לדמות זו – אשת מקצוע בעלת ניסיון עשיר, חכמה שקטה ולב רחב, המלווה נשים במסירות ובאהבה בדרכן אל האימהות, צעד אחר צעד.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="מיילדת בעלת פנים שלוות ורגועות תומכת באישה יולדת, מציעה מגע עדין ועידוד, בהדפס ציפונייט אמנותי." class="w-full max-w-md h-auto rounded-lg shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603099/my_website_images/cyanotype_midwife-supporting-mother.png"/>
+</div>
+</section>
+<!-- Section 6: Home Birth - The Choice for Intimacy -->
+<section class="w-full max-w-4xl bg-indigo-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-blue-700 mb-24 animate-fade-in" style="--delay: 1.2s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                הקן הבטוח – לידת בית
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                עבור נשים מסוימות, הקן הבטוח ביותר ללידה הוא הבית עצמו. לידת בית, המלווה במיילדת מוסמכת ומנוסה, היא חזרה למסורת עתיקה שבה הלידה הייתה אירוע אינטימי ומשפחתי. בתוך הסביבה המוכרת והאוהבת, האישה חווה תחושת שליטה מלאה ופרטיות עמוקה. היא מוקפת במלווים שבחרה, באווירה שיצרה, ומקבלת ליווי צמוד ורציף המאפשר לה להתמסר לתהליך הטבעי ללא הסחות דעת. זוהי בחירה עוצמתית, המעידה על אמון עמוק בטבע ובכוחות הריפוי של הסביבה הקרובה.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="סצנה חמה ואינטימית של לידת בית, עם תאורה רכה, שמיכות נעימות וצללית של מיילדת תומכת. הכל בגווני כחול כהה." class="w-full max-w-md h-auto rounded-lg shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603105/my_website_images/cyanotype_cozy-home-birth.png"/>
+</div>
+</section>
+<!-- Section 7: My Path - Natural vs. Intervention as Personal Choice -->
+<section class="w-full max-w-4xl bg-blue-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-indigo-700 mb-24 animate-fade-in" style="--delay: 1.4s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                הדרך שלי – טבעי מול התערבות
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                כל לידה היא מסע ייחודי, וכל אישה בוחרת את נתיבה. הלידה הטבעית היא בחירה להתמסר לכוחות העצומים של הגוף, לחפש את העוצמה שבכאב ואת היופי שבחוויה בלתי אמצעית. היא מאפשרת חיבור עמוק לתינוק ולהתאוששות מהירה יותר. אך חשוב לזכור, שכאשר נדרשת התערבות רפואית, היא שם כדי להבטיח את בריאות האם והתינוק. ההחלטה היא אישית, מודעת, ונעשית תוך הקשבה לגוף ולנפש, בידיעה שכל דרך היא קדושה ומובילה אל האור החדש.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="שתי דרכים מתפצלות בנוף ציפונייטי ערפילי, אחת מובילה למים שלווים ואחת לעבר אור מודרני ומהיר יותר. הסצנה מעוררת מחשבה על בחירה וגורל." class="w-full max-w-lg h-auto rounded-lg shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603108/my_website_images/cyanotype_two-paths.png"/>
+</div>
+</section>
+<!-- Section 8: New Light - Conclusion and Hope -->
+<section class="w-full max-w-4xl bg-indigo-900 bg-opacity-70 backdrop-blur-sm p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-blue-700 mb-24 animate-fade-in" style="--delay: 1.6s;">
+<h2 class="text-4xl sm:text-5xl font-bold text-cyan-300 mb-8 leading-relaxed text-center [text-shadow:_0_0_6px_rgb(45_212_191_/_0.6)]">
+                אור חדש – סיכום ותקווה
+            </h2>
+<p class="text-lg sm:text-xl text-gray-200 mb-8 leading-loose">
+                הלידה היא תמיד פלא, בין אם היא טבעית לחלוטין ובין אם היא דורשת תמיכה רפואית. זהו רגע של כניסה לחיים חדשים, הן עבור התינוק והן עבור ההורים. המסע של לידה טבעית, בפרט, הוא הזדמנות להתחבר לכוחות הנשיים העתיקים, לחוות עומק רגשי ופיזי שאין שני לו, ולצאת ממנו מועצמת ובטוחה. בזכות מיילדות מסורות כגאולה מגילובסקי, נשים רבות בישראל זוכות לחוות את היופי והעוצמה שבתהליך זה, מתוך כבוד לגופן ולאינטואיציה הפנימית שלהן.
+                שתהא דרכך אל האימהות מוארת, בטוחה ומלאת אהבה.
+            </p>
+<div class="flex justify-center items-center mt-10">
+<img alt="כף רגל זעירה של תינוק במגע עדין עם אצבע של מבוגר, בהדפס ציפונייט המדגיש את הרכות והתחלה חדשה." class="w-full max-w-md h-auto rounded-full shadow-xl border-2 border-cyan-400 opacity-90 object-cover transition-transform duration-700 hover:scale-105" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603112/my_website_images/cyanotype_baby-foot-hand.png"/>
+</div>
+</section>
+<!-- Footer - Copyright information -->
+<footer class="text-center text-gray-400 text-sm mt-12 p-4">
+<p>© 2024 קריאת הגוף. כל הזכויות שמורות לגאולה מגילובסקי.</p>
+</footer>
+</main>
+<script>
+        // Custom Cursor JavaScript for tracking mouse movement
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        });
+
+        // Parallax Scrolling JavaScript for background layers
+        document.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            document.querySelectorAll('.parallax-layer').forEach(layer => {
+                const speed = parseFloat(layer.getAttribute('data-speed'));
+                if (!isNaN(speed)) {
+                    layer.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+                }
+            });
+        });
+
+        // Fade-in animation for content sections on scroll using IntersectionObserver
+        const faders = document.querySelectorAll('.animate-fade-in');
+        const appearOptions = {
+            threshold: 0.3, // Element becomes visible when 30% of it enters the viewport
+            rootMargin: "0px 0px -100px 0px" // Start animating a bit before it's fully in view
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return; // If not intersecting, do nothing
+                } else {
+                    // When intersecting, remove initial animation state and add final state
+                    entry.target.classList.remove('opacity-0', 'translate-y-16');
+                    entry.target.style.transition = `transform 1s ease-out, opacity 1s ease-out`;
+                    // Apply staggered delay from CSS variable
+                    entry.target.style.transitionDelay = entry.target.style.getPropertyValue('--delay') || '0s';
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    appearOnScroll.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            fader.classList.add('opacity-0', 'translate-y-16'); // Set initial off-screen state for animation
+            appearOnScroll.observe(fader); // Start observing each section
+        });
+    </script>
+</body>
+</html>

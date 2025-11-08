@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>קריאת הגוף: לידה טבעית כפועל אמנותי</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&amp;family=Noto+Sans+Hebrew:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        // Tailwind CSS configuration for custom colors and fonts
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'exp-red': '#B22222', // Fiery, visceral red
+                        'exp-ochre': '#CC7722', // Earthy, primal
+                        'exp-blue': '#003366', // Deep, brooding blue
+                        'exp-green': '#336633', // Dark, natural green
+                        'exp-black': '#1A1A1A', // Near black for depth
+                        'exp-white': '#F0F0F0', // Off-white for stark contrast
+                        'exp-purple': '#5C2D91', // Spiritual, intense
+                        'exp-yellow': '#FFD700', // Glimmer of hope, intensity
+                        'exp-grey-dark': '#3a3a3a',
+                        'exp-grey-light': '#DCDCDC',
+                    },
+                    fontFamily: {
+                        'hebrew-display': ['"Frank Ruhl Libre"', 'serif'],
+                        'hebrew-body': ['"Noto Sans Hebrew"', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        /* Base styles */
+        body {
+            cursor: none; /* Hide default cursor */
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            color: theme('colors.exp-white'); /* Default text color for dark backgrounds */
+            background-color: theme('colors.exp-black'); /* Base background */
+            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+        }
+
+        /* Custom cursor style */
+        #custom-cursor {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+            z-index: 9999;
+            /* High contrast border and shadow for visibility on any background */
+            border: 2px solid theme('colors.exp-white');
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.8);
+        }
+
+        #custom-cursor.hovered {
+            transform: scale(1.5);
+            background-color: theme('colors.exp-yellow'); /* Highlight color */
+            border-color: theme('colors.exp-yellow');
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.5);
+        }
+
+        /* Full screen background image */
+        .background-image {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Behind content */
+            filter: grayscale(50%) contrast(120%); /* Expressionist filter */
+        }
+
+        /* Content sections styling for readability and artistry */
+        .content-section {
+            position: relative;
+            z-index: 10;
+            padding: 4rem 1rem;
+            margin: 4rem auto;
+            max-width: 960px;
+            background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent dark background for contrast */
+            border: 1px solid rgba(240, 240, 240, 0.2); /* Subtle border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.1s ease-out; /* Smooth parallax movement */
+            transform-origin: center; /* Important for consistent skew/translate */
+        }
+        .content-section:nth-child(odd) { /* Alternate skew direction for artistic asymmetry */
+            transform: skewY(-2deg);
+        }
+        .content-section:nth-child(even) {
+            transform: skewY(2deg);
+        }
+
+        .content-image {
+            border: 3px solid theme('colors.exp-red'); /* Bold border for images */
+            box-shadow: 8px 8px 0px theme('colors.exp-blue'); /* Offset shadow for depth */
+        }
+        
+        /* Specific header styling for expressionist feel */
+        h1 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 700;
+            color: theme('colors.exp-yellow');
+            text-shadow: 4px 4px 0px theme('colors.exp-red'); /* Layered shadow for bold effect */
+        }
+        h2 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 700;
+            color: theme('colors.exp-red');
+            text-shadow: 2px 2px 0px theme('colors.exp-ochre');
+        }
+
+        /* Fade-in animation for title */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .animate-fade-in.fade-in-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-hebrew-body text-exp-white">
+<!-- Custom Cursor -->
+<div id="custom-cursor"></div>
+<!-- Main Background Image -->
+<img alt="A striking expressionist painting of a pregnant woman, her form slightly elongated and distorted to emphasize the internal process. Vibrant, swirling colors – deep blues, purples, and fiery reds – emanate from her belly, forming an ethereal aura of creation. Her face is serene yet determined, capturing the profound intensity of impending motherhood. The brushstrokes are bold and visible, conveying raw emotion and energy." class="background-image" id="main-background" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603120/my_website_images/expressionism_pregnant-aura.png"/>
+<main class="relative z-10 p-4">
+<!-- Opening Scene -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.2">
+<h1 class="text-6xl md:text-8xl leading-tight mb-8 animate-fade-in font-hebrew-display">קריאת הגוף: לידה טבעית כפועל אמנותי</h1>
+<p class="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto mb-12">
+                בתוך הקלחת הסוערת של הקיום, רגע אחד קורע את החשכה – רגע הבריאה. לידה טבעית, היא לא רק תהליך ביולוגי, היא עדות רועמת לכוחה הבלתי נתפס של אישה, מסע פנימי אל הגולמי, אל הראשוני. בישראל, בין מדבר לים, נשים מבקשות את המגע הישיר, את החוויה הטהורה, את החיבור העמוק ביותר לעצמן, לרחמן, לחיים המתפתחים.
+            </p>
+<div class="relative w-full max-w-xl mx-auto mt-12 mb-8">
+<img alt="An abstract expressionist painting featuring a powerful swirl of dark, earthy colors – deep browns, muted greens, and shadowy blacks – punctuated by stark, bright lines of white and yellow. The composition evokes a sense of internal tumult and the raw energy of beginning, with visible, aggressive brushstrokes adding to its emotional intensity. It represents the foundational, sometimes chaotic, energy of creation." class="w-full h-auto rounded-lg content-image opacity-80" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603135/my_website_images/expressionism_intro-swirl.png" style="transform: rotate(3deg) scale(1.05);"/>
+<div class="absolute inset-0 bg-gradient-to-t from-exp-black to-transparent opacity-70"></div>
+</div>
+<p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-exp-grey-light mt-8">
+                הצטרפו אלינו למסע ויזואלי ורגשי, החושף את ליבת העוצמה והיופי שבלידה הטבעית.
+            </p>
+</section>
+<!-- The Primal Dance -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.1">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">המחול הפראי של הגוף</h2>
+<p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                זוהי המחול הפראי של הגוף, סרבנות עקשנית לכבול את הבלתי ניתן לכבילה. ללא מסכות, ללא הסחות דעת, רק האישה, גופה הרועד, נשימתה העמוקה, והציר – פסל של כאב הופך לבריאה. כאן, נולדים לא רק תינוקות, אלא נשים חדשות, עזות ושלמות יותר. זוהי חוויה קמאינית, התמסרות מוחלטת לקצב הפנימי של החיים.
+            </p>
+<img alt="An expressionist artwork depicting the dynamic, rhythmic movement of a woman in labor. Her body is a study in fluid, powerful motion, perhaps kneeling or swaying, with abstract lines and shapes suggesting the flow of energy and the progression of contractions. The color palette is rich with earthy tones mixed with bursts of vibrant, primal hues, emphasizing the natural, almost tribal dance of birth. The scene feels active and deeply connected to the body's wisdom." class="w-full max-w-2xl mx-auto h-auto rounded-lg content-image mt-12 transform -rotate-2" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603141/my_website_images/expressionism_birthing-rhythm.png"/>
+</section>
+<!-- The Canvas of Pain and Power -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.15">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">הכאב כצבע סמיך</h2>
+<p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                הכאב, הלא הוא צבע סמיך על בד החיים, אינו אויב, אלא שותף. דרכו, מתגלה עוצמה. בתנועה חופשית, בשילוב עם המים המרפאים, בנשימה המשחררת, בעיסוי המקרקע – כל אלה הופכים לכלי ביטוי, למשיכות מכחול גסות ורכות כאחד, המעצבות את יצירת המופת. זוהי הזדמנות להתחבר אל המעמקים, להקשיב לגוף ולסמוך עליו.
+            </p>
+<img alt="A dramatic expressionist painting illustrating the transformation of pain into power during natural childbirth. Abstract, jagged forms in dark, intense colors (deep reds, grays, black) on one side flow into softer, luminous shapes of vibrant yellow and orange on the other, representing relief and strength. A central, semi-abstract figure of a woman with a strong, determined expression is subtly integrated, her form emerging from the struggle into radiant self-possession. The brushwork is raw and vigorous." class="w-full max-w-xl mx-auto h-auto rounded-lg content-image mt-12 transform rotate-3" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603144/my_website_images/expressionism_pain-to-power.png"/>
+<div class="mt-12 text-lg text-exp-grey-light">
+<p>אפשרויות להקלה על כאב, ברוח האקספרסיוניזם: </p>
+<ul class="list-disc list-inside text-right mx-auto max-w-md mt-4 text-exp-white">
+<li class="mb-2"><strong>מים:</strong> המים העוטפים, רחם שני, מקהים את הקצוות החדים של הציר.</li>
+<li class="mb-2"><strong>תנועה:</strong> שחרור הכבלים, התמסרות לריקוד האינסטינקטיבי של הגוף.</li>
+<li class="mb-2"><strong>נשימה:</strong> גשר בין גוף לנפש, משיכת חיים עמוקה אל תוך הסערה.</li>
+<li class="mb-2"><strong>מגע ועיסוי:</strong> עוגן אנושי, מגע מרפא המפזר את המתח.</li>
+<li class="mb-2"><strong>רפואה משלימה:</strong> דיקור סיני ורפלקסולוגיה – לחיצות נסתרות על נקודות האנרגיה של הקיום.</li>
+</ul>
+</div>
+</section>
+<!-- Sacred Spaces -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.05">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">היכן שהזמן קופא</h2>
+<p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                בתי החולים בישראל, מוסדות של מדע, מציעים פינות קודש טבעיות – חדרי לידה שהם יצירות אמנות בפני עצמן. תאורה עמומה, צלילי מים, מרחב לתנועה – הם קירות של ציור חוויתי. ובבית, המקדש האישי, שם הקירות נושמים את סיפור החיים, הלידה הופכת למזבח פרטי, עדות אינטימית לעוצמה אלוהית.
+            </p>
+<div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-8 mt-12">
+<img alt="An evocative expressionist scene of a woman in a birthing pool. The water is rendered with deep, calming blues and greens, reflecting distorted, ethereal light. The woman's form is softened by the water, but her face and hands convey intense focus and a sense of calm strength. Abstract patterns of light and shadow play on the walls, suggesting a sacred, intimate sanctuary. The overall mood is one of profound peace amidst the intensity, using flowing lines and saturated colors." class="w-full md:w-1/2 h-auto rounded-lg content-image transform rotate-1" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603147/my_website_images/expressionism_water-sanctuary.png"/>
+<img alt="An expressionist painting of an intimate home birth scene. The room is softly lit with warm, distorted light sources, creating deep shadows. A woman is in a birthing position, surrounded by a few blurred, supportive figures. The furniture and domestic elements are subtly distorted, emphasizing the raw, personal nature of the event within a familiar space. The colors are muted but rich, with strong contrasts, conveying comfort and intense focus." class="w-full md:w-1/2 h-auto rounded-lg content-image transform -rotate-1" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603149/my_website_images/expressionism_home-birth-intimacy.png"/>
+</div>
+</section>
+<!-- The Guides -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.25">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">הידיים המכוונות</h2>
+<p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                הן המיילדות, ציירות נסתרות, ידן המכוונת עדינה וחזקה כאחד, בתוך מערבולת הרגשות. הדולה – נוכחותה היא עוגן, קולה מנגינה עתיקה, עיסויה ריפוי. הן חלק בלתי נפרד מהיצירה, נושמות עם היולדת, מגלמות את התמיכה העצומה הדרושה לרגעים הדרמטיים ביותר. הן שומרות הסף של הלידה, מעניקות ביטחון ושקט בתוך הסערה.
+            </p>
+<img alt="A close-up expressionist painting focusing on the hands of a birthing woman being supported by the hands of a midwife or doula. The hands are rendered with exaggerated, powerful brushstrokes and a palette of warm, grounding colors (ochre, deep brown, soft red), emphasizing connection and strength. The background is blurred into abstract, calming tones, highlighting the intimate and supportive exchange of touch during labor. The feeling is one of unwavering presence and shared strength." class="w-full max-w-2xl mx-auto h-auto rounded-lg content-image mt-12 transform rotate-2" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603152/my_website_images/expressionism_supportive-hands.png"/>
+<div class="mt-12 text-lg text-exp-grey-light">
+<p>הכנה מוקדמת ותמיכה: </p>
+<ul class="list-disc list-inside text-right mx-auto max-w-md mt-4 text-exp-white">
+<li class="mb-2"><strong>קורסי הכנה:</strong> סדנאות להכרת המחול, ללמוד את השפה של הגוף.</li>
+<li class="mb-2"><strong>פגישה עם מיילדת:</strong> בניית אמון, תיאום ציפיות, שרטוט מפת הדרך.</li>
+<li class="mb-2"><strong>ליווי דולה:</strong> נוכחות מתמדת, יד תומכת, לחישה מעצימה.</li>
+<li class="mb-2"><strong>הכנה רגשית:</strong> התמודדות עם פחדים, בניית ביטחון, חיבור לעוצמה הפנימית.</li>
+</ul>
+</div>
+</section>
+<!-- The Unveiling -->
+<section class="content-section text-center mb-24 py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.08">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">רגע ההתגלות</h2>
+<p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                ברגע ההתגלות, כשהראש מגיח, כשהגוף פורץ, יש צעקה – צעקה של ניצחון, של שחרור. התינוק, יצירת האמנות האולטימטיבית, מונח על עור לעור, מביא עמו את צבעיו הבהירים, את ריח החיים. זו לא סוף הדרך, אלא תחילתה של יצירה חדשה, עמוקה ומורכבת הרבה יותר. רגע טהור של חיבור ראשוני, עולם שלם נולד.
+            </p>
+<img alt="A poignant expressionist painting capturing the very first moments of new life. A newborn baby, still slightly abstract in form, rests on its mother's chest, skin-to-skin. The mother's face, though weary, radiates overwhelming emotion – a mix of relief, love, and awe, depicted with bold, expressive lines. The colors are soft yet vibrant, contrasting the deep reds of fresh life with comforting whites and gentle blues, symbolizing hope and a new beginning. The composition is intimate and deeply moving." class="w-full max-w-2xl mx-auto h-auto rounded-lg content-image mt-12 transform -rotate-3" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603153/my_website_images/expressionism_new-life-unveiled.png"/>
+</section>
+<!-- Closing Thought -->
+<section class="content-section text-center py-16 px-8 rounded-lg shadow-xl" data-parallax-speed="0.12">
+<h2 class="text-4xl md:text-6xl mb-8 font-hebrew-display">היצירה נמשכת</h2>
+<p class="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto mb-12 text-exp-yellow">
+                לידה טבעית היא מסע, היא מחול, היא ציור חי. זוהי הזמנה להתמסר לעוצמת הגוף, לאמון בתהליך, ולקבל בברכה את יצירת המופת החדשה שפורצת אל העולם.
+            </p>
+<p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-exp-grey-light">
+                שתהא דרכך מרגשת, מעצימה ובלתי נשכחת.
+            </p>
+</section>
+</main>
+<script>
+        const customCursor = document.getElementById('custom-cursor');
+        // Define interactive elements for cursor hover effect
+        const interactiveElements = document.querySelectorAll('a, button, .content-section, img, h1, h2, p, li'); 
+
+        document.addEventListener('mousemove', e => {
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
+
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                customCursor.classList.add('hovered');
+            });
+            element.addEventListener('mouseleave', () => {
+                customCursor.classList.remove('hovered');
+            });
+        });
+
+        // Parallax effect for content sections
+        const contentSections = document.querySelectorAll('.content-section');
+        
+        // Store initial skew values for each section from CSS
+        contentSections.forEach((section, index) => {
+            section.dataset.initialSkew = (index % 2 === 0) ? '-2deg' : '2deg'; 
+        });
+
+        function applyParallax() {
+            const currentScrollY = window.pageYOffset;
+
+            contentSections.forEach(section => {
+                const speed = parseFloat(section.dataset.parallaxSpeed) || 0;
+                const initialSkew = section.dataset.initialSkew || '0deg'; 
+
+                const rect = section.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                // Apply parallax if the section is somewhat in view
+                if (rect.top < viewportHeight && rect.bottom > -rect.height) { 
+                    const center = rect.top + rect.height / 2;
+                    const distanceFromCenter = center - viewportHeight / 2;
+                    const translateYValue = -distanceFromCenter * speed;
+                    
+                    // Combine skew and translateY transforms
+                    section.style.transform = `skewY(${initialSkew}) translateY(${translateYValue}px)`;
+                } else {
+                    // Reset transform when far out of view to avoid visual glitches
+                    section.style.transform = `skewY(${initialSkew}) translateY(0px)`;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', applyParallax);
+        window.addEventListener('resize', applyParallax);
+        document.addEventListener('DOMContentLoaded', () => {
+            applyParallax(); // Apply parallax on initial load
+            // Trigger the fade-in animation for the main title
+            document.querySelector('.animate-fade-in').classList.add('fade-in-active');
+        });
+    </script>
+</body>
+</html>

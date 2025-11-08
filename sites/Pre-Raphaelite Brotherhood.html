@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>צור אתר ענק מקיף ומלא תוכן עבור גאולה מגילובסקי, אחות מילדת</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Rubik:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        /* Base styles for Pre-Raphaelite aesthetic */
+        :root {
+            --pr-gold: #b8860b;
+            --pr-deep-green: #2e8b57;
+            --pr-sapphire: #0f52ba;
+            --pr-ruby: #8b0000;
+            --pr-cream: #f5f5dc;
+            --pr-velvet-dark: #2c0a0a;
+            --pr-velvet-medium: #5a1414;
+            --pr-velvet-light: #7e1e1e;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: var(--pr-cream);
+            background-color: var(--pr-velvet-dark);
+            cursor: none; /* Hide default cursor */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Amiri', serif;
+            color: var(--pr-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        /* Tailwind overrides for specific elements to deepen the aesthetic */
+        .text-pr-gold { color: var(--pr-gold); }
+        .bg-pr-deep-green { background-color: var(--pr-deep-green); }
+        .bg-pr-velvet-dark { background-color: var(--pr-velvet-dark); }
+        .border-pr-gold { border-color: var(--pr-gold); }
+
+        .section-gradient-top {
+            background: linear-gradient(to top, var(--pr-velvet-dark), transparent);
+        }
+        .section-gradient-bottom {
+            background: linear-gradient(to bottom, var(--pr-velvet-dark), transparent);
+        }
+
+        /* Custom scrollbar for artistic touch */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--pr-velvet-medium);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--pr-gold);
+            border-radius: 5px;
+            border: 1px solid var(--pr-velvet-dark);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--pr-sapphire);
+        }
+
+        /* Specific styles for the custom cursor */
+        #custom-cursor {
+            border: 2px solid white; /* White border for visibility on dark backgrounds */
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8); /* Dark shadow for visibility on light backgrounds */
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            border-radius: 50%;
+            position: fixed;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out; /* Smooth movement */
+        }
+
+        /* Parallax effect for background images */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: brightness(0.7) contrast(1.1); /* Subtle artistic filter */
+        }
+        .pre-raphaelite-border {
+            border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 0h5v5H0zM5 5h5v5H5z" fill="%23b8860b"/></pattern><pattern id="a" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 0h10v10H0z" fill="transparent" stroke="%238b0000" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/><rect width="100" height="100" fill="url(%23a)"/></svg>') 10 / 10px;
+            border-style: solid;
+            border-width: 10px;
+        }
+
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- Custom Cursor -->
+<div class="hidden md:block" id="custom-cursor"></div>
+<!-- Background Art: Main Scrollable Canvas with fixed image layer -->
+<div class="parallax-bg" style='background-image: url("https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603198/my_website_images/pre-raphaelite-brotherhood_ethereal-forest-mother.png");'>
+<img alt="A serene Pre-Raphaaelite style painting of a Madonna-like figure, embodying motherhood, surrounded by lush, detailed forest foliage and soft, golden light filtering through trees. Her gaze is gentle, her long, flowing hair adorned with wildflowers, and a faint glow emanates from her, symbolizing natural life and growth." class="sr-only" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603198/my_website_images/pre-raphaelite-brotherhood_ethereal-forest-mother.png"/>
+</div>
+<div class="relative z-10 min-h-screen flex flex-col items-center p-4 md:p-8 lg:p-12 backdrop-brightness-75">
+<!-- Header: Evoking ancient texts or illuminated manuscripts -->
+<header class="w-full max-w-4xl bg-pr-velvet-dark bg-opacity-80 rounded-lg shadow-2xl p-6 mb-12 border-b-4 border-pr-gold pre-raphaelite-border">
+<h1 class="text-5xl md:text-6xl text-center mb-4 leading-tight">גאולה מגילובסקי: האחות המילדת והשער אל הלידה הטבעית</h1>
+<p class="text-xl md:text-2xl text-center text-pr-cream opacity-90 leading-relaxed">מדריך עמוק ומהורהר למסע הקדוש של לידה טבעית בארץ ישראל</p>
+</header>
+<!-- Main Content Area -->
+<main class="w-full max-w-4xl space-y-16">
+<!-- Section 1: The Gentle Dawn -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a dew-kissed meadow at dawn, with delicate wildflowers blooming. The light is soft and golden, illuminating the intricate details of each petal and blade of grass, symbolizing new life and pure beginnings." class="absolute top-0 left-0 w-full h-full object-cover opacity-10 blur-sm" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603203/my_website_images/pre-raphaelite-brotherhood_meadow-of-new-beginnings.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">השחר העדין: קריאה ללידה בטהרתה</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">עמוק בתוך מעמקיה של כל אישה טמונה קריאה קדושה, לחזור אל מקורות הלידה, אל התהליך הטבעי והבתולי שקיים מבראשית. בישראל, ארץ הקודש וההתחדשות, מתעוררת רוח זו ביתר שאת. נשים רבות מבקשות לחוות את בוא החיים החדשים לא כאירוע רפואי גרידא, אלא כמסע רוחני, פיזי ונפשי, המעצים את מהותן.</p>
+<p class="text-lg leading-relaxed text-pr-cream">לידה טבעית, ביופיה הפשוט והמורכב, היא התמסרות לקצב הפנימי של הגוף, ללא מסיחים תרופתיים או התערבויות מיותרות. זוהי הזמנה לרקוד עם הצירים, לנשום עם הכאב ולהיפתח אל הפלא. הצוותים הרפואיים בארץ, ובמיוחד אחיות מילדות כמו גאולה, עומדים לצד היולדת, מציעים עמוד תווך של ביטחון רפואי לצד כיבוד עמוק של רצונותיה, תוך שמירה על האיזון העדין בין הטבע למדע.</p>
+</div>
+</section>
+<!-- Section 2: The Sacred Dance -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a woman's body intertwined with blooming flowers and swirling, ethereal fabrics, symbolizing the natural and delicate process of birth. Soft, warm light illuminates her form, highlighting the beauty and strength in the act of creation." class="absolute top-0 right-0 w-full h-full object-cover opacity-10 blur-sm transform scale-110" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603209/my_website_images/pre-raphaelite-brotherhood_womans-body-in-bloom.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">הריקוד הקדוש: אנטומיה של לידה בהרמוניה</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">לידה טבעית היא התגלמותה של אמנות עתיקה - האמנות להתמסר. היא מתרחשת כשגוף האישה, בסביבה שלווה ותומכת, משחרר את הורמוני הפלא שלו: אוקסיטוצין, "הורמון האהבה" המניע את צעדי הריקוד של הצירים, ואנדורפינים, "המשככים הטבעיים" המלווים את העומק. זוהי סימפוניה פנימית, שבה כל תא ותא משתתף במחול ההתחדשות.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">מרכיבי המחול:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>חופש התנועה: ללכת, לרקוד, לנוע עם זרם החיים.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>מגע המים: אמבטיה או בריכה, כעריסת הגוף והנפש.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>מקלטי הרפיה: תאורה עמומה, מנגינות מרגיעות ואינטימיות.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>נשימות עמוקות: עוגן במערבולת, דרך לשחרור.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>מינימום ניטור: חיבור אלחוטי או לסירוגין, כדי לשמור על רצף התנועה.</li>
+</ul>
+</div>
+</section>
+<!-- Section 3: Chosen Petals -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A detailed Pre-Raphaelite painting of a wisteria arbor in full bloom, with delicate purple and white flowers cascading down, creating a natural, ethereal archway. The scene evokes a sense of natural beauty and gentle selection, representing the criteria for a pure and flourishing natural birth journey." class="absolute bottom-0 right-0 w-full h-full object-cover opacity-10 blur-sm" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603214/my_website_images/pre-raphaelite-brotherhood_blooming-wisteria-arbor.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">עלי כותרת נבחרים: הנשמות המוכנות למסע</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">כמו גינה פורחת, גם מסע הלידה הטבעית דורש תנאים מיטביים על מנת לשגשג. זוהי בחירה מושכלת, הנתמכת על ידי צוות מסור, המבטיח שהיולדת והוולד נמצאים במערך הנכון ביותר. התאמה למסע זה נשענת על טוהר ובריאות.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">תנאי הפריחה:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">האם:</strong> בריאות איתנה, הריון תקין וללא סיכונים, בין שבוע 37 ל-41, ללא סוכרת או רעלת הריון, וללא היסטוריה של ניתוח קיסרי.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">הוולד:</strong> עובר יחיד במצג ראש, ללא חשש לעיכוב גדילה או משקל גבוה מדי, וניטור תקין בקבלה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">הסביבה:</strong> מעקב הריון רציף ואישור רופא/ה מיילד/ת עם ההגעה, לצד העדר מצבים חריגים דוגמת דימום או מי שפיר מקוניאליים.</li>
+</ul>
+</div>
+</section>
+<!-- Section 4: Palaces of Birth -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of an ornate, high-ceilinged library bathed in soft, diffused light, with ancient tapestries and rich wooden details. This grand, yet comforting space symbolizes modern medical centers that offer natural birth, combining safety with an almost sacred, contemplative atmosphere." class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10 blur-sm transform rotate-3 scale-110" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603220/my_website_images/pre-raphaelite-brotherhood_ornate-library-with-light.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">ארמונות הלידה: מקדשים מודרניים לחוויה עתיקה</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">בישראל, חלוצי הלידה הטבעית הקימו מרכזים מופלאים בלב בתי חולים מובילים, המשלבים את קדושת התהליך עם חדשנות רפואית. מקומות אלו אינם רק חדרי לידה, אלא מקדשים מעוצבים, המאפשרים לכל יולדת למצוא את השלווה והכוח הפנימיים שלה.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">שיבא - "עדן וניצן"</h3>
+<p class="text-pr-cream">חדרים המעוצבים כגן עדן, עם אמבט מים רחב, תאורה קסומה ואביזרים שונים המסייעים לתנועה ולנוחות. המיילדות, כמלאכיות שומרות, מוסמכות ללידות מים ומלוות כל רגע בעדינות.</p>
+<img alt="A Pre-Raphaelite inspired rendering of a birthing room named 'Eden', featuring a large, ornate birthing tub surrounded by soft, flowing fabrics and diffused, warm lighting. Murals of lush, stylized nature adorn the walls, creating a serene and private sanctuary." class="mt-4 rounded-md shadow-md border border-pr-gold" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603229/my_website_images/pre-raphaelite-brotherhood_eden-room-birth.png"/>
+</div>
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">הדסה - ירושלים</h3>
+<p class="text-pr-cream">מרכז שליו וביתי, המזמין את היולדת ואת משפחתה למצוא נחמה ורוגע. ג'קוזי ושמנים ארומטיים עוטפים את החוויה, והלידה במים נהפכה למסורת מבורכת במקום זה.</p>
+<img alt="A peaceful Pre-Raphaelite style illustration of a birthing room in Hadassah, emphasizing warmth and tranquility. Soft, natural light streams through a window, illuminating a comfortable birthing bed adorned with fine linens, and a nearby ornate, deep bathtub." class="mt-4 rounded-md shadow-md border border-pr-gold" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603245/my_website_images/pre-raphaelite-brotherhood_hadsassah-sanctuary.png"/>
+</div>
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">ליס (איכילוב) - תל אביב</h3>
+<p class="text-pr-cream">פרטיות מוחלטת בלב העיר הסואנת. חדר מרווח עם מוניטור אלחוטי ובריכה ייעודית, המאפשרת ליולדת לנוע בחופשיות ולהתמסר לכוחות הטבע.</p>
+<img alt="A Pre-Raphaelite painting depicting a serene water birth in a private room at 'Lis'. The birthing pool is surrounded by draped, translucent fabrics, with candlelight softly illuminating the water and the calm, focused expression of the woman in labor, supported by a gentle midwife." class="mt-4 rounded-md shadow-md border border-pr-gold" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603254/my_website_images/pre-raphaelite-brotherhood_lis-water-birthing.png"/>
+</div>
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">לניאדו, אסף הרופא, אסותא אשדוד ועוד</h3>
+<p class="text-pr-cream">בתי חולים רבים נוספים מציעים חדרי לידה טבעיים מעוצבים, כל אחד בסגנונו, כולם מוקדשים לאותה מטרה עליונה: להעצים את חווית הלידה ולחבר אותה אל הטבע הפנימי של האם.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Fruits of Light -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a basket overflowing with golden apples, symbolizing the precious and pure 'fruits' of natural birth. The apples are meticulously detailed, reflecting light, surrounded by soft, green leaves and delicate blossoms, hinting at health and natural abundance." class="absolute bottom-0 left-0 w-full h-full object-cover opacity-10 blur-sm transform rotate-[-5deg] scale-110" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603260/my_website_images/pre-raphaelite-brotherhood_golden-apples-of-life.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">פירות האור: מתנות הלידה הטבעית</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">הבחירה בלידה טבעית טומנת בחובה אוצרות יקרי ערך לאם ולרך הנולד. זוהי מתנה של חיבור עמוק, ריפוי מהיר ותחושת העצמה שאין כדוגמתה.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">מתנות הגוף והנפש:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">לרך הנולד:</strong> חופש מתרופות, התחלה טהורה והנקה קלה ומהירה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">לאם:</strong> התאוששות זריזה, פחות קרעים והתערבויות, ותחושת הישג אדירה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">רוחנית:</strong> שליטה במסע, התמסרות מלאה לגוף, וחיבור עמוק למהות הנשית ולכוח הבריאה.</li>
+</ul>
+</div>
+</section>
+<!-- Section 6: Whispers of Water and Earth -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a secluded forest stream, with dappled sunlight filtering through dense canopy. The water is clear and inviting, surrounded by mossy stones and lush ferns, symbolizing the healing and soothing power of water and nature for pain relief." class="absolute top-0 right-0 w-full h-full object-cover opacity-10 blur-sm" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603262/my_website_images/pre-raphaelite-brotherhood_forest-stream-healing.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">לחשי המים והאדמה: טקסים להקלה וריפוי</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">בעתות לידה, הטבע מעניק לנו אוסף של לחשים עתיקים, שיטות עדינות המרככות את הכאב ומקדמות את התהליך. אלו מתנות האדמה והמים, הרוח והמגע, המאפשרות ליולדת למצוא נחמה וכוח.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">מפת הריפוי הטבעי:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">חיבוק המים:</strong> אמבטיה חמה, בריכת לידה או מקלחת - המים מרככים, מרפים ומקלים כאפידורל טבעי.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">ריקוד התנועה:</strong> הליכה, כדור פיזיו, כריעה או עמידה - תנועה זורמת מזרזת לידה ומפחיתה כאב.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">נשימת הנשמה:</strong> טכניקות נשימה מודעות, הרפיה ודמיון מודרך - לחיבור פנימי ושחרור.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">כוח המגע:</strong> עיסויים עדינים, לחיצות בנקודות לחץ, שמנים ארומטיים - מגע מרפא ותומך.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">רפואה משלימה:</strong> דיקור סיני, רפלקסולוגיה ושיאצו - מסייעים לקידום לידה והקלה על כאבים.</li>
+</ul>
+</div>
+</section>
+<!-- Section 7: Weaving the Silk -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A close-up Pre-Raphaelite painting of delicate hands meticulously weaving a rich, intricate tapestry with threads of various colors, symbolizing the careful and detailed preparation for natural birth. The threads represent physical, emotional, and mental readiness." class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10 blur-sm transform scale-125" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603265/my_website_images/pre-raphaelite-brotherhood_tapestry-weaving-hands.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">שזירת המשי: הכנה לנסיעה הפנימית</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">הלידה הטבעית היא מסע, וכמו כל מסע משמעותי, היא דורשת הכנה. הכנה זו היא כשזירת משי עדינה – כל חוט, כל תפר, בונה את הכוח הפנימי והביטחון העצמי לקראת הפריצה הגדולה.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">אריגת ההכנה:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">קורסי הכנה:</strong> כהכוונה במבוך, ללמוד את שלבי הלידה, לתרגל נשימות והרפיה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">הכנה גופנית:</strong> חיזוק רצפת האגן, שיפור יציבה ותרגילי נשימה מעמיקים.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">הכנה רגשית:</strong> להתמודד עם פחדים, לבנות ביטחון, ולכתוב "תוכנית לידה" - מפה אישית למסע.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">פגישה עם מיילדת:</strong> לתאם ציפיות ולבנות קשר של אמון וביטחון.</li>
+</ul>
+</div>
+</section>
+<!-- Section 8: The Faithful Sisters -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting depicting a doula, as a 'faithful sister', gently supporting a woman in labor by candlelight. Their faces are illuminated with soft, warm light, emphasizing comfort, empathy, and a strong feminine bond during the birthing process." class="absolute top-0 right-0 w-full h-full object-cover opacity-10 blur-sm transform scale-110 rotate-2" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603267/my_website_images/pre-raphaelite-brotherhood_sisterhood-by-candlelight.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">האחיות הנאמנות: דולות שומרות הסף</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">במסע אל הלידה, נוכחותה של דולה – אחות נאמנה, תומכת ומנוסה – היא מגדלור של ביטחון. היא מלווה את הזוג מההריון, דרך הלידה, ועד לתקופת ההחלמה, ומציעה תמיכה פיזית ורגשית שאין לה תחליף.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">תמיכתה של הדולה:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">לפני הלידה:</strong> פגישות הכנה, בניית תוכנית לידה, וחיזוק הביטחון.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">במהלך הלידה:</strong> נוכחות רציפה, עיסויים, לחיצות, תמיכה רגשית לאם ולבן הזוג, וגישור עם הצוות הרפואי.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">אחרי הלידה:</strong> תמיכה בהנקה וליווי בתקופת ההתאוששות.</li>
+</ul>
+<p class="text-lg leading-relaxed mt-4 text-pr-cream">הדולה אינה מחליפה את בן הזוג, אלא משלימה את תמיכתו, ומעניקה שכבת ביטחון נוספת למסע המשותף.</p>
+</div>
+</section>
+<!-- Section 9: The Inner Garden -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a secret, walled garden, with an inviting, ancient-looking cottage nestled within. The garden is lush with overgrown roses and ivy, bathed in soft, diffused light, symbolizing the intimacy and natural beauty of a home birth." class="absolute bottom-0 left-0 w-full h-full object-cover opacity-10 blur-sm transform scale-120 rotate-[-8deg]" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603270/my_website_images/pre-raphaelite-brotherhood_secret-walled-garden-home.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">הגן הפנימי: לידת בית בחיק הטבע הפרטי</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">עבור נשים מסוימות, המסע אל האמהות מושלם ביותר כאשר הוא מתרחש בחיקה המוכר והאוהב של ביתן. לידת בית, כטקס עתיק ואישי, מציעה שליטה מוחלטת על הסביבה, על האווירה ועל קצב הלידה, בליווי מיילדת מוסמכת או רופא/ה.</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">יתרונות הגן הפרטי:</h3>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>שני מטפלים על יולדת: תשומת לב מלאה ורצופה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>אווירה ביתית ופרטיות מוחלטת: לידה בסביבה מוכרת ונוחה.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>ליווי צמוד: מיילדת מנוסה לכל אורך התהליך.</li>
+</ul>
+<p class="text-lg leading-relaxed mt-4 text-pr-cream">אך חשוב לזכור, שמשרד הבריאות ממליץ על לידה בבית חולים, ועלולים להיות קשיים בכיסוי ביטוחי. הבחירה דורשת שיקול דעת מעמיק, כאשר בטיחות האם והוולד היא תמיד בראש סדר העדיפויות.</p>
+</div>
+</section>
+<!-- Section 10: Two Paths, One Heart -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a mystical forest clearing where two distinct paths diverge. One path is bathed in ethereal, natural light, winding through blooming wildflowers (representing natural birth). The other is more structured and faintly illuminated by a scientific, stylized glow (representing epidural birth). A thoughtful female figure stands at the crossroads, symbolizing the choice." class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10 blur-sm transform scale-120 rotate-5" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603273/my_website_images/pre-raphaelite-brotherhood_forking-paths-spiritual-choice.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">שני נתיבים, לב אחד: הבחירה בין זרם הטבע לכנף המדע</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">מסע הלידה מציב בפני היולדת שתי דרכים מובחנות, כל אחת עם יופייה ואתגריה. לידה טבעית, והלידה הנתמכת באפידורל. הבחירה היא אישית, עמוקה, ונובעת מלב היולדת ומהמסע הייחודי שלה.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">זרם הטבע (לידה טבעית)</h3>
+<ul class="list-none space-y-2 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span><strong class="text-pr-gold">היתרונות:</strong> תנועה חופשית, התאוששות מהירה, חוויה מעצימה, פחות התערבויות.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span><strong class="text-pr-ruby">האתגרים:</strong> כאב משמעותי הדורש הכנה והתמסרות.</li>
+</ul>
+</div>
+<div class="p-6 bg-pr-deep-green bg-opacity-70 rounded-lg border border-pr-gold">
+<h3 class="text-2xl text-pr-gold mb-3">כנף המדע (לידה עם אפידורל)</h3>
+<ul class="list-none space-y-2 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span><strong class="text-pr-gold">היתרונות:</strong> הקלה משמעותית בכאב, מנוחה בלידה ארוכה.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-ruby text-xl">•</span><strong class="text-pr-ruby">האתגרים:</strong> הגבלת תנועה, האטת לידה אפשרית, סיכון להתערבויות נוספות, שינויים אפשריים בתינוק.</li>
+</ul>
+</div>
+</div>
+<p class="text-lg leading-relaxed mt-4 text-pr-cream">בסופו של דבר, הלב הוא המדריך, והמיילדת היא המלווה, המציעה את כל המידע הנדרש כדי לבחור את הנתיב הנכון ביותר לכל נשמה.</p>
+</div>
+</section>
+<!-- Section 11: Acanthus and Lily -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite composition featuring intertwining acanthus leaves and delicate white lilies, symbolizing growth, rebirth, and purity. The intricate botanical details are rendered with rich colors, representing the flourishing trend of natural birth in Israel, contrasted with traditional practices." class="absolute top-0 left-0 w-full h-full object-cover opacity-10 blur-sm transform scale-110 rotate-[-3deg]" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603280/my_website_images/pre-raphaelite-brotherhood_acanthus-lily-symbolism.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">אקנתוס ולילי: פריחת הלידה בישראל</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">בשדות הלידה של ישראל, עדים אנו לפריחה מתמדת של המודעות והרצון ללידה טבעית. זהו שינוי איטי אך בטוח, המעיד על חזרה לכוחות הטבעיים הטמונים באנוש.</p>
+<ul class="list-none space-y-3 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>בשנת 2024, קרוב ל-181 אלף תינוקות נולדו בארץ, והמגמה ללידה טבעית עולה, אך עדיין מהווה מיעוט יחסי.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span>על פי סקר משנת 2019, רק 12% מהיולדות זכו ללדת בחדר טבעי, ו-62% עברו התערבות רפואית. נתונים אלו מראים את הדרך שעוד לפנינו.</li>
+</ul>
+<p class="text-lg leading-relaxed mt-4 text-pr-cream">מטרתנו היא להרחיב את הפריחה הזו, לאפשר ליותר נשים לחוות את מלוא היופי והעוצמה של לידה טבעית, תוך שמירה על בטיחות ורווחה.</p>
+</div>
+</section>
+<!-- Section 12: A Bouquet of Flowers -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a beautifully arranged bouquet of wild and garden flowers, each flower meticulously detailed and vibrant. The bouquet symbolizes a collection of gentle advice and wisdom for a successful natural birth, presented as a gift from nature." class="absolute bottom-0 right-0 w-full h-full object-cover opacity-10 blur-sm transform scale-110 rotate-3" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603291/my_website_images/pre-raphaelite-brotherhood_wildflower-bouquet-guidance.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">זר פרחים: עצות ללידה ברוח הטבע</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">כדי שזר פרחי הלידה יפרח במלוא הדרו, יש להזין אותו בהכנה, בתשומת לב ובהתמסרות. אלו הן עצות הזהב, עלי כותרת של חוכמה, שיכוונו אותך במסעך:</p>
+<h3 class="text-3xl text-pr-deep-green mb-4">לפני הפריחה:</h3>
+<ul class="list-none space-y-2 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>הירשמי לקורס הכנה ללידה טבעית.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>תרגלי נשימות והרפיה יומיומיות.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>חזקי את גופך ואת רצפת האגן.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>צרי לעצמך "תוכנית לידה" - חזון אישי.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>בקרי במרכזי לידה טבעית ושקלי ליווי דולה.</li>
+</ul>
+<h3 class="text-3xl text-pr-deep-green mt-6 mb-4">במהלך הפריחה:</h3>
+<ul class="list-none space-y-2 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>הישארי בתנועה מתמדת.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>האזיני לגופך וסמכי על האינטואיציה.</li>
+<li class="flex items-start mb-1"><span class="ml-2 text-pr-gold text-xl">•</span>השתמשי בכוח המים - אמבטיה או מקלחת.</li>
+</ul>
+</div>
+</section>
+<!-- Section 13: Fading Shadows -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a forest clearing where heavy, dark mists are slowly dissipating, revealing clear, sunlit pathways. This symbolizes the 'fading shadows' of common myths about natural birth, bringing clarity and enlightenment to the process." class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10 blur-sm transform scale-120 rotate-[-2deg]" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603305/my_website_images/pre-raphaelite-brotherhood_fading-mists-of-ignorance.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">צללים מתפוגגים: האמת מאחורי המיתוסים</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">כמו כל דרך עתיקה, גם הלידה הטבעית עוטה סביבה צללים של מיתוסים. הבה נפוגג אותם ונביא אור לאמת:</p>
+<ul class="list-none space-y-4 text-lg leading-relaxed text-pr-cream pr-4">
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">מיתוס:</strong> "לידה טבעית מסוכנת." <strong class="text-pr-deep-green">עובדה:</strong> בליווי מקצועי ובהריון תקין, היא בטוחה לאם ולתינוק.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">מיתוס:</strong> "הכאב בלתי נסבל." <strong class="text-pr-deep-green">עובדה:</strong> שיטות טבעיות רבות מאפשרות התמודדות יעילה והופכות את הכאב לחלק מהמסע המעצים.</li>
+<li class="flex items-start mb-2"><span class="ml-2 text-pr-gold text-2xl">•</span><strong class="text-pr-gold">מיתוס:</strong> "זה רק ללידת בית." <strong class="text-pr-deep-green">עובדה:</strong> רוב בתי החולים מציעים חדרי לידה טבעיים ומרכזים ייעודיים.</li>
+</ul>
+</div>
+</section>
+<!-- Section 14: The New Birth -->
+<section class="bg-pr-velvet-medium bg-opacity-90 rounded-xl shadow-xl p-8 border-2 border-pr-gold pre-raphaelite-border text-right relative overflow-hidden">
+<img alt="A Pre-Raphaelite painting of a tender moment between a newborn and its mother, bathed in the soft, warm light of dawn. The mother's expression is one of profound love and serenity, and the child is nestled close, symbolizing the pure 'new birth' and the blessing of the journey into motherhood." class="absolute top-0 left-0 w-full h-full object-cover opacity-10 blur-sm transform scale-110 rotate-5" src="https://res.cloudinary.com/dh7pfmurc/image/upload/v1762603315/my_website_images/pre-raphaelite-brotherhood_mother-and-child-new-dawn.png"/>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl mb-6 text-pr-gold">המולד החדש: ברכה למסע האמהות</h2>
+<p class="text-lg leading-relaxed mb-4 text-pr-cream">לידה טבעית בישראל היא יותר מאפשרות - היא הזמנה למסע עמוק של גילוי עצמי וכוח נשי. היא נגישה, בטוחה ומעצימה, ונתמכת על ידי מערך מילדות מסורות ומרכזים ייעודיים ברחבי הארץ. עם הכנה נכונה, ידע ובחירה מודעת, כל אישה יכולה לפרוח במסעה הייחודי אל האמהות.</p>
+<p class="text-lg leading-relaxed text-pr-cream">יהי רצון שמסעך יהיה מלא אור, חיבור ופלא. בהצלחה בדרך המרגשת והמשמעותית שלך אל המולד החדש!</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full max-w-4xl mt-16 p-6 text-center text-pr-cream text-opacity-70 text-sm border-t-4 border-pr-gold pre-raphaelite-border bg-pr-velvet-dark bg-opacity-80 rounded-lg shadow-2xl">
+<p>© 2024 גאולה מגילובסקי - אחות מילדת. כל הזכויות שמורות.</p>
+</footer>
+</div>
+<script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', e => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+            document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
+            document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+        }
+
+        // Parallax Effect for the main background image
+        const parallaxBg = document.querySelector('.parallax-bg');
+        if (parallaxBg) {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                // Adjust this factor to control the speed of the parallax effect
+                parallaxBg.style.transform = `translateY(${scrollPosition * 0.15}px)`;
+            });
+        }
+
+        // Add a subtle hover effect to sections to make them feel interactive
+        document.querySelectorAll('section').forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.transition = 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
+                section.style.transform = 'scale(1.01)';
+                section.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5), 0 0 15px var(--pr-gold)';
+            });
+            section.addEventListener('mouseleave', () => {
+                section.style.transform = 'scale(1)';
+                section.style.boxShadow = '0 10px 15px rgba(0,0,0,0.3)';
+            });
+        });
+    </script>
+</body>
+</html>
